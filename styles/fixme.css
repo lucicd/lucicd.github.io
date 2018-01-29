@@ -2,16 +2,16 @@
 
 body { 
     font-size: 16px;
-    font-family: 'Sansito', Ubuntu, sans-serif;
+    font-family: Sansito, Ubuntu, sans-serif;
 }
 
 h1, h2, h3 {
     color: #7c8855;
-    font-weigth:600;
+    font-weight: 600;
 }
 
 h1 {
-    font-size: 
+    font-size: 200%;
 }
 
 header {
@@ -20,7 +20,7 @@ header {
 }
 
 main {
-	min-height: 5;
+	min-height: 5px;
 }
 
 main img {
@@ -35,10 +35,11 @@ footer {
 	background-color: #a3bb49;
 	color: #fff;
 	font-size: .8rem;
+}
 
 /* Class Selectors *******************/
 
 .profile {
     box-shadow: .25rem .25rem .25rem #ccaabb;
-    border: 1px solid #777;}
+    border: 1px solid #777;
 }
