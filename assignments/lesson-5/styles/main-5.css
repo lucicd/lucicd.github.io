@@ -1,0 +1,187 @@
+/* This main css file contains the default rules and is geared toward the small/phone view */
+
+* { box-sizing: border-box;}  /* This wildcard applies to all elements ensuring a box layout model */
+
+body {
+  font-size: 16px;
+  /* Declare the base font-family - from google font api or other */
+}
+
+header, nav, main, footer { 
+  /* the comma means apply the following CSS declarations to all of the listed elements */
+  /* Declare the maximum width and other main element rules to limit the stretch on wide views */
+  margin: auto;
+  max-width: 1024px;
+}
+
+header {
+  position: relative;
+}
+header h1 {
+  margin-left: 25%;
+}
+header img {
+  float: left;
+  width: 25%;
+}
+header .subheading {
+  margin-left: 25%;
+  font-size: 1.5em;
+}
+
+nav {
+  clear: left;
+  width: 100%;
+}
+
+nav button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+nav ul li {
+  float: left;
+}
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+nav ul li.active a {
+  color: yellow;
+}
+nav ul li a:hover {
+  background-color: #111;
+}
+
+main {
+  display: block;
+  position: relative;
+}
+main h2 {
+  max-width: 400px;
+  margin: auto;
+  font-size: 2.5em;
+}
+main figure { margin: 1%; width: 98%; }
+main figure img { width: 100%; }
+
+section {
+
+}
+
+.current {
+  height: 100px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.current-desc {
+  display: inline-block;
+  width:; 40%;
+  margin: 1em;
+}
+
+.current-desc-text {
+  font-size: 1.5rem;
+}
+
+.highlow, .conditions {
+  text-align: center;
+}
+
+.highlow p {
+  display: inline;
+  font-size: 1.5em;
+}
+
+.conditions p {
+  font-size: 1.5em;
+}
+
+.forecast {
+  padding: 0.5em;
+}
+
+.forecast h3 {
+  border-style: solid solid none solid;
+  text-align: center;
+  border-width: 1px;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0.5em;
+  background-color: silver;
+}
+
+.forecast table {
+  border: 1px solid solid none solid;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.forecast table th, .forecast table td {
+  border: 1px solid;
+  padding: 4px;
+  background-color: gainsboro;
+}
+
+article {
+  margin: 1%;
+  border: 1px solid;
+  padding: 0.5em;
+}
+
+article h3 {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+article p.town-article {
+  font-size: 1.1em;
+  padding: 1%;
+  margin auto;
+}
+
+article p.town-article img {  
+  width: 100%;
+  margin-top: 1%;
+}
+
+footer {
+  margin: 1% auto;
+  padding: 0 0.5% 0 0.5%;
+  text-align: center;
+  font-size: 1.1em;
+}
+footer aside {
+  background-color: turquoise;
+  padding: 1%;
+}
+footer aside span {
+  font-weight: bold;
+}
+footer>p {
+  margin-top: 0;
+  padding: 1%;
+  background-color: steelblue;
+  color: white;
+}
+
+.weather-summary-header {
+  display: none;
+}
