@@ -6,24 +6,26 @@
   <title>Franklin City | Weather Me</title>
   <meta name="author" content="Drazen Lucic">
   <meta name="description" content="Providing weather alerts and forecasts for Franklin City">
-  <!-- external style references in the proper cascading order -->    
-  <link href="https://fonts.googleapis.com/css?family=#" rel="stylesheet">  <!-- Google API font reference -->
-  <link href="styles/normalize.css" rel="stylesheet"> <!-- normalize useragent/browser defaults -->
-  <link href="styles/main-5.css" rel="stylesheet">    <!-- default styles - small/phone views -->
-  <!-- <link href="styles/medium-5.css" rel="stylesheet">   -->
-  <!-- <link href="styles/large-5.css" rel="stylesheet">  -->
+  <link href="styles/normalize.css" rel="stylesheet"> 
+  <link href="styles/main-5.css" rel="stylesheet">
+  <link href="styles/medium-5.css" rel="stylesheet">  
+  <link href="styles/large-5.css" rel="stylesheet"> 
 </head>
 <body>
 
   <header>
-    <img src="images/logo.png" alt="Weather Me Logo" width="25%">
-    <h1>Weather Me!</h1>
-    <div class="subheading">Instant weather alerts on any device</div>
+    <div class="logo">
+      <img src="images/logo150.png" alt="Weather Me Logo" class="logo-img-150">
+      <img src="images/logo300.png" alt="Weather Me Logo" class="logo-img-300">
+      <img src="images/logo512.png" alt="Weather Me Logo" class="logo-img-512">
+    </div>
+    <div class="title-div">
+      <p class="title">Weather Me!</p>
+      <p class="title subtitle">Weather alerts on any device.</p>
+    </div>
   </header>
 
-  <!-- site navigation use placeholder references -->
   <nav>
-    <button onclick="toggleNavMenu()">&#9776;</button>
     <ul>
       <li><a href="#">Home</a></li>
       <li class="active"><a href="#">Franklin</a></li>
@@ -35,29 +37,29 @@
   </nav>
     
   <main>
-    <figure>
-      <img src="images/pexels-photo-461797.jpeg" alt="Nice weather photo" width="100%">
+    <figure class="main-image">
+      <img src="images/main-image-small.jpg" alt="Main image" class="main-image-small">
+      <img src="images/main-image-medium.jpg" alt="Main image" class="main-image-medium">
+      <img src="images/main-image-large.jpg" alt="Main image" class="main-image-large">
     </figure>
-    <h2>The City of Franklin</h2>
-    <section>
-      <h3 class="weather-summary-header">Weather Summary</h3>    
-      <div class="current">
-        <div class="current-desc current-desc-text">
-          Sunny
+    <div class="current-weather">
+      <section>
+        <h3 class="center">Franklin</h3>
+        <div class="clouds-status center">
+          <span>Sunny</span>
+          <picture>
+            <img src="images/sun.png" alt="Sun | Current Weather Icon">
+          </picture>
         </div>
-        <picture class="current-desc">
-            <img src="images/sun.png" alt="Sun | Current Weather Icon" height="80px">
-        </picture>
-      </div>   
-      <div class="highlow">
-        <p>High: 90&deg;F</p>&nbsp;&nbsp; 
-        <p>Low: 66&deg;F</p>  
-      </div>
-      <div class="conditions">
-        <p>Precipitation: 0%</p>  
-        <p>Wind Speed: 5 mph SW</p>  
-      </div>           
-    </section>
+        <div class="temperature center">
+          High: 90&deg;F
+          &nbsp;&nbsp; 
+          Low: 66&deg;F
+        </div>
+        <div class="precipitation center">Precipitation: 0%</div>  
+        <div class="wind-speed center">Wind Speed: 5 mph SW</div>  
+      </section>
+    </div>
         
     <section class="forecast">
       <h3>10 Day Forecast</h3>
@@ -95,10 +97,12 @@
       
     <article>
       <h3>Franklin Breaks Record</h3> 
-      <p class="town-article">
+      <div class="town-article">
+        <div class="article-image">
+          <img src="images/town-article-photo.jpg" alt="Town article picture">
+        </div>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos commodi, illo mollitia nisi quod tenetur libero quisquam. Libero quasi repudiandae minima pariatur voluptate laudantium deleniti, voluptatibus quos doloribus veritatis eveniet, iste fuga ipsum sequi iusto molestias. Similique excepturi, veritatis sint fuga consectetur suscipit sapiente tempora reprehenderit rerum! Reprehenderit, laboriosam!
-        <img src="images/town-article-photo.jpg" alt="Town article picture">
-      </p>
+      </div>
     </article>      
   
   </main>
@@ -113,9 +117,6 @@
     </aside>
     <p class="footer-bar">&copy;2017 All Rights Reserved | Site Title | <span id="currentdate">Current Date Placeholder</span></p>
   </footer>
-
-  <script src="scripts/hamburger.js"></script>
-  <script src="scripts/currentdate.js"></script>
 
 </body>
 </html>

@@ -1,87 +1,141 @@
-/* This main css file contains the default rules and is geared toward the small/phone view */
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Grand+Hotel);
 
-* { box-sizing: border-box;}  /* This wildcard applies to all elements ensuring a box layout model */
+* { box-sizing: border-box;}
+
+h1, h2 {
+  background-color: #FFF;
+  color: #248159;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-weight: bolder;
+  font-size: 1.3rem;
+  background-color: #FFF;
+  color: #67001F;
+}
+
+p {
+  font-weight: normal;
+  font-size: 1rem;
+  background-color: #FFF;
+  color: #001C10;
+}
 
 body {
   font-size: 16px;
-  /* Declare the base font-family - from google font api or other */
+  font-family: 'Lato', sans-serif;
 }
 
 header, nav, main, footer { 
-  /* the comma means apply the following CSS declarations to all of the listed elements */
-  /* Declare the maximum width and other main element rules to limit the stretch on wide views */
   margin: auto;
-  max-width: 1024px;
+  max-width: 1200px;
 }
 
-header {
-  position: relative;
+.logo {
+  margin: 0;
 }
-header h1 {
-  margin-left: 25%;
+
+.logo-img-150 {
+  display: block;
 }
-header img {
-  float: left;
-  width: 25%;
+
+.logo-img-300 {
+  display: none;
 }
-header .subheading {
-  margin-left: 25%;
+
+.logo-img-512 {
+  display: none;
+}
+
+.title-div {
+  position: absolute;
+  top: 0;
+  margin-left: 150px;
+  height: 111px;
+}
+
+.title {
+  width: 100%;
+  padding-top: : 0.5em;
+  padding-left: 0.1em;
+  margin-bottom: 0;
+  font-size: 1.5em;
+}
+
+.subtitle {
+  margin-top: 0.2em;
+  font-family: 'Grand Hotel', cursive;
   font-size: 1.5em;
 }
 
 nav {
-  clear: left;
+  margin-top: 5px;
   width: 100%;
 }
 
-nav button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 10px;
-}
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #240008;
 }
-nav ul li {
-  float: left;
-}
+
 nav ul li a {
   display: block;
-  color: white;
+  color: #BC8234;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: 1em;
 }
 nav ul li.active a {
-  color: yellow;
+  color: white;
 }
 nav ul li a:hover {
-  background-color: #111;
+  background-color: #450015;
 }
 
-main {
+.main-image {
+  margin-top: 5px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.main-image img {
+  width: 100%;
+  height: auto;
+}
+
+.main-image-small {
   display: block;
-  position: relative;
-}
-main h2 {
-  max-width: 400px;
-  margin: auto;
-  font-size: 2.5em;
-}
-main figure { margin: 1%; width: 98%; }
-main figure img { width: 100%; }
-
-section {
-
 }
 
-.current {
-  height: 100px;
+.main-image-medium {
+  display: none;
+}
+
+.main-image-large {
+  display: none;
+}
+
+.current-weather {
+  width: 100%;
+}
+
+.center {
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
@@ -90,31 +144,36 @@ section {
   justify-content: center;
 }
 
-.current-desc {
-  display: inline-block;
-  width:; 40%;
-  margin: 1em;
+.current-weather h3 {
+  height: 1.3em;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.current-desc-text {
-  font-size: 1.5rem;
+.clouds-status {
+  margin: 0;
+  height: 100px;
+  font-size: 1.2em;
 }
 
-.highlow, .conditions {
-  text-align: center;
+.temperature {
+  height: 1.7em;
+  font-size: 1.2em;
 }
 
-.highlow p {
-  display: inline;
-  font-size: 1.5em;
+.precipitation {
+  height: 1.7em;
+  font-size: 1.2em;
 }
 
-.conditions p {
-  font-size: 1.5em;
+.wind-speed {
+  height: 1.7em;
+  font-size: 1.2em;
 }
 
 .forecast {
   padding: 0.5em;
+  display: none;
 }
 
 .forecast h3 {
@@ -136,30 +195,36 @@ section {
 
 .forecast table th, .forecast table td {
   border: 1px solid;
+  border-collapse: collapse;
   padding: 4px;
   background-color: gainsboro;
 }
 
 article {
-  margin: 1%;
   border: 1px solid;
-  padding: 0.5em;
+  padding: 5px;
 }
 
 article h3 {
   text-align: center;
   font-size: 1.5em;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-article p.town-article {
-  font-size: 1.1em;
-  padding: 1%;
-  margin auto;
+.town-article {
+  font-size: 1em;
 }
 
-article p.town-article img {  
+.article-image {
   width: 100%;
-  margin-top: 1%;
+  margin: 0;
+}
+
+.article-image img {  
+  width: 100%;
+  height: auto;
+  margin 0;
 }
 
 footer {
@@ -180,8 +245,4 @@ footer>p {
   padding: 1%;
   background-color: steelblue;
   color: white;
-}
-
-.weather-summary-header {
-  display: none;
 }

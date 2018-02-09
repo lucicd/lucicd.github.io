@@ -1,6 +1,60 @@
-@media only screen and (min-width: 64em) {
-  /* Only CSS rules that need to be changed to meet the layout needs from medium to large/wide go in here */
-  
-  article p.town-article img { width: 29.333%; }
+@media only screen and (min-width: 1024px) {
+  .logo-img-150 {
+    display: none;
+  }
+
+  .logo-img-300 {
+    display: none;
+  }
+
+  .logo-img-512 {
+    display: block;
+  }
+
+  .title-div {
+    margin-left: 512px;
+    height: 380px;
+  }
+
+  .title {
+    padding-top: : 3em;
+    padding-left: 1.1em;
+    font-size: 4.4em;
+  }
+
+  .subtitle {
+    margin-top: 0.4em;
+    font-size: 4.4em;
+  }
+
+  nav ul li a {
+    font-size: 1.2em;
+  }
+
+  .main-image {
+    width: 100%;
+  }
+
+  .main-image img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .main-image-small {
+    display: none;
+  }
+
+  .main-image-medium {
+    display: none;
+  }
+
+  .main-image-large {
+    display: block;
+  }
+
+  .current-weather {
+    width: 100%;
+  }
   
 }

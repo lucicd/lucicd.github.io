@@ -1,10 +1,83 @@
-@media only screen and (min-width: 37.5em) {
-  /* Only CSS rules that need to be changed to meet the layout needs from small to medium go in here */
-  
-  nav button { display:none; }  /* hamburger button does not need to be shown */
-  
-  section.forecast { display: ???; }  /* show the 10-day forecast with the medium view and up */
-  
-  article p.town-article img { width: 62.666%; float:right; }  /* responsive images */
+@media only screen and (min-width: 600px) {
+  .logo-img-150 {
+    display: none;
+  }
+
+  .logo-img-300 {
+    display: block;
+  }
+
+  .logo-img-512 {
+    display: none;
+  }
+
+  .title-div {
+    margin-left: 300px;
+    height: 222px;
+  }
+
+  .title {
+    padding-top: : 2em;
+    padding-left: 1em;
+    font-size: 2.5em;
+  }
+
+  .subtitle {
+    margin-top: 0.4em;
+    font-size: 2em;
+  }
+
+  nav ul li {
+    float: left;
+  }
+
+  .forecast { 
+    display: block; 
+  }
+
+  .main-image {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    overflow: hidden;
+  }
+
+  .main-image img {
+    margin: 0 -60%;
+    width: 837px;
+    height: 260px;
+  }
+
+  .main-image-small {
+    display: none;
+  }
+
+  .main-image-medium {
+    display: block;
+  }
+
+  .main-image-large {
+    display: none;
+  }
+
+  .current-weather {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+  }
+
+  .town-article {
+    overflow: auto;
+  }
+
+  .article-image {
+    width: 50%;
+    float: right;
+  }
+
+  .article-image img {  
+    width: 100%;
+    float: right;
+  }
 
 }
