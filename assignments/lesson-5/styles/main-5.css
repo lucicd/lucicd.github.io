@@ -67,7 +67,7 @@ header, nav, main, footer {
 
 .title {
   width: 100%;
-  padding-top: : 0.5em;
+  padding-top: 0.5em;
   padding-left: 0.1em;
   margin-bottom: 0;
   font-size: 1.5em;
@@ -187,7 +187,7 @@ nav ul li a:hover {
 }
 
 .forecast table {
-  border: 1px solid solid none solid;
+  border: 1px;
   width: 100%;
   text-align: center;
   border-collapse: collapse;
@@ -224,7 +224,7 @@ article h3 {
 .article-image img {  
   width: 100%;
   height: auto;
-  margin 0;
+  margin: 0;
 }
 
 footer {
