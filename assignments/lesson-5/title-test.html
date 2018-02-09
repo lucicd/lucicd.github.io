@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title test</title>
+  <link rel="stylesheet" href="styles/normalize.css">
+
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato);
+    @import url(https://fonts.googleapis.com/css?family=Grand+Hotel);
+    * { box-sizing: border-box;}
+    body {
+      font-size: 16px;
+      font-family: 'Lato', sans-serif;
+    }
+
+    header, nav, main, footer { 
+      margin: auto;
+      max-width: 1200px;
+    }
+
+    .column {
+      float: left;
+    }
+
+    .logo {
+      width: 33%;
+      margin:; 0;
+      padding: 0;
+    }
+
+    .logo img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      margin-top: 0.5em;
+    }
+
+    .title {
+      width: 66%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .title h1 {
+      font-size: 2em;
+      margin-bottom: 0;
+    }
+
+    .title h3 {
+      margin-top: 0.1em;
+      font-family: 'Grand Hotel', cursive;
+      font-size: 1.5em;
+    }
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .main-image {
+      width: 100%;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .city-name {
+      width:100%;
+    }
+
+    .city-name h3 {
+      font-size: 3em;
+      text-align: center;
+    }
+
+    .curr-weather-desc {
+      float: right;
+    }
+
+    .curr-weather-img {
+      float: right;
+    }
+
+    .temperatures {
+      clear: both;
+    }
+
+    .high-temp {
+      float:left;
+    }
+
+    .low-temp {
+      float: right;
+    }
+
+    .precip-wind {
+      clear: both;
+    }
+
+    .limit-width {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .center-content {
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media only screen and (min-width: 600px) {
+      .title h1 {
+        font-size: 3.8em;
+      }
+      .title h3 {
+        font-size: 2.3em;
+      }
+      .main-image {
+        width: 50%;
+        float: left;
+        overflow: hidden;
+      }
+      .main-image img {
+        margin: 0 -60%;
+        width: 837px;
+        height: 260px;
+      }
+      .curr-weather-img {
+        float: left;
+      }
+      .curr-weather-desc {
+        float: none;
+      }
+      .temperatures {
+        clear: none;
+      }
+      .high-temp {
+        float:none;
+      }
+      .low-temp {
+        float: none;
+      }
+      .precip-wind {
+        clear: none;
+      }
+    }
+    @media only screen and (min-width: 1024px) {
+      .title h1 {
+        font-size: 5em;
+      }
+      .title h3 {
+        font-size: 3em;
+      }
+      .main-image {
+        width: 100%;
+        float: none;
+      }
+      .main-image img {
+        margin: 0;
+        width: 100%;
+        height: auto;
+      }
+      .curr-weather-img {
+        float: left;
+      }
+      .curr-weather-img {
+        float: left;
+      }
+      .curr-weather-desc {
+        float: left;
+      }
+      .temperatures {
+        float: left;
+      }
+      .precip-wind {
+        float: left;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <header>
+    <div class="clearfix">
+      <div class="column logo">
+        <img src="images/hires/logo600.png" alt="Logo">
+      </div>
+      <div class="column title">
+        <h1>Weather Me!</h1>
+        <h3>Weather alerts on any device.</h3>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="main-image"><img src="images/main-image-large.jpg" alt="Main image"></div>
+    <div class="city-name">
+      <h3>Franklin</h3>
+    </div>
+    <div>
+      <style>
+        .center-text {
+          text-align: center;
+        }
+        .align-middle {
+          vertical-align:middle;
+        }
+      </style>
+      <div class="center-text">
+        <span>
+          Sunny
+        </span>
+        <img class="align-middle" src="images/sun.png" alt="Weather image">
+      </div>
+    </div>
+    <div class="center-text">
+      High: 90&deg;F&nbsp;&nbsp;Low: 66&deg;F
+    </div>
+    <div class="center-text">Precipitation: 0%</div>  
+    <div class="center-text">Wind Speed: 5 mph SW</div>
+    <br>
+    <br>
+    <div class="center-text" style="vertical-align: middle;">
+      <div style="display: inline-block; vertical-align: middle;">
+        <h1>Sunny</h1>
+        <h3>Verry much</h3>
+      </div>
+      <div style="display: inline-block; vertical-align: middle;">
+        <img src="images/sun.png" alt="Weather image">
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

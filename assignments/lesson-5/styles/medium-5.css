@@ -1,31 +1,11 @@
 @media only screen and (min-width: 600px) {
-  .logo-img-150 {
-    display: none;
+  .title h1 {
+    font-size: 3.8em;
   }
-
-  .logo-img-300 {
-    display: block;
-  }
-
-  .logo-img-512 {
-    display: none;
-  }
-
-  .title-div {
-    margin-left: 300px;
-    height: 222px;
-  }
-
-  .title {
-    padding-top: 0.2em;
-    padding-left: 1em;
-    font-size: 2.5em;
-  }
-
-  .subtitle {
-    margin-top: 0.4em;
-    font-size: 2em;
-  }
+  
+  .title h3 {
+    font-size: 2.3em;
+  }  
 
   nav ul li {
     float: left;

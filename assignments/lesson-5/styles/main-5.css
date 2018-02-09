@@ -42,41 +42,42 @@ header, nav, main, footer {
   max-width: 1200px;
 }
 
+.column {
+  float: left;
+}
+
 .logo {
-  margin: 0;
+  width: 33%;
 }
 
-.logo-img-150 {
-  display: block;
-}
-
-.logo-img-300 {
-  display: none;
-}
-
-.logo-img-512 {
-  display: none;
-}
-
-.title-div {
-  position: absolute;
-  top: 0;
-  margin-left: 150px;
-  height: 111px;
+.logo img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin-top: 0.5em;
 }
 
 .title {
-  width: 100%;
-  padding-top: 0.1em;
-  padding-left: 0.1em;
+  width: 66%;
+  margin: 0;
+  padding: 0;
+}
+
+.title h1 {
+  font-size: 2em;
   margin-bottom: 0;
+}
+
+.title h3 {
+  margin-top: 0.1em;
+  font-family: 'Grand Hotel', cursive;
   font-size: 1.5em;
 }
 
-.subtitle {
-  margin-top: 0.2em;
-  font-family: 'Grand Hotel', cursive;
-  font-size: 1.5em;
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 nav {
