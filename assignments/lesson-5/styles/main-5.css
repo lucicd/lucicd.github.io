@@ -70,7 +70,7 @@ header, nav, main, footer {
 .subtitle {
   margin: 0;
   font-family: 'Courgette', cursive;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .clearfix::after {
@@ -98,19 +98,13 @@ nav ul li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 nav ul li.active a {
   color: white;
 }
 nav ul li a:hover {
   background-color: #450015;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 .main-image {
@@ -125,20 +119,20 @@ nav ul li a:hover {
 
 .city-name h2 {
   width: 100%;
-  font-size: 3.5em;
+  font-size: 3em;
   text-align: center;
   margin: 0.1em;
 }
 
 .weather-widget {
   display: inline-block;
-  font-size: 1.3em;
+  font-size: 1.1em;
   padding-left: 1em;
   padding-right: 1em;
 }
 
 .weather-desc {
-  font-size: 3em;
+  font-size: 1.8em;
   padding-left: 0.1em;
   padding-right: 0.1em;
   color: #A82F54;
