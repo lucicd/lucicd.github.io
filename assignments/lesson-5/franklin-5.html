@@ -14,13 +14,15 @@
 <body>
 
   <header>
-    <div class="clearfix">
-      <div class="column logo">
-        <img src="images/logo350.png" alt="Weather Me | Logo">
+    <div class="align-middle align-center">
+      <div class="inline-block align-middle">
+        <img class="display-small" src="images/logo-small.png" alt="Weather Me Logo">
+        <img class="display-medium" src="images/logo-medium.png" alt="Weather Me Logo">
+        <img class="display-large" src="images/logo-large.png" alt="Weather Me Logo">
       </div>
-      <div class="column title">
-        <h1>Weather Me!</h1>
-        <h3>Weather alerts on any device.</h3>
+      <div class="inline-block align-middle">
+        <h1 class="title">Weather Me!</h1>
+        <h3 class="subtitle">Weather alerts on any device.</h3>
       </div>
     </div>
   </header>
@@ -37,28 +39,31 @@
   </nav>
     
   <main>
-    <figure class="main-image">
-      <img src="images/main-image-small.jpg" alt="Main image" class="main-image-small">
-      <img src="images/main-image-medium.jpg" alt="Main image" class="main-image-medium">
-      <img src="images/main-image-large.jpg" alt="Main image" class="main-image-large">
-    </figure>
-    <div class="current-weather">
-      <section>
-        <h3 class="center">Franklin</h3>
-        <div class="clouds-status center">
-          <span>Sunny</span>
-          <picture>
-            <img src="images/sun.png" alt="Sun | Current Weather Icon">
-          </picture>
+    <div class="clearfix">
+      <div class="main-image">
+        <img src="images/main-image-large.jpg" alt="Main image">
+      </div>
+      <div class="city-name align-center">
+        <h2>Franklin</h2>
+      </div>
+
+      <div class="align-center">
+        <div class="align-middle weather-widget">
+          <img src="images/sun.png" alt="Weather image">
         </div>
-        <div class="temperature center">
-          High: 90&deg;F
-          &nbsp;&nbsp; 
-          Low: 66&deg;F
+        <div class="align-middle weather-widget weather-desc">
+          Sunny
         </div>
-        <div class="precipitation center">Precipitation: 0%</div>  
-        <div class="wind-speed center">Wind Speed: 5 mph SW</div>  
-      </section>
+        <div class="align-middle weather-widget">
+          <div>High: 90&deg;F</div>
+          <div>Low: 66&deg;F</div>
+        </div>
+        <div class="align-middle weather-widget">
+          <div>Precipitation: 0%</div>  
+          <div>Wind Speed: 5 mph SW</div>
+        </div>
+      </div>
+
     </div>
         
     <section class="forecast">
@@ -97,11 +102,11 @@
       
     <article>
       <h3>Franklin Breaks Record</h3> 
-      <div class="town-article">
-        <div class="article-image">
-          <img src="images/town-article-photo.jpg" alt="Town article picture">
-        </div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos commodi, illo mollitia nisi quod tenetur libero quisquam. Libero quasi repudiandae minima pariatur voluptate laudantium deleniti, voluptatibus quos doloribus veritatis eveniet, iste fuga ipsum sequi iusto molestias. Similique excepturi, veritatis sint fuga consectetur suscipit sapiente tempora reprehenderit rerum! Reprehenderit, laboriosam!
+      <div class="clearfix">
+        <p>
+          <img class="article-image" src="images/town-article-photo.jpg" alt="Article photo">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos commodi, illo mollitia nisi quod tenetur libero quisquam. Libero quasi repudiandae minima pariatur voluptate laudantium deleniti, voluptatibus quos doloribus veritatis eveniet, iste fuga ipsum sequi iusto molestias. Similique excepturi, veritatis sint fuga consectetur suscipit sapiente tempora reprehenderit rerum! Reprehenderit, laboriosam!
+        </p>
       </div>
     </article>      
   
@@ -109,13 +114,13 @@
     
   <footer>
     <aside>
-      <span>The Weather Site</span><br>
+      <span>Weather Me!</span><br>
       123 Main St.<br>
       Franlin, MU 83454<br>
       (999) 999-9999<br>
       contact@theurl.com<br>
     </aside>
-    <p class="footer-bar">&copy;2017 All Rights Reserved | Site Title | <span id="currentdate">Current Date Placeholder</span></p>
+    <p class="footer-bar">&copy;2018 All Rights Reserved | Weather Me! | <span id="currentdate">Current Date Placeholder</span></p>
   </footer>
 
 </body>

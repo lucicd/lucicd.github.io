@@ -1,10 +1,18 @@
 @media only screen and (min-width: 600px) {
-  .title h1 {
-    font-size: 3.8em;
+  .display-small {
+    display: none;
   }
-  
-  .title h3 {
-    font-size: 2.3em;
+  .display-medium {
+    display: block;
+  }
+  .display-large {
+    display: none;
+  }   
+  .title {
+    font-size: 3.4em;
+  }
+  .subtitle {
+    font-size: 1.8em;
   }  
 
   nav ul li {
@@ -16,48 +24,20 @@
   }
 
   .main-image {
-    display: inline-block;
-    vertical-align: top;
     width: 50%;
+    float: left;
     overflow: hidden;
   }
-
   .main-image img {
     margin: 0 -60%;
     width: 837px;
     height: 260px;
   }
 
-  .main-image-small {
-    display: none;
-  }
-
-  .main-image-medium {
-    display: block;
-  }
-
-  .main-image-large {
-    display: none;
-  }
-
-  .current-weather {
-    display: inline-block;
-    vertical-align: top;
-    width: 48%;
-  }
-
-  .town-article {
-    overflow: auto;
-  }
-
   .article-image {
     width: 50%;
     float: right;
-  }
-
-  .article-image img {  
-    width: 100%;
-    float: right;
+    margin-left: 0.5em;
   }
 
 }

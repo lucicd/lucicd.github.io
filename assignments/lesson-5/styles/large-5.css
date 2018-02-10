@@ -1,11 +1,19 @@
 @media only screen and (min-width: 1024px) {
-  .title h1 {
-    font-size: 5em;
+  .display-small {
+    display: none;
   }
-  
-  .title h3 {
-    font-size: 3em;
+  .display-medium {
+    display: none;
   }
+  .display-large {
+    display: block;
+  }
+  .title {
+    font-size: 4.2em;
+  }
+  .subtitle {
+    font-size: 2.2em;
+  }   
 
   nav ul li a {
     font-size: 1.2em;
@@ -13,24 +21,12 @@
 
   .main-image {
     width: 100%;
+    float: none;
   }
-
   .main-image img {
+    margin: 0;
     width: 100%;
     height: auto;
-    margin: 0;
-  }
-
-  .main-image-small {
-    display: none;
-  }
-
-  .main-image-medium {
-    display: none;
-  }
-
-  .main-image-large {
-    display: block;
   }
 
   .current-weather {
