@@ -1,7 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://fonts.googleapis.com/css?family=Courgette);
 
-* { box-sizing: border-box;}
+* { 
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
 h1, h2 {
   background-color: #FFF;
@@ -124,41 +128,44 @@ nav ul.hide {
   display: none;
 }
 
-.main-image {
-  display: block;
-  margin-top: 0.4em;
-  width: 100%;
+.weather-group {
+  text-align: center;
+  margin-top: 5px;
 }
 
-.main-image img {
+.weather-block {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+#city-name {
+  font-size: 2em;
+}
+
+.weather-block #main-image {
   width: 100%;
   height: auto;
 }
 
-.city-name h2 {
-  width: 100%;
-  font-size: 2em;
-  text-align: center;
-  margin: 0.1em;
-}
-
-.weather-widget {
-  display: inline-block;
-  font-size: 1.1em;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-.weather-desc {
-  font-size: 1.8em;
-  padding-left: 0.1em;
-  padding-right: 0.1em;
-  color: #A82F54;
+.weather-block #weather-desc {
   font-family: 'Courgette', cursive;
+  font-size: 1.5em;
+}
+
+.weather-block #weather-image {
+  width: 100px !important;
+  height: 100px !important;
+  vertical-align: middle;
+}
+
+.weather-data {
+  display: block;
 }
 
 .forecast {
   display: none;
+  margin-top: 5px;
 }
 
 .forecast h3 {
@@ -197,6 +204,7 @@ article h3 {
   margin-top: 0;
   margin-left: 5px;
   margin-right: 5px;
+  margin-bottom: 15px;
 }
 
 article p {

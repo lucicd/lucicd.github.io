@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<style>
+  * { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid red;
+  }
+  .franklin {
+    text-align: center;
+  }
+  .inline-block {
+    display: inline-block;
+    width: 49%;
+    border: 1px solid red;
+    vertical-align: middle;
+  }
+  .inline-block img {
+    width: 100%;
+    height: auto;
+  }
+  .weather-image {
+    width: 100px !important;
+    height: 100px !important;
+    vertical-align: middle;
+  }
+</style>
+<main>
+  <h1>Hello world</h1>
+  <div class="franklin">
+    <div class="inline-block">
+      <picture>
+        <source srcset="images/franklin-small.jpg" media="(max-width: 600px)">
+        <source srcset="images/franklin-medium.jpg" media="(max-width: 1024px)">
+        <source srcset="images/franklin-large.jpg">
+        <img src="images/franklin-large.jpg" alt="Franklin image">
+      </picture>
+    </div>
+    <div class="inline-block">
+      <h2>Franklin</h2>
+      <p>
+        <span>Sunny</span>
+        <img src="images/sun.png" alt="Weather image" class="weather-image">
+      </p>
+      <p>
+        High: 90&deg;F<br>
+        Low: 66&deg;F
+      </p>
+      <p>
+        Precipitation: 0%<br>
+        Wind Speed: 5 mph SW
+      </p>
+    </div>
+  </div>
+  <h1>Goodbye world</h1>
+</main>
+
+</body>
+</html>

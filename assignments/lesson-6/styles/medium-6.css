@@ -33,15 +33,10 @@
     display: block;
   }
 
-  .main-image {
-    width: 50%;
-    height: auto;
-    float: left;
-  }
-
-  .main-image img {
-    min-width: 332px;
-    min-height: 220px;
+  .weather-block {
+    display: inline-block;
+    width: 49%;
+    vertical-align: middle;
   }
 
   .forecast { 

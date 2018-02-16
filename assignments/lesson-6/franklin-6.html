@@ -43,34 +43,30 @@
   </nav>
     
   <main>
-    <div class="clearfix">
-      <picture class="main-image">
-        <source srcset="images/franklin-small.jpg" media="(max-width: 600px)">
-        <source srcset="images/franklin-medium.jpg" media="(max-width: 1024px)">
-        <source srcset="images/franklin-large.jpg">
-        <img src="images/franklin-large.jpg" alt="Franklin image">
-      </picture>
-      <div class="city-name align-center">
-        <h2>Franklin</h2>
+    <div class="weather-group">
+      <div class="weather-block">
+        <picture>
+          <source srcset="images/franklin-small.jpg" media="(max-width: 600px)">
+          <source srcset="images/franklin-medium.jpg" media="(max-width: 1024px)">
+          <source srcset="images/franklin-large.jpg">
+          <img src="images/franklin-large.jpg" id="main-image" alt="Franklin image">
+        </picture>
       </div>
-
-      <div class="align-center">
-        <div class="align-middle weather-widget">
-          <img src="images/sun.png" alt="Weather image">
-        </div>
-        <div class="align-middle weather-widget weather-desc">
-          Sunny
-        </div>
-        <div class="align-middle weather-widget">
-          <div>High: 90&deg;F</div>
-          <div>Low: 66&deg;F</div>
-        </div>
-        <div class="align-middle weather-widget">
-          <div>Precipitation: 0%</div>  
-          <div>Wind Speed: 5 mph SW</div>
-        </div>
+      <div class="weather-block">
+        <h2 id="city-name">Franklin</h2>
+        <p class="weather-data">
+          <span id="weather-desc">Sunny</span>
+          <img src="images/sun.png" id="weather-image" alt="Weather image">
+        </p>
+        <p class="weather-data">
+          High: 90&deg;F<br>
+          Low: 66&deg;F
+        </p>
+        <p class="weather-data">
+          Precipitation: 0%<br>
+          Wind Speed: 5 mph SW
+        </p>
       </div>
-
     </div>
         
     <section class="forecast">
@@ -127,7 +123,11 @@
       (999) 999-9999<br>
       contact@theurl.com<br>
     </aside>
-    <p class="footer-bar">&copy;2018 All Rights Reserved | Weather Me! | <span id="currentdate">Current Date Placeholder</span></p>
+    <p class="footer-bar">
+      &copy;2018 All Rights Reserved | 
+      Weather Me! | 
+      <span id="currentdate"></span>
+    </p>
   </footer>
 
 </body>
