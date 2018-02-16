@@ -1,0 +1,57 @@
+@media only screen and (min-width: 600px) {
+  .display-small {
+    display: none;
+  }
+  .display-medium {
+    display: block;
+  }
+  .display-large {
+    display: none;
+  }   
+  .title {
+    font-size: 3.4em;
+  }
+  .subtitle {
+    font-size: 1.8em;
+  }  
+
+  nav button {
+    display: none;
+  }
+
+  nav ul li {
+    float: left;
+  }
+
+  nav ul li a {
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 14px 14px;
+  }
+
+  nav ul.hide {
+    display: block;
+  }
+
+  .main-image {
+    width: 50%;
+    height: auto;
+    float: left;
+  }
+
+  .main-image img {
+    min-width: 332px;
+    min-height: 220px;
+  }
+
+  .forecast { 
+    display: block; 
+  }
+
+  .article-image {
+    width: 50%;
+    float: right;
+    margin-left: 0.5em;
+  }
+
+}
