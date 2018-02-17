@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    picture img {
+      max-width: 1200px;
+      margin 0;
+      height: auto;
+    }
+  </style>
+  <h1>This is a test</h1>
+  <picture>
+    <source srcset="pic.jpg" media="(max-width: 600px)">
+    <source srcset="pic.jpg" media="(max-width: 1024px)">
+    <source srcset="pic.jpg">
+    <img src="pic.jpg" id="main-image" alt="Franklin image">
+  </picture>
+</body>
+</html>
