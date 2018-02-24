@@ -82,6 +82,8 @@ nav div {
   display: flex;
   flex-direction: column;
   background-color: #240008;
+  margin: 0;
+  padding: 0;
 }
 
 nav button {
@@ -94,12 +96,17 @@ nav button {
 }
 
 nav ul {
-  flex-direction: column;
   list-style-type: none;
   background-color: #240008;
   padding: 0;
   margin: 0;
   overflow: hidden;
+}
+
+nav ul li {
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
@@ -109,7 +116,6 @@ nav ul li a {
   text-decoration: none;
   font-size: 0.9em;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-  text-align: left;
 }
 
 nav ul li.active a {
@@ -146,10 +152,11 @@ nav ul.hide {
   margin-top: 5px;
 }
 
-.city-name {
+.main-title {
   font-size: 2em;
   width: 100%;
   text-align: center;
+  padding-top: 5px;
 }
 
 .weather-block {
@@ -225,10 +232,7 @@ article {
 article h3 {
   text-align: center;
   font-size: 1.5em;
-  margin-top: 0;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 15px;
+  margin: 0 5px 15px 5px;
   width: 100%;
 }
 
