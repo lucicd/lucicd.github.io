@@ -266,3 +266,21 @@ footer>p {
   background-color: #67001F;
   color: lightgray;
 }
+
+.gallery-grid {
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  grid-template-columns: 1fr;
+  grid-gap: 10px 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+}
+
+.gallery-grid figure {
+  margin: 0;
+  padding: 0;
+}
