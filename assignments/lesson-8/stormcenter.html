@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Storm Center</title>
+</head>
+<body>
+  <form>
+    <fieldset>  
+      <legend><span>Personal Information</span></legend>
+      <label>
+        <span>Full Name:</span>
+        <input 
+          type="text"
+          name="fullname"
+          value=""
+          placeholder="Full Name"
+          autofocus
+          title="Please provide full name"
+          pattern="[a-zA-Z -._]{5,99}" required
+        >
+      </label>
+      <label>
+        <span>Email:</span>
+        <input 
+          type="email"
+          name="email"
+          value=""
+          placeholder="person@demo.com"
+          title="Please provide email address"
+          required
+        >
+      </label>
+      <label>
+        <span>Phone:</span>
+        <input 
+          type="tel"
+          name="phonenumber"
+          value=""
+          placeholder="0155512345"
+          title="Please provide phone number"
+          pattern="[0-9]{10,20}" 
+          required
+        >
+      </label>
+      <label>
+        <span>Zip Code:</span>
+        <input 
+          type="number"
+          name="zipcode"
+          value=""
+          placeholder="85001"
+          title="Please provide ZIP code"
+          pattern="[0-9]{5}" 
+          required
+        >
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend><span>Storm Information</span></legend>
+      <label>
+        <span>Storm Date:</span>
+        <input 
+          type="date"
+          name="date"
+          title="Please provide storm date"
+        >
+      </label>
+      <label>
+        <span>Storm Type:</span>
+        <input 
+          type="text"
+          name="stormtype"
+          title="Please provide storm type"
+          list="stormtypes"
+        >
+        <datalist id="stormtypes">
+          <option value="Flash Flood"></option>
+          <option value="Hail"></option>
+          <option value="Hurricane"></option>
+          <option value="Thunderstorm"></option>
+          <option value="Tornado"></option>
+        </datalist>
+      </label>
+      <label>
+        <span>Storm Severity:</span>
+        <input 
+          type="range"
+          name="stormseverity"
+          title="Please choose storm severity (1 to 10)"
+          value="5"
+          min="1"
+          max="10"
+          step="1"
+          oninput="adjustRating(this.value)"
+          onchange="adjustRating(this.value)"
+        >
+        <span id="stormseverity">5</span><br>
+      </label>
+      <label>
+        <span>Storm Region:</span>
+        <select name="stormregion">
+          <option disabled>Select Region ...</option>
+          <option value="Franklin">Franklin</option>
+          <option value="Greenville">Greenville</option>
+          <option value="Springfiled">Springfield</option>
+        </select>
+      </label>
+      <label>
+        <span>User In-Danger Level:</span>
+          <input 
+            type="radio"
+            name="dangerlevel"
+            value="yes"
+            id="dangeryes"
+          >
+          <label for="dangeryes">Yes</label>
+          <input 
+            type="radio"
+            name="dangerlevel"
+            value="maybe"
+            id="dangermaybe"
+          >
+          <label for="dangermaybe">Maybe</label>
+          <input 
+            type="radio"
+            name="dangerlevel"
+            value="no"
+            id="dangerno"
+          >
+          <label for="dangerno">No</label>
+      </label>
+      <label>
+        <span>Comments:</span>
+        <textarea 
+          name="comments"
+          cols="50"
+          rows="5"
+          placeholder="Please enter any additional information."
+        ></textarea>
+      </label>
+    </fieldset>
+    <input type="submit" value="Submit Information">
+    <input 
+      type="hidden"
+      value="Storm Information"
+      name="subject"
+    >
+  </form>
+  <script src="scripts/stormcenter.js"></script>
+</body>
+</html>
