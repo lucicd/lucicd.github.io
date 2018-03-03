@@ -54,9 +54,6 @@ header, nav, main, footer {
 .display-medium {
   display: none;
 }
-.display-large {
-  display: none;
-}
 
 .header-container {
   display: flex;
@@ -250,7 +247,6 @@ article p {
   margin-bottom: 0;
 }
 
-
 footer {
   margin-top: 0.4em;
   text-align: center;
@@ -287,4 +283,121 @@ footer>p {
 .gallery-grid figure {
   margin: 0;
   padding: 0;
+}
+
+/* STORM CENTER FORM STUFF*/
+
+form#stormcenter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1em 1em;
+}
+
+fieldset {
+  background-color: rgba(188, 130, 50, 0.1);
+  margin: 1.5em 0;
+  border: #917a56 solid 1px;
+  box-shadow: 5px 5px 20px #cccccc;
+  width: 100%;
+}
+
+legend {
+  color: #450015;
+  margin-left: 6%;
+  padding: 0.5em;
+  border: #917a56 solid 1px;
+  background-color: #f2eee7;
+  border-radius: 0.4em;
+}
+
+label {
+  display: block;
+  margin: 0.5em;
+}
+
+label span {
+  display: block;
+  font-size: 0.9em;
+  color: #450015;
+  padding-top: 0.9em;
+  padding-bottom: 0.2em;
+}
+
+input.submitBtn {
+  -webkit-appearance: none; /*remove the apple mobile default styling*/
+  color: #fff;
+  border: solid 1px #111;
+  border-radius: 7px;
+  width: 90%;
+  max-width: 500px;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  font-size: 1.1em;
+  padding: .6em;
+  background: #004f2d; /* Old browsers */
+  box-shadow: 4px 4px 10px #666;
+}
+
+label input, label select, label textarea, .stormseverity, .dangerlevel {
+  background-color: #f4f2ef;
+  color: #917a56;
+  padding: .3em .3em .3em 2em;
+  border: solid 1px #b0aaa0;
+  border-radius: 5px;
+  font-size: .9em;
+  width: 100%;
+  max-width: 500px;
+  background-image: url(../images/ico_validation.png);
+  background-repeat: no-repeat;
+  background-position: 4px -11px
+}
+
+label textarea {
+  padding: .3em .3em .3em 0.3em;
+  background-image: none;
+}
+
+.stormseverity, .dangerlevel {
+  display: flex;
+  align-items: center;
+  background-image: none;
+  padding-left: .3em;
+  padding-top: .1em;
+  padding-bottom: .1em;
+}
+
+.dangerlevel input {
+  max-width: 20px;
+}
+
+.dangerlevel label {
+  padding-left: 0;
+  padding-right: 30px;
+}
+
+.stormseverity input {
+  width: 90%;
+}
+
+.stormseverity div {
+  width: 10%;
+  text-align: center;
+}
+
+input:focus, select:focus, textarea:focus {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+input:required {
+  background-position: 4px -61px;
+}
+
+input:focus:invalid {
+  background-position: 4px -111px;
+}
+
+input:required:valid {
+  background-color: #fff;
+  background-position: 4px -161px;
 }
