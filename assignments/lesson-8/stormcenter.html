@@ -120,9 +120,9 @@
             <option value="Tornado"></option>
           </datalist>
         </label>
-        <label>
+        <div class="stormseverity">
           <span>Storm Severity:</span>
-          <div class="stormseverity">
+          <div>
             <input 
               type="range"
               name="stormseverity"
@@ -134,9 +134,9 @@
               oninput="adjustRating(this.value)"
               onchange="adjustRating(this.value)"
             >
-            <div id="stormseverity">5</div>
+            <span id="stormseverity">5</span>
           </div>
-        </label>
+        </div>
         <label>
           <span>Storm Region:</span>
           <select name="stormregion">

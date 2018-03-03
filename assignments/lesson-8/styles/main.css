@@ -311,12 +311,14 @@ legend {
   border-radius: 0.4em;
 }
 
-label, .dangerlevel {
+label, .dangerlevel, .stormseverity {
   display: block;
   margin: 0.5em;
 }
 
-label span, .dangerlevel span {
+label span,
+.dangerlevel span,
+.stormseverity span {
   display: block;
   font-size: 0.9em;
   color: #450015;
@@ -325,11 +327,13 @@ label span, .dangerlevel span {
 }
 
 label input, label select,
-label textarea, .stormseverity,
+label textarea,
+.stormseverity div,
 .dangerlevel div {
   background-color: #f4f2ef;
   color: #917a56;
-  padding: .3em .3em .3em 2em;
+  height: 2.2em;
+  padding: .5em .3em .5em 2em;
   border: solid 1px #b0aaa0;
   border-radius: 5px;
   font-size: .9em;
@@ -342,45 +346,50 @@ label textarea, .stormseverity,
 
 .dangerlevel div {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  background-image: none;
-  padding-left: .3em;
+  padding: 0;
+  padding-left: 2em;
 }
 
 .dangerlevel label {
+  display: flex;
+  align-items: center;
   max-width: 120px;
+  padding: 0;
+  margin: 0;
 }
 
 .dangerlevel input, .dangerlevel label span {
   display: inline;
 }
 
+.dangerlevel label span {
+  padding: 0 2em 0 0;
+}
+
 .dangerlevel input {
-  width: 1em;
+  width: 1.1em;
 }
 
 label textarea {
-  padding: .3em;
+  padding-left: .3em;
   background-image: none;
+  height: auto;
 }
 
-.stormseverity {
+.stormseverity div {
   display: flex;
   align-items: center;
-  background-image: none;
-  padding-left: .3em;
-  padding-top: .1em;
-  padding-bottom: .1em;
 }
 
 .stormseverity input {
   width: 90%;
 }
 
-.stormseverity div {
+.stormseverity div span {
   width: 10%;
   text-align: center;
+  padding: 0;
 }
 
 input.submitBtn {
