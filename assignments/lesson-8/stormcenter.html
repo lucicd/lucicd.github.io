@@ -90,7 +90,6 @@
             value=""
             placeholder="85001"
             title="Please provide ZIP code"
-            pattern="[0-9]{5}" 
             required
           >
         </label>
@@ -147,32 +146,38 @@
             <option value="Springfiled">Springfield</option>
           </select>
         </label>
-        <label>
+        <div class="dangerlevel">
           <span>User In-Danger Level:</span>
-            <div class="dangerlevel">
+          <div>
+            <label>
               <input 
                 type="radio"
                 name="dangerlevel"
                 value="yes"
                 id="dangeryes"
               >
-              <label for="dangeryes">Yes</label>
+              <span>Yes</span>
+            </label>
+            <label>
               <input 
                 type="radio"
                 name="dangerlevel"
                 value="maybe"
                 id="dangermaybe"
               >
-              <label for="dangermaybe">Maybe</label>
+              <span>Maybe</span>
+            </label>
+            <label>
               <input 
                 type="radio"
                 name="dangerlevel"
                 value="no"
                 id="dangerno"
               >
-              <label for="dangerno">No</label>
-            </div>
-        </label>
+              <span>No</span>
+            </label>
+          </div>
+        </div>
         <label>
           <span>Comments:</span>
           <textarea 
