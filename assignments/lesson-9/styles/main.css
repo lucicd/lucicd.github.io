@@ -183,8 +183,23 @@ nav ul.hide {
 }
 
 .weather-data {
-  display: block;
-  max-width: 30em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: grid;
+  max-width: 35em;
+  grid-template-columns: 1fr 2fr;
+}
+
+.weather-data div {
+  outline: 1px solid;
+  margin-top: 1px;
+  margin-left: 1px;
+  padding: 3px 0.5em 3px 0.5em;
+}
+
+.weather-data .header {
+  text-align: right;
+  font-weight: bold;
 }
 
 .forecast {
