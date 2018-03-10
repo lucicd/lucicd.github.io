@@ -63,11 +63,24 @@
 
   article p {
     width: 50%;
-    margin-bottom: 0;
+    padding-right: 1em;
   }
 
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
   }
 
+  #about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #about article {
+    width: 32%;
+  }
+
+  #about-one div {
+    width: 50%;
+  }
 }

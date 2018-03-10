@@ -51,11 +51,11 @@
         </picture>
       </div>
       <div class="weather-group">
-        <h2 class="main-title">Franklin</h2>
+        <h2 class="main-title"></h2>
         <div class="weather-block">
-          <div class="weather-desc">Sunny</div>
+          <div class="weather-desc"></div>
           <div class="weather-icon-container">
-            <img src="images/sun.png" class="weather-icon" alt="Weather icon">
+            <img src="" class="weather-icon" alt="Weather icon" id="weather-icon">
           </div>
         </div>
         <div class="temperature">
@@ -67,14 +67,14 @@
         </div>
         <div class="precip-wind">
           Precipitation: 
-          &nbsp;<span id="precipitation"></span>%
+          &nbsp;<span id="precipitation"></span>in
           <br>
           Wind Speed:
           &nbsp;<span id="wind-speed"></span>mph
           &nbsp;<span id="wind-direction"></span>
           <br>
-          Chill Factor:
-          &nbsp;<span id="chill-factor"></span>&deg;F
+          Feels like:
+          &nbsp;<span id="feels-like"></span>&deg;F
         </div>
       </div>
     </div>
@@ -98,28 +98,41 @@
         </thead>
         <tbody>  
           <tr>
-            <td>89&deg;F</td>
-            <td>87&deg;F</td>
-            <td>78&deg;F</td>
-            <td>75&deg;F</td>
-            <td>72&deg;F</td>
-            <td>72&deg;F</td>
-            <td>79&deg;F</td>
-            <td>83&deg;F</td>
-            <td>85&deg;F</td>
-            <td>89&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
+            <td>&deg;F</td>
           </tr>
         </tbody>
       </table>
     </section>
+
+    <article id="about-one">
+      <h3></h3>
+      <div class="article-image">
+        <img src="images/franklin.jpg" alt="Franklin Town Hall">
+      </div>
+      <div>
+        <p></p>
+        <ul></ul>
+      </div>
+    </article>     
       
     <article>
-      <h3>Franklin Breaks Record</h3> 
+      <h3>Franklin Attractions</h3> 
       <div class="article-image">
-        <img src="images/town-article-photo.jpg" alt="Article photo">
+        <img src="images/catfish.jpg" alt="Catfish">
       </div>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos commodi, illo mollitia nisi quod tenetur libero quisquam. Libero quasi repudiandae minima pariatur voluptate laudantium deleniti, voluptatibus quos doloribus veritatis eveniet, iste fuga ipsum sequi iusto molestias. Similique excepturi, veritatis sint fuga consectetur suscipit sapiente tempora reprehenderit rerum! Reprehenderit, laboriosam!
+        Catfish Derby Days is an annual three-day city celebration held on the fourth weekend in July.<br>
+        Events include a contest to catch the biggest catfish, a street dance, a square dance, Sunday parades, a coed volleyball tournament, a men's 12-team softball tournament, a beanbag tournament, a queen contest/variety show, a chess tournament, a "Kiss the Catfish Contest," music at the park, a raffle, church services, a fire department water ball, and a St. Luke's Lutheran Church-sponsored breakfast.
+        <br>Source: <a href="https://en.wikipedia.org/wiki/Franklin,_Minnesota">Wikipedia</a>
       </p>
     </article>      
   
@@ -142,7 +155,7 @@
 
   <script src="scripts/hamburger.js"></script>
   <script src="scripts/currentdate.js"></script>
-  <script src="scripts/windchill.js"></script>
+  <script src="scripts/franklin.js"></script>
 
 </body>
 </html>
