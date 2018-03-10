@@ -173,6 +173,8 @@ nav ul.hide {
 .weather-icon {
   width: 100px;
   height: 100px;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .temperature {
@@ -180,13 +182,9 @@ nav ul.hide {
   text-align: center;
 }
 
-.precip-wind {
-  width: 100%;
-  text-align: center;
-}
-
 .weather-data {
   display: block;
+  max-width: 30em;
 }
 
 .forecast {
