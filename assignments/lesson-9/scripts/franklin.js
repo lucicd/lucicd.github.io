@@ -5,12 +5,12 @@
   weatherObject.send();
   weatherObject.onload = function() {
     var weatherInfo = JSON.parse(weatherObject.responseText);
-    console.log(weatherInfo);
     var forecast = weatherInfo.forecast.simpleforecast;
     var txtForecast = weatherInfo.forecast.txt_forecast;
     document.getElementById('current-temp').innerHTML = forecast.forecastday[0].high.fahrenheit;
     document.getElementById('forecast-desc').innerHTML = txtForecast.forecastday[0].fcttext;
-    document.querySelector('.weather-icon').src = forecast.forecastday[0].icon_url;
+    var iconUrl = forecast.forecastday[0].icon_url;
+    document.querySelector('.weather-icon').src = iconUrl.replace('http:', 'https:');
     document.querySelector('.weather-desc').innerHTML = forecast.forecastday[0].conditions;
 
     var current = weatherInfo.current_observation

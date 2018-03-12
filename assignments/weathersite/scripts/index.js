@@ -6,13 +6,14 @@
   request.responseType = 'json';
   request.onload = function() {
     var towns = request.response;
-    console.log(towns);
     showTowns(towns);
   }
   request.send();
 
   function showTowns(jsonObj) {
     var towns = jsonObj['towns'];
+
+    var imgIdx = 1;
         
     for (var i = 0; i < towns.length; i++) {
       if (towns[i].name === 'Placerton') continue;
@@ -25,7 +26,8 @@
       var myPara3 = document.createElement('p');
       var myPara4 = document.createElement('p');
       var myImg = document.createElement('img')
-      myImg.src = 'https://loremflickr.com/600/400/weather?lock=' + (i + 1) + '&random=' + towns[i].name;
+      myImg.src = 'images/towns/img' + imgIdx + '.jpg';
+      imgIdx++;
 
       myH2.textContent = towns[i].name;
       myPara1.textContent = 'Moto: ' + towns[i].motto;
