@@ -33,7 +33,7 @@
       myPara1.textContent = 'Moto: ' + towns[i].motto;
       myPara2.textContent = 'Year Founded: ' + towns[i].yearFounded;
       myPara3.textContent = 'Population: ' + towns[i].currentPopulation;
-      myPara3.textContent = 'Average Rainfall: ' + towns[i].averageRainfall;
+      myPara4.textContent = 'Average Rainfall: ' + towns[i].averageRainfall;
 
       myDiv1.appendChild(myH2);
       myDiv1.appendChild(myPara1);
