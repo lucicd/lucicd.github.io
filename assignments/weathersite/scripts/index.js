@@ -25,6 +25,8 @@
       var myPara2 = document.createElement('p');
       var myPara3 = document.createElement('p');
       var myPara4 = document.createElement('p');
+      var myLink = document.createElement('a');
+      myLink.href = towns[i].name.toLowerCase() + '.html';
       var myImg = document.createElement('img')
       myImg.src = 'images/towns/img' + imgIdx + '.jpg';
       imgIdx++;
@@ -40,7 +42,8 @@
       myDiv1.appendChild(myPara2);
       myDiv1.appendChild(myPara3);
       myDiv1.appendChild(myPara4);
-      myDiv2.appendChild(myImg)
+      myLink.appendChild(myImg);
+      myDiv2.appendChild(myLink);
       myArticle.appendChild(myDiv1);
       myArticle.appendChild(myDiv2);
 
