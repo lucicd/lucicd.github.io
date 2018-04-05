@@ -10,9 +10,14 @@
 }
 
 /*COLORS*/
-header, footer, nav {
+header, footer, nav, .callToAction div button {
   background-color: #3d372d;
   color: rgb(255, 255, 255, 0.9);
+}
+
+.callToAction div button:hover {
+  color: #3d372d;
+  background-color: rgb(255, 255, 255, 0.9);
 }
 
 h1, h2, h3 {
@@ -232,8 +237,12 @@ nav ul.hide {
 }
 
 .callToAction div button {
-  width: 6.5em;
-  background-color: lightblue;
+  width: 6em;
+  padding: 5px;
+  border-radius: 1em;
+  box-shadow: 5px 5px 10px gray;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 
 /*HOME PAGE STORIES*/

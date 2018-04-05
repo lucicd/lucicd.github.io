@@ -1,14 +1,16 @@
 @media only screen and (min-width: 1024px) {
-  /*.home-stories {
-    padding-top: 10px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
+  .title {
+    font-size: 3em;
   }
 
-  .home-stories article {
-    width: 23%;
-  }*/
+  .subtitle {
+    font-size: 2em;
+  }
+
+  .callToAction div button {
+    width: 12em;
+    font-size: 1.8em;
+  }
 
   .home-stories {
     grid-template-columns: 1fr 1fr 1fr 1fr;

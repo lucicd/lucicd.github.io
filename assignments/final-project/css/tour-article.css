@@ -1,0 +1,48 @@
+article {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.tour-article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.tour-article > img {
+  width: 100%;
+}
+
+.tour-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5px;
+  align-content: start;
+}
+
+.tour-details > h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 0.8em;
+  color: black;
+}
+
+.tour-details > p {
+  padding: 0;
+  margin: 0;
+}
+
+.tour-details > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tour-details > table td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}
+
+.tour-details > table tr:nth-child(even) {
+  background-color: #dddddd;
+}
