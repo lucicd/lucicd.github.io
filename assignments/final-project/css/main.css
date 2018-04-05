@@ -10,12 +10,12 @@
 }
 
 /*COLORS*/
-header, footer, nav, .callToAction div button {
+header, footer, nav, .callToAction div button, input.submitBtn {
   background-color: #3d372d;
   color: rgb(255, 255, 255, 0.9);
 }
 
-.callToAction div button:hover {
+.callToAction div button:hover, input.submitBtn:hover {
   color: #3d372d;
   background-color: rgb(255, 255, 255, 0.9);
 }
@@ -30,7 +30,7 @@ body {
 }
 
 h1 {
-  background-image: url(h1_background.png);
+  background-image: url(../images/h1_background.png);
   background-repeat: repeat;
 }
 

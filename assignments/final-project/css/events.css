@@ -1,0 +1,138 @@
+.event-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+article {
+  margin-bottom: 15px;
+}
+
+#gdmbr-map {
+  width: 100%;
+}
+
+/* STORM CENTER FORM STUFF*/
+
+form#eventRegistration {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 5px 5px;
+}
+
+fieldset {
+  background-color: #eee;
+  margin: 10px 0;
+  border: #3d372d solid 1px;
+  box-shadow: 5px 5px 20px #cccccc;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin: 0.5em;
+}
+
+label span {
+  display: block;
+  font-size: 0.9em;
+  color: #450015;
+  padding-top: 0.9em;
+  padding-bottom: 0.2em;
+}
+
+label input, label select,
+label textarea {
+  background-color: #f4f2ef;
+  color: #917a56;
+  height: 2.2em;
+  padding: .5em .3em .5em 2em;
+  border: solid 1px #b0aaa0;
+  border-radius: 5px;
+  font-size: .9em;
+  width: 100%;
+  max-width: 500px;
+  background-image: url(../images/ico_validation.png);
+  background-repeat: no-repeat;
+  background-position: 4px -11px
+}
+
+
+label textarea {
+  padding-left: .3em;
+  background-image: none;
+  height: auto;
+}
+
+input.submitBtn {
+  -webkit-appearance: none; /*remove the apple mobile default styling*/
+  color: #fff;
+  border-radius: 1em;
+  width: 90%;
+  max-width: 500px;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  font-size: 1.1em;
+  padding: .6em;
+  box-shadow: 5px 5px 10px gray;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+input:focus, select:focus, textarea:focus {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+input:required {
+  background-position: 4px -61px;
+}
+
+input:focus:invalid {
+  background-position: 4px -111px;
+}
+
+input:required:valid {
+  background-color: #fff;
+  background-position: 4px -161px;
+}
+
+.event-details > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-details > table td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}
+
+.event-details > table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.route-details {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: 1024px) {
+  .event-intro {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+
+  fieldset {
+    width: 47%;
+  }
+
+  .route-details {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+
+  .route-details > p {
+    margin: 0;
+    padding: 0;
+  }
+}
