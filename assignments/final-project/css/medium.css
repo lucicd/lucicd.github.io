@@ -27,4 +27,8 @@
   nav ul.hide {
     display: flex;
   }
+
+  .home-stories {
+    grid-template-columns: 1fr 1fr;
+  }
 }

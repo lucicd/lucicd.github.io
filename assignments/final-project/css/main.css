@@ -239,9 +239,9 @@ nav ul.hide {
 /*HOME PAGE STORIES*/
 .home-stories {
   padding-top: 10px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px 10px;
 }
 
 .home-stories article {

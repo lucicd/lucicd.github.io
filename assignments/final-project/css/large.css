@@ -1,5 +1,5 @@
 @media only screen and (min-width: 1024px) {
-  .home-stories {
+  /*.home-stories {
     padding-top: 10px;
     display: flex;
     flex-flow: row nowrap;
@@ -8,5 +8,9 @@
 
   .home-stories article {
     width: 23%;
+  }*/
+
+  .home-stories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
