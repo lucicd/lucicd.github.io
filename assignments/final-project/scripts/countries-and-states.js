@@ -2,7 +2,7 @@ var CountriesAndStates = (function() {
   function getStates(callback) {
     var url = "data/states.json";
     $.getJSON(url, function(data) {
-      var listItems = '<option disabled>Select Home State ...</option>';
+      var listItems = '<option value=""></option>';
       $.each(data, function(key, value) {
         listItems += '<option value=' +
           value.code+ ', ' + value.name + '>' +
@@ -15,7 +15,7 @@ var CountriesAndStates = (function() {
   function getCountries(callback) {
     var url = "data/countries.json";
     $.getJSON(url, function(data) {
-      var listItems = '<option disabled>Select Country ...</option>';
+      var listItems = '';
       $.each(data, function(key, value) {
         listItems += '<option value=' +
           value.name+ ', ' + value.code + '>' +

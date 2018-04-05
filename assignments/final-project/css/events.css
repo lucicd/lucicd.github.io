@@ -13,24 +13,23 @@ article {
 
 /* STORM CENTER FORM STUFF*/
 
-form#eventRegistration {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 5px 5px;
+#eventRegistration {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
 }
 
 fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
   background-color: #eee;
-  margin: 10px 0;
   border: #3d372d solid 1px;
   box-shadow: 5px 5px 20px #cccccc;
-  width: 100%;
 }
 
 label {
   display: block;
-  margin: 0.5em;
+  width: 100%;
 }
 
 label span {
@@ -47,31 +46,38 @@ label textarea {
   color: #917a56;
   height: 2.2em;
   padding: .5em .3em .5em 2em;
+  margin-right: -2em;
   border: solid 1px #b0aaa0;
   border-radius: 5px;
   font-size: .9em;
   width: 100%;
-  max-width: 500px;
   background-image: url(../images/ico_validation.png);
   background-repeat: no-repeat;
-  background-position: 4px -11px
+  background-position: 4px -11px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-
 label textarea {
-  padding-left: .3em;
   background-image: none;
   height: auto;
 }
 
-input.submitBtn {
+#eventRegistrationSubmit {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.submitBtn {
   -webkit-appearance: none; /*remove the apple mobile default styling*/
   color: #fff;
   border-radius: 1em;
   width: 90%;
   max-width: 500px;
   margin-top: .5em;
-  margin-bottom: 1em;
+  margin-bottom: 0;
   font-size: 1.1em;
   padding: .6em;
   box-shadow: 5px 5px 10px gray;
@@ -83,15 +89,15 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5) inset;
 }
 
-input:required {
+input:required, select:required {
   background-position: 4px -61px;
 }
 
-input:focus:invalid {
+input:focus:invalid, select:focus:invalid {
   background-position: 4px -111px;
 }
 
-input:required:valid {
+input:required:valid, select:required:valid {
   background-color: #fff;
   background-position: 4px -161px;
 }
@@ -116,14 +122,17 @@ input:required:valid {
   grid-template-columns: 1fr;
 }
 
+@media only screen and (min-width: 800px) {
+  #eventRegistration {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .event-intro {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 10px;
-  }
-
-  fieldset {
-    width: 47%;
   }
 
   .route-details {

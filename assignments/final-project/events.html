@@ -83,74 +83,78 @@
 
   <div>
     <h2>Registration Form</h2>
-    <form id="eventRegistration" action="thanks-for-registration.html">
-      <fieldset>  
-        <label>
-          <span>Full Name:</span>
-          <input 
-            type="text"
-            name="fullname"
-            value=""
-            placeholder="Full Name"
-            autofocus
-            title="Please provide full name"
-            pattern="[a-zA-Z -._]{5,99}" required
-          >
-        </label>
-        <label>
-          <span>Email:</span>
-          <input 
-            type="email"
-            name="email"
-            value=""
-            placeholder="person@demo.com"
-            title="Please provide email address"
-            required
-          >
-        </label>
-        <label>
-          <span>Phone:</span>
-          <input 
-            type="tel"
-            name="phonenumber"
-            value=""
-            placeholder="0155512345"
-            title="Please provide phone number"
-            pattern="[0-9]{10,20}" 
-            required
-          >
-        </label>
-      </fieldset>    
-      <fieldset>
-        <label>
-          <span>Date of Birth:</span>
-          <input 
-            type="date"
-            name="dateOfBirth"
-            title="Please provide date of birth"
-          >
-        </label>
-        <label>
-          <span>State/Country:</span>
-          <select name="stateOrCountry">
-          </select>
-        </label>
-        <label>
-          <span>Special Accomodations/Comments:</span>
-          <textarea 
-            name="comments"
-            cols="50"
-            rows="5"
-            placeholder="Please enter any additional information."
-          ></textarea>
-        </label>
-      </fieldset>
-      <input type="submit" class="submitBtn" value="Submit Registration">
-      <input 
-        type="hidden"
-        value="Event Registration"
-        name="subject"
-      >
+    <form action="thanks-for-registration.html">
+      <div id="eventRegistration">
+        <fieldset>  
+          <label>
+            <span>Full Name:</span>
+            <input 
+              type="text"
+              name="fullname"
+              value=""
+              placeholder="Full Name"
+              title="Please provide full name"
+              pattern="[a-zA-Z -._]{5,99}" required
+            >
+          </label>
+          <label>
+            <span>Email:</span>
+            <input 
+              type="email"
+              name="email"
+              value=""
+              placeholder="person@demo.com"
+              title="Please provide email address"
+              required
+            >
+          </label>
+          <label>
+            <span>Phone:</span>
+            <input 
+              type="tel"
+              name="phonenumber"
+              value=""
+              placeholder="0155512345"
+              title="Please provide phone number"
+              pattern="[0-9]{10,20}" 
+              required
+            >
+          </label>
+        </fieldset>    
+        <fieldset>
+          <label>
+            <span>Date of Birth:</span>
+            <input 
+              type="date"
+              name="dateOfBirth"
+              title="Please provide date of birth"
+              required
+            >
+          </label>
+          <label>
+            <span>Home State or Country:</span>
+            <select name="stateOrCountry" required>
+            </select>
+          </label>
+          <label>
+            <span>Special Accomodations/Comments:</span>
+            <textarea 
+              name="comments"
+              cols="50"
+              rows="5"
+              placeholder="Please enter any additional information."
+            ></textarea>
+          </label>
+        </fieldset>
+      </div>
+      <div id="eventRegistrationSubmit">
+        <input type="submit" class="submitBtn" value="Submit Registration">
+        <input 
+          type="hidden"
+          value="Event Registration"
+          name="subject"
+        >
+      </div>
     </form>
   </div>
 </main>
