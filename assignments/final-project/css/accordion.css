@@ -1,9 +1,3 @@
-.accordionContainer {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .accordion {
   background-color: #eee;
   color: #444;
@@ -33,14 +27,27 @@
 }
 
 .accordionPanel {
+  display: none;
   padding: 0 18px;
   background-color: white;
-  max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  width: 100%;
+}
+
+.panelContent {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .accordionPanel img {
-  width: 100%;
+  max-width: 95%;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .panelContent {
+    grid-template-columns: 1fr 1fr;
+  }
 }

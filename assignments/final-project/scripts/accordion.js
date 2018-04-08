@@ -1,20 +1,18 @@
-(function() {
-  var acc = document.getElementsByClassName('accordion');
-  var i;
+$(function() {
+  $('#hamburgerBtn').click(function() {
+    $('#primaryNav').toggleClass('hide');
+  });
+  CurrentDate();
 
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function() {
-        /* Toggle between adding and removing the 'active' class,
-        to highlight the button that controls the panel */
-      this.classList.toggle('activePanel');
+  var acc = $('.accordion');
 
-      /* Toggle between hiding and showing the active panel */
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight){
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      } 
+  acc.each(function() {
+    $(this).click(function() {
+      $(this).toggleClass('activePanel');
+      var panel = $(this).next();
+      panel.slideToggle(400);
     });
-  }
-})();
+  });
+
+  acc[2].click();
+});
