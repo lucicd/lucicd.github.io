@@ -1,0 +1,113 @@
+[
+  {
+    "group": "Brakes",
+    "items": [
+      {
+        "name": "Adjust/Install Rim Brake Pads",
+        "price": "$9.99"
+      },
+      {
+        "name": "Adjust/Install Disc Brake Pads",
+        "price": "$14.99"
+      },
+      {
+        "name": "Install Hydraulic Disc Brakes",
+        "price": "$24.99"
+      },
+      {
+        "name": "Install Mechanical Disc Brakes",
+        "price": "$14.99"
+      },
+      {
+        "name": "Install Rim Brake Set",
+        "price": "$12.99"
+      },
+      {
+        "name": "Install Brake Cables/Housing",
+        "price": "$9.99"
+      },
+      {
+        "name": "Install Brake Levers",
+        "price": "$12.99"
+      },
+      {
+        "name": "Install Rotor",
+        "price": "$7.99"
+      },
+      {
+        "name": "Bleed Hydraulic Disc Brake",
+        "price": "$14.99"
+      }
+    ]
+  },
+  {
+    "group": "Wheels",
+    "items": [
+      {
+        "name": "Install Inner Tube",
+        "price": "$6.99"
+      },
+      {
+        "name": "Repair Inner Tube",
+        "price": "$8.99"
+      },
+      {
+        "name": "True Wheel",
+        "price": "$12.99"
+      },
+      {
+        "name": "Install Spoke (Each)",
+        "price": "$5.99"
+      },
+      {
+        "name": "Adjust Hub (Front or Rear)",
+        "price": "$5.99"
+      },
+      {
+        "name": "Overhaul Front Hub",
+        "price": "$14.99"
+      },
+      {
+        "name": "Overhaul Rear Hub",
+        "price": "$18.99"
+      },
+      {
+        "name": "Wheel Slime (Per Wheel)",
+        "price": "$4.99"
+      }
+    ]
+  },
+  {
+    "group": "Handlebars/Fork/Headset",
+    "items": [
+      {
+        "name": "Install Handlebars",
+        "price": "$9.99"
+      },
+      {
+        "name": "Install Bar Ends",
+        "price": "$6.99"
+      },
+      {
+        "name": "Install Handlebar Grips",
+        "price": "$6.99"
+      },
+      {
+        "name": "Install Handlebar Tape",
+        "price": "$8.99"
+      },
+      {
+        "name": "Install Fork",
+        "price": "$34.99"
+      },
+      {
+        "name": "Headset Adjustments",
+        "price": "$7.99"
+      },
+      {
+        "name": "Install or Overhaul Headset",
+        "price": "$17.99"
+      }
+    ]
+  }
+]

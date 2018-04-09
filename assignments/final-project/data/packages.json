@@ -1,0 +1,29 @@
+[
+  {
+    "packageName": "Tune-Up Package",
+    "includedServices": [
+      "Degreasing the bike",
+      "Lubricating cables, chains, freewheels",
+      "Adjusting gears",
+      "Adjusting brakes",
+      "Truing wheels",
+      "Checking spoke tension",
+      "Polishing the bike"
+    ],
+    "price": "$69.00"
+  },
+  {
+    "packageName": "Tune-Up Plus Package",
+    "includedServices": [
+      "All services included in the Tune-Up Package",
+      "Disassemble and clean drive-train (chain, cassette, crank)"
+    ],
+    "price": "$99.00"
+  },
+  {
+    "packageName": "Retul Fitting",
+    "description": "Get the most accurate fit with the latest in bicycle fitting technology! Our staff have been trained to be experts on Retul's award-winning system so come on in or check out our page on <a href=\"https://joyfulcycles.com/articles/retul-bicycle-fitting-for-the-digital-age-pg76.htm\">Retul</a> for more information.",
+    "price": "$275.00",
+    "priceNote": "Retul Fitting service free with any bicycle purchase of $3,000.00 or over."
+  }
+]

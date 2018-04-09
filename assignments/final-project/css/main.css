@@ -9,6 +9,11 @@
   margin: 0;
 }
 
+/*Prevent jumping vertical scroll bar*/
+html {
+  margin-left: calc(100vw - 100%);
+}
+
 /*COLORS*/
 header, footer, nav, .callToAction div button, input.submitBtn {
   background-color: #3d372d;
@@ -118,9 +123,12 @@ nav ul {
 }
 
 nav button {
-  margin-left: 0.2em;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  z-index: 20;
   color: white;
-  font-size: 2.5em;
+  font-size: 2em;
   background-color: transparent;
   text-align: left;
   border: none;
