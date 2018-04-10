@@ -14,6 +14,12 @@ html {
   margin-left: calc(100vw - 100%);
 }
 
+iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+
 /*COLORS*/
 header, footer, nav, .callToAction div button, input.submitBtn {
   background-color: #3d372d;
