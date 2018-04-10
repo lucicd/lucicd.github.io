@@ -23,12 +23,12 @@ iframe {
 /*COLORS*/
 header, footer, nav, .callToAction div button, input.submitBtn {
   background-color: #3d372d;
-  color: rgb(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .callToAction div button:hover, input.submitBtn:hover {
   color: #3d372d;
-  background-color: rgb(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 h1, h2, h3 {
@@ -50,7 +50,7 @@ p {
 }
 
 footer p {
-  color: rgb(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 nav ul li a {
