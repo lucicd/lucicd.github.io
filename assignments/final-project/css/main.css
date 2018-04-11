@@ -302,3 +302,22 @@ footer>p {
   margin-top: 0;
   padding: 5px;
 }
+
+/*VIDEO PAGE*/
+
+video {
+  width: 100%;
+}
+
+#presentationVideo:link, #presentationVideo:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+#presentationVideo:hover, #presentationVideo:active {
+    background-color: red;
+}
