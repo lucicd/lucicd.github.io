@@ -1,0 +1,33 @@
+@media only screen and (min-width: 1024px) {
+  .display-small {
+    display: none;
+  }
+  .display-medium {
+    display: none;
+  }
+  .display-large {
+    display: block;
+  }
+  .title {
+    font-size: 4.2em;
+  }
+  .subtitle {
+    font-size: 2.2em;
+  }   
+
+  nav ul li a {
+    font-size: 1.2em;
+  }
+
+  .weather-block {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  .weather-data {
+    display: inline-block;
+    width: 20%;
+    vertical-align: middle;
+  }
+}

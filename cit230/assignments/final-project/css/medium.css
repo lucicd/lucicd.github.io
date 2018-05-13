@@ -1,0 +1,42 @@
+@media only screen and (min-width: 600px) {
+  .title {
+    font-size: 3em;
+  }
+
+  .subtitle {
+    font-size: 1.3em;
+  }
+
+  nav div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  nav button {
+    display: none;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+
+  nav ul li {
+    line-height: 1em;
+  }
+
+  nav ul li a {
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 14px 14px;
+    text-align: center;
+  }
+
+  nav ul.hide {
+    display: flex;
+  }
+
+  .home-stories {
+    grid-template-columns: 1fr 1fr;
+  }
+}

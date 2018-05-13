@@ -1,0 +1,238 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+
+* { 
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2 {
+  background-color: #FFF;
+  color: #248159;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.5em;
+}
+
+h3 {
+  font-weight: bolder;
+  font-size: 1.3em;
+  background-color: #FFF;
+  color: #67001F;
+}
+
+p {
+  font-weight: normal;
+  font-size: 1.1em;
+  background-color: #FFF;
+  color: #001C10;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+header, nav, main, footer { 
+  margin: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  max-width: 1200px;
+}
+
+.display-small {
+  display: block;
+}
+.display-medium {
+  display: none;
+}
+.display-large {
+  display: none;
+}
+.inline-block {
+  display: inline-block;
+}
+.align-middle {
+  vertical-align: middle;
+}
+.align-center {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8em;
+}
+.subtitle {
+  margin: 0;
+  font-family: 'Courgette', cursive;
+  font-size: 0.9em;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+nav {
+  width: 100%;
+}
+
+nav div {
+  background-color: #240008;
+}
+
+nav button {
+  margin-left: 0.2em;
+  color: white;
+  font-size: 2.75em;
+  background-color: transparent;
+  border: none;
+}
+
+nav ul {
+  list-style-type: none;
+  background-color: #240008;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+nav ul li.active a {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav ul.hide {
+  display: none;
+}
+
+.weather-group {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.weather-block {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+#city-name {
+  font-size: 2em;
+}
+
+.weather-block #main-image {
+  width: 100%;
+  height: auto;
+}
+
+.weather-block #weather-desc {
+  font-family: 'Courgette', cursive;
+  font-size: 1.5em;
+}
+
+.weather-block #weather-image {
+  width: 100px !important;
+  height: 100px !important;
+  vertical-align: middle;
+}
+
+.weather-data {
+  display: block;
+}
+
+.forecast {
+  display: none;
+  margin-top: 5px;
+}
+
+.forecast h3 {
+  border-style: solid solid none solid;
+  text-align: center;
+  border-width: 1px;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0.5em;
+  background-color: silver;
+}
+
+.forecast table {
+  border: 1px;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.forecast table th, .forecast table td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 4px;
+  background-color: gainsboro;
+}
+
+article {
+  border: 1px solid;
+  margin-top: 0.5em;
+  padding: 1em;
+}
+
+article h3 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+article p {
+  margin-bottom: 0;
+}
+
+.article-image {
+  width: 100%;
+  margin: 0;
+  float: none;
+}
+
+footer {
+  margin-top: 0.4em;
+  text-align: center;
+  font-size: 0.8em;
+}
+footer aside {
+  background-color: #A82F54;
+  padding: 0.5em;
+  color: lightgray;
+}
+footer aside span {
+  font-weight: bold;
+}
+footer>p {
+  margin-top: 0;
+  padding: 0.5em;
+  background-color: #67001F;
+  color: lightgray;
+}

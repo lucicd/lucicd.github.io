@@ -1,0 +1,18 @@
+@media only screen and (min-width: 1024px) {
+  .title {
+    font-size: 3.7em;
+  }
+
+  .subtitle {
+    font-size: 1.5em;
+  }
+
+  .callToAction div button {
+    width: 12em;
+    font-size: 1.8em;
+  }
+
+  .home-stories {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

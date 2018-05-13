@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  var myArray = [];
+  console.log(myArray);
+
+  // This should show 0 and it shows 0.
+  console.log(myArray.length);
+
+  myArray[10] = 1;
+  // This array has only 1 element, but the length is 11.
+  console.log(myArray);
+  console.log(myArray.length);
+
+  for (var i = 0; i < myArray.length; i++) {
+    console.log('myArray[i] = ' + myArray[i]);
+  }
+
+  // Array length can be changed directly.
+  // Elements above array length are deleted.
+  myArray.length = 5;
+  console.log(myArray);
+  console.log(myArray.length);
+</script>
+</body>
+</html>

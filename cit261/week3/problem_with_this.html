@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    function greetings() {
+      return 'Hello, my name is ' + this.name + '.';
+    }
+    this.greetings = greetings;
+  }
+
+  var person1 = new Person('Bob', 32);
+  console.log(person1);
+  console.log(person1.greetings());
+
+  var person2 = new Person('Alice', 25);
+  console.log(person2);
+  console.log(person2.greetings());
+
+  function showMsg(callback) {
+    console.log(callback());
+  }
+
+  //The names will be undefined.
+  showMsg(person1.greetings);
+  showMsg(person2.greetings);
+
+  //The will work fine.
+  showMsg(function() {
+    return person1.greetings();
+  });
+  showMsg(function() {
+    return person2.greetings();
+  });
+</script>
+</body>
+</html>

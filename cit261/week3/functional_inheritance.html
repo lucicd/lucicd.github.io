@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+/*
+Object factory template
+  Step 1: Create new object
+  Step 2: Optionally, define private instance variables and methods
+  Step 3: Augment new object
+  Step 4: Ceturn new object
+*/
+
+function createPerson(name, age) {
+  var that = {};
+  that.name = name;
+  that.age = age;
+  function greetings() {
+    return 'Hello, my name is ' + that.name + '.';
+  }
+  that.greetings = greetings;
+  return that;
+}
+
+
+function createStudent(name, age, major) {
+  var that = createPerson(name, age);
+  that.major = major;
+  function showMajor() {
+    return 'My major is ' + that.major + '.';
+  }
+  that.showMajor = showMajor;
+  return that;
+}
+
+var person1 = createPerson('Bob', 32);
+var student1 = createStudent('Alice', 25, 'Software Egnineering');
+
+console.log(person1);
+console.log(person1.greetings());
+console.log(student1);
+console.log(student1.greetings());
+console.log(student1.showMajor());
+
+</script>
+</body>
+</html>

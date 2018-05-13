@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Franklin City | Weather Me</title>
+  <meta name="author" content="Drazen Lucic">
+  <meta name="description" content="Providing weather alerts and forecasts for Franklin City">
+  <link href="styles/normalize.css" rel="stylesheet"> 
+  <link href="styles/main.css" rel="stylesheet">
+  <link href="styles/medium.css" rel="stylesheet">  
+  <link href="styles/large.css" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div>
+        <img class="display-small" src="images/logo-small.png" alt="Weather Me Logo">
+        <img class="display-medium" src="images/logo-medium.png" alt="Weather Me Logo">
+        <img class="display-large" src="images/logo-large.png" alt="Weather Me Logo">
+      </div>
+      <div>
+        <h1 class="title">Weather Me!</h1>
+        <h3 class="subtitle">Weather alerts on any device.</h3>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div>
+      <button onclick="toggleMenu()">&#9776;</button>
+      <ul id="primaryNav" class="hide">
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Franklin</a></li>
+        <li><a href="#">Greenville</a></li>
+        <li><a href="#">Springfield</a></li>
+        <li><a href="#">Storm Center</a></li>
+        <li><a href="gallery-7.html">Gallery</a></li>
+      </ul>   
+    </div>
+  </nav>
+    
+  <main>
+    <div class="weather-container">
+      <div class="main-image" >
+        <picture>
+          <source srcset="images/franklin-small.jpg" media="(max-width: 600px)">
+          <source srcset="images/franklin-medium.jpg" media="(max-width: 1024px)">
+          <source srcset="images/franklin-large.jpg">
+          <img src="images/franklin-large.jpg" alt="Franklin image">
+        </picture>
+      </div>
+      <div class="weather-group">
+        <h2 class="main-title">Franklin</h2>
+        <div class="weather-block">
+          <div class="weather-desc">Sunny</div>
+          <div class="weather-icon-container">
+            <img src="images/sun.png" class="weather-icon" alt="Weather icon">
+          </div>
+        </div>
+        <div class="temperature">
+          High:
+          &nbsp;<span id="high-temp"></span>&deg;F
+          <br>
+          Low:
+          &nbsp;<span id="low-temp"></span>&deg;F
+        </div>
+        <div class="precip-wind">
+          Precipitation: 
+          &nbsp;<span id="precipitation"></span>%
+          <br>
+          Wind Speed:
+          &nbsp;<span id="wind-speed"></span>mph
+          &nbsp;<span id="wind-direction"></span>
+          <br>
+          Chill Factor:
+          &nbsp;<span id="chill-factor"></span>&deg;F
+        </div>
+      </div>
+    </div>
+        
+    <section class="forecast">
+      <h3>10 Day Forecast</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Day 1</th>
+            <th>Day 2</th>
+            <th>Day 3</th>
+            <th>Day 4</th>
+            <th>Day 5</th>
+            <th>Day 6</th>
+            <th>Day 7</th>
+            <th>Day 8</th>
+            <th>Day 9</th>
+            <th>Day 10</th>
+          </tr>
+        </thead>
+        <tbody>  
+          <tr>
+            <td>89&deg;F</td>
+            <td>87&deg;F</td>
+            <td>78&deg;F</td>
+            <td>75&deg;F</td>
+            <td>72&deg;F</td>
+            <td>72&deg;F</td>
+            <td>79&deg;F</td>
+            <td>83&deg;F</td>
+            <td>85&deg;F</td>
+            <td>89&deg;F</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+      
+    <article>
+      <h3>Franklin Breaks Record</h3> 
+      <div class="article-image">
+        <img src="images/town-article-photo.jpg" alt="Article photo">
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dignissimos commodi, illo mollitia nisi quod tenetur libero quisquam. Libero quasi repudiandae minima pariatur voluptate laudantium deleniti, voluptatibus quos doloribus veritatis eveniet, iste fuga ipsum sequi iusto molestias. Similique excepturi, veritatis sint fuga consectetur suscipit sapiente tempora reprehenderit rerum! Reprehenderit, laboriosam!
+      </p>
+    </article>      
+  
+  </main>
+    
+  <footer>
+    <aside>
+      <span>Weather Me!</span><br>
+      123 Main St.<br>
+      Franklin, MU 83454<br>
+      (999) 999-9999<br>
+      contact@theurl.com<br>
+    </aside>
+    <p class="footer-bar">
+      &copy;2018 All Rights Reserved | 
+      Weather Me! | 
+      <span id="currentdate"></span>
+    </p>
+  </footer>
+
+  <script src="scripts/hamburger.js"></script>
+  <script src="scripts/currentdate.js"></script>
+  <script src="scripts/windchill.js"></script>
+
+</body>
+</html>

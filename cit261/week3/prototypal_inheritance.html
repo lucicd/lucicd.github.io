@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+var person1 = {
+  name: 'Bob',
+  age: 32,
+  greetings: function() {
+    return 'Hello, my name is ' + this.name + '.';
+  }
+};
+
+var student1 = Object.create(person1);
+student1.name = 'Alice';
+student1.age = 25;
+student1.major = 'Software Egnineering';
+student1.showMajor = function() {
+  return 'My major is ' + this.major + '.';
+};
+
+console.log(person1);
+console.log(person1.greetings());
+console.log(student1);
+console.log(student1.greetings());
+console.log(student1.showMajor());
+
+// Change of inherited method
+person1.greetings = function() {
+  return 'Aloha, my name is ' + this.name + '.';
+};
+
+console.log(person1.greetings());
+console.log(student1.greetings());
+
+</script>
+</body>
+</html>

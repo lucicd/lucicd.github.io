@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  var myArray = [1, 2, 3];
+
+  console.log(myArray);
+
+  function is_array1(value) {
+    //Always returns false because arrays are objects
+    return typeof value === 'Array';
+  }
+
+  function is_array2(value) {
+    //The most reliable old way to detect an array
+    return value &&
+      typeof value === 'object' &&
+      typeof value.length === 'number' &&
+      typeof value.splice === 'function' &&
+      !(value.propertyIsEnumerable('length'));
+  }
+
+  function is_array3(value) {
+    //The modern way
+    //Works through iframes
+    return Array.isArray(value);
+  }
+
+  console.log(is_array1(myArray));
+  console.log(is_array2(myArray));
+  console.log(is_array3(myArray));
+</script>
+</body>
+</html>

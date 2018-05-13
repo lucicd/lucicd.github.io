@@ -1,0 +1,474 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Courgette);
+
+* { 
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2 {
+  background-color: #FFF;
+  color: #248159;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.5em;
+}
+
+h3 {
+  font-weight: bolder;
+  font-size: 1.3em;
+  background-color: #FFF;
+  color: #67001F;
+}
+
+p {
+  font-weight: normal;
+  font-size: 1.1em;
+  background-color: #FFF;
+  color: #001C10;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+header, nav, main, footer { 
+  margin: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  max-width: 1200px;
+}
+
+.display-small {
+  display: block;
+}
+.display-medium {
+  display: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8em;
+}
+.subtitle {
+  margin: 0;
+  font-family: 'Courgette', cursive;
+  font-size: 0.9em;
+}
+
+nav {
+  width: 100%;
+}
+
+nav div {
+  display: flex;
+  flex-direction: column;
+  background-color: #240008;
+  margin: 0;
+  padding: 0;
+}
+
+nav button {
+  margin-left: 0.2em;
+  color: white;
+  font-size: 2.75em;
+  background-color: transparent;
+  text-align: left;
+  border: none;
+}
+
+nav ul {
+  list-style-type: none;
+  background-color: #240008;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+nav ul li {
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+nav ul li.active a {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav ul.hide {
+  display: none;
+}
+
+.weather-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.main-image {
+  padding-top: 5px;
+  width: 100%;
+}
+
+.main-image img {
+  width: 100%;
+  margin: auto;
+}
+
+.weather-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.main-title {
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.weather-block {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.weather-desc {
+  font-family: 'Courgette', cursive;
+  font-size: 1.5em;
+  text-align: right;
+}
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.temperature {
+  width: 100%;
+  text-align: center;
+}
+
+.weather-data {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: grid;
+  max-width: 35em;
+  grid-template-columns: 1fr 2fr;
+}
+
+.weather-data div {
+  padding: 3px 0.5em 3px 0.5em;
+}
+
+.weather-data .header {
+  text-align: right;
+  font-weight: bold;
+}
+
+.forecast {
+  display: none;
+  margin-top: 5px;
+}
+
+.forecast h3 {
+  border-style: solid solid none solid;
+  text-align: center;
+  border-width: 1px;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0.5em;
+  background-color: silver;
+}
+
+.forecast table {
+  border: 1px;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.forecast table th, .forecast table td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 4px;
+  background-color: gainsboro;
+}
+
+article {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px solid;
+  margin-top: 0.5em;
+  padding: 1em;
+}
+
+article h3 {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0 5px 15px 5px;
+  width: 100%;
+}
+
+.article-image {
+  width: 100%;
+}
+
+.article-image img {
+  width: 100%;
+  margin: auto;
+}
+
+article p {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#about div {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#about ul {
+  margin-left: 2em;
+}
+
+footer {
+  margin-top: 0.4em;
+  text-align: center;
+  font-size: 0.8em;
+}
+footer aside {
+  background-color: #A82F54;
+  padding: 0.5em;
+  color: lightgray;
+}
+footer aside span {
+  font-weight: bold;
+}
+footer>p {
+  margin-top: 0;
+  padding: 0.5em;
+  background-color: #67001F;
+  color: lightgray;
+}
+footer aside a img {
+  width: 100px;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+.gallery-grid {
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  grid-template-columns: 1fr;
+  grid-gap: 10px 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+}
+
+.gallery-grid figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* STORM CENTER FORM STUFF*/
+
+form#stormcenter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1em 1em;
+}
+
+fieldset {
+  background-color: rgba(188, 130, 50, 0.1);
+  margin: 1.5em 0;
+  border: #917a56 solid 1px;
+  box-shadow: 5px 5px 20px #cccccc;
+  width: 100%;
+}
+
+legend {
+  color: #450015;
+  margin-left: 6%;
+  padding: 0.5em;
+  border: #917a56 solid 1px;
+  background-color: #f2eee7;
+  border-radius: 0.4em;
+}
+
+label, .dangerlevel, .stormseverity {
+  display: block;
+  margin: 0.5em;
+}
+
+label span,
+.dangerlevel span,
+.stormseverity span {
+  display: block;
+  font-size: 0.9em;
+  color: #450015;
+  padding-top: 0.9em;
+  padding-bottom: 0.2em;
+}
+
+label input, label select,
+label textarea,
+.stormseverity div,
+.dangerlevel div {
+  background-color: #f4f2ef;
+  color: #917a56;
+  height: 2.2em;
+  padding: .5em .3em .5em 2em;
+  border: solid 1px #b0aaa0;
+  border-radius: 5px;
+  font-size: .9em;
+  width: 100%;
+  max-width: 500px;
+  background-image: url(../images/ico_validation.png);
+  background-repeat: no-repeat;
+  background-position: 4px -11px
+}
+
+.dangerlevel div {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  padding-left: 2em;
+}
+
+.dangerlevel label {
+  display: flex;
+  align-items: center;
+  max-width: 120px;
+  padding: 0;
+  margin: 0;
+}
+
+.dangerlevel input, .dangerlevel label span {
+  display: inline;
+}
+
+.dangerlevel label span {
+  padding: 0 2em 0 0;
+}
+
+.dangerlevel input {
+  width: 1.1em;
+}
+
+label textarea {
+  padding-left: .3em;
+  background-image: none;
+  height: auto;
+}
+
+.stormseverity div {
+  display: flex;
+  align-items: center;
+}
+
+.stormseverity input {
+  width: 90%;
+}
+
+.stormseverity div span {
+  width: 10%;
+  text-align: center;
+  padding: 0;
+}
+
+input.submitBtn {
+  -webkit-appearance: none; /*remove the apple mobile default styling*/
+  color: #fff;
+  border: solid 1px #111;
+  border-radius: 7px;
+  width: 90%;
+  max-width: 500px;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  font-size: 1.1em;
+  padding: .6em;
+  background: #004f2d; /* Old browsers */
+  box-shadow: 4px 4px 10px #666;
+}
+
+input:focus, select:focus, textarea:focus {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+input:required {
+  background-position: 4px -61px;
+}
+
+input:focus:invalid {
+  background-position: 4px -111px;
+}
+
+input:required:valid {
+  background-color: #fff;
+  background-position: 4px -161px;
+}
+
+/* HOME PAGE STUFF*/
+
+#about article {
+  display: flex;
+  flex-direction: column;
+}
+
+#about article div {
+  width: 100%;
+}
+
+#about article div p {
+  width: 100%;
+}
+
+#about article div img {
+  width: 100%;
+  padding-top: 1em;
+}
+
+/* ONE TOWN PAGE STUFF */
+#about-one ul {
+  padding-left: 2em;
+}
