@@ -1,0 +1,11 @@
+body { 
+  font-size: 16px; 
+  line-height: 32px;
+  font-family: sans-serif;
+}
+
+pre {
+  background: lightgray;
+  border: 1px solid black;
+  padding: 10px;
+}

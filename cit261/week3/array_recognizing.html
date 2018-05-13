@@ -2,37 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Recognizing Arrays</title>
+  <link rel="stylesheet" href="../styles/demo.css">
 </head>
 <body>
+  <h1>Recognizing Arrays</h1>
+  <p>Arrays are objects in JavaScript. The best way to recognize an array is to use <strong>Array.isArray</strong> method.</p>
+
+  <section>
+    <h2>Using Array.isArray - case 1, real array</h2>
+    <p>
+      <pre>
+        var myArray = [1, 2, 3, 4, 5];
+        console.log(Array.isArray(myArray));</pre>
+      This should show true.<br>
+      <button id="btn1">Check</button>
+      <p>The result is: <span id="out1"></span></p>
+    </p>
+  </section>
+
+  <section>
+    <h2>Using Array.isArray - case 2, non-array</h2>
+    <p>
+      <pre>
+        var myArray = 1;
+        console.log(Array.isArray(myArray));</pre>
+      This should show false.<br>
+      <button id="btn2">Check</button>
+      <p>The result is: <span id="out2"></span></p>
+    </p>
+  </section>
+
+  <section>
+    <h2>Using Array.isArray - case 3, empty array</h2>
+    <p>
+      <pre>
+        var myArray = [];
+        console.log(Array.isArray(myArray));</pre>
+      This should show true.<br>
+      <button id="btn3">Check</button>
+      <p>The result is: <span id="out3"></span></p>
+    </p>
+  </section>
+
+<script src="../scripts/drazen-byui.js"></script>
 <script>
-  var myArray = [1, 2, 3];
 
-  console.log(myArray);
+  (function(gebi, undefined) {
+    window.onload = function() {
+      gebi('btn1').onclick = function() {
+        var myArray = [1, 2, 3];
+        gebi('out1').innerHTML = Array.isArray(myArray) + '<br>'
+          + JSON.stringify(myArray);
+      };
 
-  function is_array1(value) {
-    //Always returns false because arrays are objects
-    return typeof value === 'Array';
-  }
+      gebi('btn2').onclick = function() {
+        var myArray = 1;
+        gebi('out2').innerHTML = Array.isArray(myArray) + '<br>'
+          + JSON.stringify(myArray);
+      };
 
-  function is_array2(value) {
-    //The most reliable old way to detect an array
-    return value &&
-      typeof value === 'object' &&
-      typeof value.length === 'number' &&
-      typeof value.splice === 'function' &&
-      !(value.propertyIsEnumerable('length'));
-  }
+      gebi('btn3').onclick = function() {
+        var myArray = [];
+        gebi('out3').innerHTML = Array.isArray(myArray) + '<br>'
+          + JSON.stringify(myArray);
+      };
+    };
+  })(drazenByui.gebi);
 
-  function is_array3(value) {
-    //The modern way
-    //Works through iframes
-    return Array.isArray(value);
-  }
-
-  console.log(is_array1(myArray));
-  console.log(is_array2(myArray));
-  console.log(is_array3(myArray));
 </script>
 </body>
 </html>

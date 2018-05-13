@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drazen's CIT261 Editor</title>
+  <link rel="stylesheet" href="../styles/editor.css">
+</head>
+  
+<body>
+
+  <header>
+    <button id="runCodeBtn">Run Code</button>
+  </header>
+
+  <main>
+    
+    <section>
+      <h1>Input Your Code here!</h1>
+      <form>
+        <textarea id="sourceCode">
+          <html>
+          <head>
+            <title>My Codes</title>
+          </head>
+          <body>
+            <h1>Welcome Coders!</h1>
+            <p>Write HTML, Javascript or CSS here & click run code!</p>
+          </body> 
+          </html>
+        </textarea>
+      </form>
+    </section>
+
+    <section>
+      <h1>Output</h1>
+      <iframe name="targetCode" id="targetCode"></iframe>
+    </section>
+
+  </main>
+
+  <script>
+    function getUrlParams() {
+      var urlStr = window.location.href;
+      var url = new URL(urlStr);
+      var week = url.searchParams.get('week');
+      var page = url.searchParams.get('page');
+      console.log(week);
+      console.log(page);
+      return {week: week, page: page};
+    }
+
+    function runCode() {
+      var content = document.getElementById('sourceCode').value;
+      var iframe = document.getElementById('targetCode');
+      iframe = (iframe.contentWindow)?iframe.contentWindow:(iframe.contentDocument)? iframe.contentDocument.document: 
+      iframe.contentDocument;
+
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    document.getElementById('runCodeBtn').onclick = runCode;
+    var params = getUrlParams();
+    if (params.week && params.page) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        var target =  document.getElementById("sourceCode");
+        if (this.readyState == 4 && this.status == 200) {
+          target.innerHTML = xhttp.responseText;
+          runCode();
+        } else {
+          target.innerHTML = '<h1>Error</h1>';
+        }
+      }
+      xhttp.open('GET', '../' + params.week + '/' + params.page, true);
+      xhttp.send();
+    }
+  </script>
+</body>
+</html>

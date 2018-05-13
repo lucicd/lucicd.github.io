@@ -2,30 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>How to determine array length?</title>
+  <link rel="stylesheet" href="../styles/demo.css">
 </head>
 <body>
-<script>
-  var myArray = [];
-  console.log(myArray);
+  <h1>How to determine array length?</h1>
+  <p>Array length is defined as the numerically <strong>largest array index</strong>, converted to integer, <strong>plus one</strong>.</p>
+  <div><button onclick="run()">Run!</button></div>
+  <div id="consoleOutput"></div>
+  <script src="../scripts/console.js"></script>
+  <script>
+    function run() {
+      var myArray = [];
+      console.log(JSON.stringify(myArray));
+      console.log(myArray.length);
 
-  // This should show 0 and it shows 0.
-  console.log(myArray.length);
+      //Length of this array should be 11
+      myArray[10] = 'test';
+      console.log(JSON.stringify(myArray));
+      console.log(myArray.length);
 
-  myArray[10] = 1;
-  // This array has only 1 element, but the length is 11.
-  console.log(myArray);
-  console.log(myArray.length);
-
-  for (var i = 0; i < myArray.length; i++) {
-    console.log('myArray[i] = ' + myArray[i]);
-  }
-
-  // Array length can be changed directly.
-  // Elements above array length are deleted.
-  myArray.length = 5;
-  console.log(myArray);
-  console.log(myArray.length);
-</script>
+      //Length of this array should be 5
+      myArray.length = 5;
+      console.log(JSON.stringify(myArray));
+      console.log(myArray.length);
+    }
+  </script>
 </body>
 </html>
