@@ -4,29 +4,27 @@
   <meta charset="UTF-8">
   <title>How to determine array length?</title>
   <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
 </head>
 <body>
   <h1>How to determine array length?</h1>
   <p>Array length is defined as the numerically <strong>largest array index</strong>, converted to integer, <strong>plus one</strong>.</p>
-  <div><button onclick="run()">Run!</button></div>
-  <div id="consoleOutput"></div>
-  <script src="../scripts/console.js"></script>
+  <textarea id="consoleOutput"></textarea>
   <script>
-    function run() {
-      var myArray = [];
-      console.log(JSON.stringify(myArray));
-      console.log(myArray.length);
+    //Length of this array should be 0
+    var myArray = [];
+    show(myArray);
+    show(myArray.length);
 
-      //Length of this array should be 11
-      myArray[10] = 'test';
-      console.log(JSON.stringify(myArray));
-      console.log(myArray.length);
+    //Length of this array should be 11
+    myArray[10] = 'test';
+    show(myArray);
+    show(myArray.length);
 
-      //Length of this array should be 5
-      myArray.length = 5;
-      console.log(JSON.stringify(myArray));
-      console.log(myArray.length);
-    }
+    //Length of this array should be 5
+    myArray.length = 5;
+    show(myArray);
+    show(myArray.length);
   </script>
 </body>
 </html>

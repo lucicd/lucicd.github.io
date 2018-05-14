@@ -3,26 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
 </head>
 <body>
-<script>
+  <h1>Problem with Parenthesis</h1>
+  <p>Semicolons are not needed in JavaScript. JavaScript will insert them automatically, but this can cause errors.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    //Functions below looks identical except
+    //for position of the parenthesis.
+    function foo1() {
+      return {
+        ok: false
+      };
+    }
 
-function foo1() {
-  return {
-    ok: false
-  };
-}
+    function foo2() {
+      return
+      {
+        ok: false
+      };
+    }
 
-function foo2() {
-  return
-  {
-    ok: false
-  };
-}
+    //This shows correct object
+    show(foo1());
 
-console.log(foo1());
-console.log(foo2());
-  
-</script>
+    //This will show 'undefined'
+    show(foo2());
+  </script>
 </body>
 </html>

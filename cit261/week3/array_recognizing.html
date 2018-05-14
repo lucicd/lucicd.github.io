@@ -4,72 +4,31 @@
   <meta charset="UTF-8">
   <title>Recognizing Arrays</title>
   <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
 </head>
 <body>
   <h1>Recognizing Arrays</h1>
   <p>Arrays are objects in JavaScript. The best way to recognize an array is to use <strong>Array.isArray</strong> method.</p>
-
-  <section>
-    <h2>Using Array.isArray - case 1, real array</h2>
-    <p>
-      <pre>
-        var myArray = [1, 2, 3, 4, 5];
-        console.log(Array.isArray(myArray));</pre>
-      This should show true.<br>
-      <button id="btn1">Check</button>
-      <p>The result is: <span id="out1"></span></p>
-    </p>
-  </section>
-
-  <section>
-    <h2>Using Array.isArray - case 2, non-array</h2>
-    <p>
-      <pre>
-        var myArray = 1;
-        console.log(Array.isArray(myArray));</pre>
-      This should show false.<br>
-      <button id="btn2">Check</button>
-      <p>The result is: <span id="out2"></span></p>
-    </p>
-  </section>
-
-  <section>
-    <h2>Using Array.isArray - case 3, empty array</h2>
-    <p>
-      <pre>
-        var myArray = [];
-        console.log(Array.isArray(myArray));</pre>
-      This should show true.<br>
-      <button id="btn3">Check</button>
-      <p>The result is: <span id="out3"></span></p>
-    </p>
-  </section>
-
-<script src="../scripts/drazen-byui.js"></script>
-<script>
-
-  (function(gebi, undefined) {
-    window.onload = function() {
-      gebi('btn1').onclick = function() {
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    (function() {
+      window.onload = function() {
+        // This should show true
         var myArray = [1, 2, 3];
-        gebi('out1').innerHTML = Array.isArray(myArray) + '<br>'
-          + JSON.stringify(myArray);
-      };
+        show(Array.isArray(myArray));
+        show(myArray);
 
-      gebi('btn2').onclick = function() {
-        var myArray = 1;
-        gebi('out2').innerHTML = Array.isArray(myArray) + '<br>'
-          + JSON.stringify(myArray);
-      };
+        // This should show false
+        myArray = 1;
+        show(Array.isArray(myArray));
+        show(myArray);
 
-      gebi('btn3').onclick = function() {
+        // This should be true also for empty array      
         var myArray = [];
-        gebi('out3').innerHTML = Array.isArray(myArray) + '<br>'
-          + JSON.stringify(myArray);
+        show(Array.isArray(myArray));
+        show(myArray);
       };
-    };
-  })(drazenByui.gebi);
-
-</script>
+    })();
+  </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Drazen's CIT261 Editor</title>
   <link rel="stylesheet" href="../styles/editor.css">
 </head>
@@ -44,8 +45,6 @@
       var url = new URL(urlStr);
       var week = url.searchParams.get('week');
       var page = url.searchParams.get('page');
-      console.log(week);
-      console.log(page);
       return {week: week, page: page};
     }
 
