@@ -2,41 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Prototypal Inheritance</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
 </head>
 <body>
-<script>
+  <h1>Prototypal Inheritance</h1>
+  <p>Objects are created using already existing objecst as <strong>ptototypes</strong>. The keyword <strong>new</strong> is not used</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
 
-var person1 = {
-  name: 'Bob',
-  age: 32,
-  greetings: function() {
-    return 'Hello, my name is ' + this.name + '.';
-  }
-};
+    var person1 = {
+      name: 'Bob',
+      age: 32,
+      greetings: function() {
+        return 'Hello, my name is ' + this.name + '.';
+      }
+    };
 
-var student1 = Object.create(person1);
-student1.name = 'Alice';
-student1.age = 25;
-student1.major = 'Software Egnineering';
-student1.showMajor = function() {
-  return 'My major is ' + this.major + '.';
-};
+    var student1 = Object.create(person1);
+    student1.name = 'Alice';
+    student1.age = 25;
+    student1.major = 'Software Egnineering';
+    student1.showMajor = function() {
+      return 'My major is ' + this.major + '.';
+    };
 
-console.log(person1);
-console.log(person1.greetings());
-console.log(student1);
-console.log(student1.greetings());
-console.log(student1.showMajor());
+    show(person1);
+    show(person1.greetings());
+    show(student1);
+    show(student1.greetings());
+    show(student1.showMajor());
 
-// Change of inherited method
-person1.greetings = function() {
-  return 'Aloha, my name is ' + this.name + '.';
-};
+    //Change of method in the parent object will
+    //propagate to child objects because child objects
+    //contain only references to parent object's methods
+    person1.greetings = function() {
+      return 'Aloha, my name is ' + this.name + '.';
+    };
 
-console.log(person1.greetings());
-console.log(student1.greetings());
+    show(person1.greetings());
+    show(student1.greetings());
 
-</script>
+  </script>
 </body>
 </html>

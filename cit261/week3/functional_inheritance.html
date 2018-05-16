@@ -2,50 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Functional Inheritance</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
 </head>
 <body>
+  <h1>Functional Inheritance</h1>
+  <p>Functionl inheritance is implemented through object factories functions. The template for object factory is:</p>
+  <ol>
+    <li>Create new object</li>
+    <li>Optionally, define private instance variables and methods</li>
+    <li>Augment new object</li>
+    <li>Return new object</li>
+  </ol>
+  <textarea id="consoleOutput"></textarea>
 <script>
-
-/*
-Object factory template
-  Step 1: Create new object
-  Step 2: Optionally, define private instance variables and methods
-  Step 3: Augment new object
-  Step 4: Ceturn new object
-*/
-
-function createPerson(name, age) {
-  var that = {};
-  that.name = name;
-  that.age = age;
-  function greetings() {
-    return 'Hello, my name is ' + that.name + '.';
+  function createPerson(name, age) {
+    var that = {};
+    that.name = name;
+    that.age = age;
+    function greetings() {
+      return 'Hello, my name is ' + that.name + '.';
+    }
+    that.greetings = greetings;
+    return that;
   }
-  that.greetings = greetings;
-  return that;
-}
 
-
-function createStudent(name, age, major) {
-  var that = createPerson(name, age);
-  that.major = major;
-  function showMajor() {
-    return 'My major is ' + that.major + '.';
+  function createStudent(name, age, major) {
+    var that = createPerson(name, age);
+    that.major = major;
+    function showMajor() {
+      return 'My major is ' + that.major + '.';
+    }
+    that.showMajor = showMajor;
+    return that;
   }
-  that.showMajor = showMajor;
-  return that;
-}
 
-var person1 = createPerson('Bob', 32);
-var student1 = createStudent('Alice', 25, 'Software Egnineering');
+  var person1 = createPerson('Bob', 32);
+  var student1 = createStudent('Alice', 25, 'Software Egnineering');
 
-console.log(person1);
-console.log(person1.greetings());
-console.log(student1);
-console.log(student1.greetings());
-console.log(student1.showMajor());
+  show(person1);
+  show(person1.greetings());
+  show(student1);
+  show(student1.greetings());
+  show(student1.showMajor());
 
+  //hHis will affect only object person1, 
+  //but not student1 becuase student1 has its own
+  //copies of all inherited functions.
+  //This doesn't bother me at all :)
+  person1.greetings = function() {
+    return 'Aloha, my name is ' + this.name + '.';
+  };
+  //Greets with Aloha
+  show(person1.greetings());
+  //Greets with Hello
+  show(student1.greetings());
 </script>
 </body>
 </html>

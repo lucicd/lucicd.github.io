@@ -4,126 +4,53 @@
   <meta charset="UTF-8">
   <title>Classical Inheritance</title>
   <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
 </head>
 <body>
   <h1>Classical Inheritance</h1>
   <p>In classical inheritance, JavaScript is trying to imitate classical OO languages such as Java and C++.</p>
-  <section>
-    <h2>Basic Inheritance Example</h2>
-    <p>
-      <pre>
-        //Parent class
-        function Person(name, age) {
-          this.name = name;
-          this.age = age;
-        }
-        
-        Person.prototype.greetings = function() {
-            return 'Hello, my name is ' + this.name + '.';
-        };
-
-        //Child class
-        function Student(name, age, major) {
-          Person.call(this, name, age);
-          this.major = major;
-        }
-        //Boiler plate code to set prototype and constructor
-        Student.prototype = Object.create(Person.prototype);
-        Student.prototype.constructor = Student;
-        //Ehnancement of the child class
-        Student.prototype.showMajor = function() {
-          return 'My major is ' + this.major + '.';
-        };
-        
-        console.log(person1);
-        console.log(student1);
-        console.log(person1.greetings());
-        console.log(student1.greetings());
-        console.log(student1.showMajor());
-      </pre>
-      <button id="btn1">Run</button>
-      <p>The result is: <span id="out1"></span></p>
-    </p>
-  </section>
-<script>
-  (function(gebi) {
-    window.onload = function() {
-      //Parent class
-      function Person(name, age) {
-        this.name = name;
-        this.age = age;
-      }
-      
-      Person.prototype.greetings = function() {
-          return 'Hello, my name is ' + this.name + '.';
-      };
-
-      //Child class
-      function Student(name, age, major) {
-        Person.call(this, name, age);
-        this.major = major;
-      }
-      //Boiler plate code to set prototype and constructor
-      Student.prototype = Object.create(Person.prototype);
-      Student.prototype.constructor = Student;
-      //Ehnancement of the child class
-      Student.prototype.showMajor = function() {
-        return 'My major is ' + this.major + '.';
-      };
-      
-      gebi('btn1').onclick = function() {
-        var person1 = new Person('Bob', 32);
-        var student1 = new Student('Alice', 22, 'Software Development');
-        html = '<br>';
-        html += JSON.stringify(person1) + '<br>';
-        html += JSON.stringify(student1) + '<br>';
-        html += person1.greetings() + '<br>';
-        html += student1.greetings() + '<br>';
-        html += student1.showMajor() + '<br>';
-        gebi('out1').innerHTML = html;
-      };
-
-      // gebi('btn2').onclick = function() {
-      //   var myArray = 1;
-      //   gebi('out2').innerHTML = Array.isArray(myArray) + '<br>'
-      //     + JSON.stringify(myArray);
-      // };
-
-      // gebi('btn3').onclick = function() {
-      //   var myArray = [];
-      //   gebi('out3').innerHTML = Array.isArray(myArray) + '<br>'
-      //     + JSON.stringify(myArray);
-      // };
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    //Parent class
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    
+    Person.prototype.greetings = function() {
+        return 'Hello, my name is ' + this.name + '.';
     };
-  })(function(id) {
-    return document.getElementById(id);
-  });
-  // function Person(name, age) {
-  //   this.name = name;
-  //   this.age = age;
-  // }
 
-  // Person.prototype.greetings = function() {
-  //   return 'Hello, my name is ' + this.name + '.';
-  // };
+    //Child class
+    function Student(name, age, major) {
+      Person.call(this, name, age);
+      this.major = major;
+    }
+    //Boiler plate code to set prototype and constructor
+    Student.prototype = Object.create(Person.prototype);
+    Student.prototype.constructor = Student;
+    //Ehnancement of the child class
+    Student.prototype.showMajor = function() {
+      return 'My major is ' + this.major + '.';
+    };
 
-  
+    var person1 = new Person('Bob', 32);
+    var student1 = new Student('Alice', 25, 'Software Engineering');
+    
+    show(person1);
+    show(student1);
+    show(person1.greetings());
+    show(student1.greetings());
+    show(student1.showMajor());
 
-  // var person1 = new Person('Bob', 32);
-  // console.log(person1);
-  // console.log(person1.greetings());
-
-  // var student1 = new Student('Alice', 25, 'Software Engineering');
-  // console.log(student1);
-  // console.log(student1.greetings());
-  // console.log(student1.showMajor());
-
-  // // Change of inherited method
-  // Person.prototype.greetings = function() {
-  //   return 'Aloha, my name is ' + this.name + '.';
-  // };
-  // console.log(person1.greetings());
-  // console.log(student1.greetings());
-</script>
+    //Change of method in the parent object will
+    //propagate to child objects because child objects
+    //contain only references to parent object's methods
+    Person.prototype.greetings = function() {
+      return 'Aloha, my name is ' + this.name + '.';
+    };
+    show(person1.greetings());
+    show(student1.greetings());
+  </script>
 </body>
 </html>
