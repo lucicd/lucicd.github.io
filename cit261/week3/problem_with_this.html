@@ -2,42 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Problem with 'this'</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
 </head>
 <body>
-<script>
-  function Person(name, age) {
-    this.name = name;
-    this.age = age;
-    function greetings() {
-      return 'Hello, my name is ' + this.name + '.';
+  <h1>Problem with 'this'</h1>
+  <p>Inside a function, the value of 'this' depends on how the function is called.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      function greetings() {
+        //The value of 'this' can change
+        //depending on the context
+        return 'Hello, my name is ' + this.name + '.';
+      }
+      this.greetings = greetings;
     }
-    this.greetings = greetings;
-  }
 
-  var person1 = new Person('Bob', 32);
-  console.log(person1);
-  console.log(person1.greetings());
+    var person1 = new Person('Bob', 32);
+    show(person1);
+    show(person1.greetings());
 
-  var person2 = new Person('Alice', 25);
-  console.log(person2);
-  console.log(person2.greetings());
+    var person2 = new Person('Alice', 25);
+    show(person2);
+    show(person2.greetings());
 
-  function showMsg(callback) {
-    console.log(callback());
-  }
+    function showMsg(callback) {
+      show(callback());
+    }
 
-  //The names will be undefined.
-  showMsg(person1.greetings);
-  showMsg(person2.greetings);
+    //We know that tne name of person1 is Bob
+    //and the name of person2 is Alice.
+    //However, in the context of showMsg function, 
+    //the value of this.name will be the name of the
+    //global window object (in this case it is 'targetCode').
+    showMsg(person1.greetings);
+    showMsg(person2.greetings);
 
-  //The will work fine.
-  showMsg(function() {
-    return person1.greetings();
-  });
-  showMsg(function() {
-    return person2.greetings();
-  });
-</script>
+    //The will work fine
+    //because we explicitly state the object
+    //for which greetings method is called.
+    showMsg(function() {
+      return person1.greetings();
+    });
+    showMsg(function() {
+      return person2.greetings();
+    });
+  </script>
 </body>
 </html>
