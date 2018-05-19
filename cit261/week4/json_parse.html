@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Parse</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>JSON Parse</h1>
+  <p>A common use of JSON is to exchange data to/from a web server. When receiving data from a web server, the data is always a string. Parse the data with <strong>JSON.parse()</strong>, and the data becomes a JavaScript object.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    'use strict';
+    function basicExample() {
+      var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
+      show(obj);
+      show(obj.name);
+      show(obj.age);
+      show(obj.city);
+    }
+
+    function jsonArray() {
+      var json = '["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"]';
+      //JSON.parse() will return proper array;
+      var fiveBooksOfMoses = JSON.parse(json);
+      show(fiveBooksOfMoses);
+      show(fiveBooksOfMoses.length);
+      show(fiveBooksOfMoses[0]);
+    }
+
+    function reviverFunctionTest() {
+      var text = '{ "name":"John", "birth":"1986-12-14", "city":"New York"}';
+      var obj = JSON.parse(text, function (key, value) {
+        if (key == "birth") {
+          return new Date(value);
+        } else {
+          return value;
+        }
+      });
+      show(obj.name);
+      show(obj.birth);
+      show(obj.city);
+    }
+
+    basicExample();
+    jsonArray();
+    reviverFunctionTest();
+
+
+  </script>
+</body>
+</html>

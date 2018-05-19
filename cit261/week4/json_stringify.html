@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Stringify</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>JSON Stringify</h1>
+  <p>A common use of JSON is to exchange data to/from a web server. When sending data to a web server, the data has to be a string. Convert a JavaScript object into a string with <strong>JSON.stringify()</strong>.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    'use strict';
+    function basicExample() {
+      var obj = { "name":"John", "age":30, "city":"New York"};
+      var json = JSON.stringify(obj);
+      show(json);
+    }
+
+    function jsonArray() {
+      //JSON.parse() will return proper array;
+      var fiveBooksOfMoses = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy'];
+      var json = JSON.stringify(fiveBooksOfMoses);
+      show(json);
+    }
+
+    function stringifyDates() {
+      //The JSON.stringify() function will convert any dates into strings.
+      var obj = { name: 'John', birth: new Date('1986-12-14'), city: 'New York' };
+      var json = JSON.stringify(obj);
+      show(json);
+    }
+
+    function exampleWithReplacer() {
+      function zeroNegativeNumbers(key, value) {
+        if (value < 0) {
+          return 0;
+        } else {
+          return value;
+        }
+      }
+
+      var myArray = [1, 2, -3, 2, 6, -8, 0, 11];
+      var json = JSON.stringify(myArray, zeroNegativeNumbers);
+      show(json);
+    }
+
+    function circularReference() {
+      var obj = {name: 'Narcissus', inLoweWith: null};
+      obj.inLoweWith = obj;
+      try {
+        var json = JSON.stringify(obj);
+        show(json);
+      } catch (err) {
+        show(err + '.');
+      };
+    }
+
+    basicExample();
+    jsonArray();
+    stringifyDates();
+    exampleWithReplacer();
+    circularReference();
+
+  </script>
+</body>
+</html>

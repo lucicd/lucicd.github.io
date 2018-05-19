@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loops</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Loops</h1>
+  <p>Loops are handy, if you want to run the same code over and over again, each time with a different value.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    
+    function fibonnaci(n) {
+      //for loop for Fibonacci sequence
+      var fib1 = 0;
+      var fib2 = 1;
+      for (var i = 0; i < n; i++) {
+        var fib = fib1 + fib2;
+        show(fib);
+        fib1 = fib2;
+        fib2 = fib;
+      }
+    }
+    fibonnaci(5);
+
+    function listProperties(obj) {
+      //for-in loop to list properties of an object
+      for (var prop in obj) {
+        show(prop + ': ' + obj[prop]);
+      }
+    }
+
+    var car = {model: 'Mitsubishi Montero', year: 2014, owner: 'Drazen'};
+    listProperties(car);
+
+    //while loop for factorial
+    function factorial1(n) {
+      var fact = i = 1;
+      while (i <= n) {
+        fact *= i;
+        i++;
+      }
+      return fact;
+    }
+    show(factorial1(10));
+
+    //do-while loop for factorial
+    function factorial2(n) {
+      var fact = i = 1;
+      do {
+        fact *= i;
+        i++;
+      } while(i <= n)
+      return fact;
+    }
+    show(factorial2(10));
+
+  </script>
+</body>
+</html>

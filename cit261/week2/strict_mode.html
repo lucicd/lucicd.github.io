@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Strict Mode</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Strict Mode</h1>
+  <p><strong>"use strict";</strong> defines that JavaScript code should be executed in "strict mode". With strict mode, you can not, for example, use <strong>undeclared</strong> variables.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+
+    function myFunction1() {
+      try {
+        //Undeclared variable will not cause error
+        z = 15;
+        return z * 10;
+      } catch (err) {
+        return err + '.';
+      }
+    }
+
+    function myFunction2() {
+      "use strict";
+      try {
+        //Undeclared variable will cause reference error in strict mode.
+        t = 15;
+        return t * 10;
+      } catch (err) {
+        return err + '.';
+      }
+    }
+
+    show(myFunction1());
+    show(myFunction2());
+  </script>
+</body>
+</html>

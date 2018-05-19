@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Break and Continue Statements</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Break and Continue Statements</h1>
+  <p>The <strong>break</strong> statement can be used to jump out of a loop. The <strong>continue</strong> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    'use strict';
+    function breakExample() {
+      for (var i = 0; i < 10; i++) {
+        if (i === 3) { 
+          break; 
+        }
+        show('The number is ' + i);
+      }
+    }
+
+    function continueExample() {
+      for (var i = 0; i < 10; i++) {
+        if (i === 3) { 
+          continue; 
+        }
+        show('The number is ' + i);
+      }
+    }
+
+    function labelBreakExample() {
+      history: {
+        show('Old testament times.');
+        show('New testament times.');
+        show('Apostasy.');
+        show('Apostasy.');
+        show('Apostasy.');
+        show('Apostasy.');
+        //Infinite apostasy
+        while ('forever') {
+          show('Apostasy.');
+          break history;
+        }
+      }
+      latter_days: {
+        show('The Gospel is restored.');
+      }
+    }
+
+    show('Break example');
+    breakExample();
+
+    show();
+    show('Continue example');
+    continueExample();
+
+    show();
+    labelBreakExample();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Variables</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Variables</h1>
+  <p>JavaScript variables are <strong>containers</strong> for storing data values.</p>
+  <div id="outputDiv"></div>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    //Area of a circle
+    var radius = 10
+    var area = radius * radius * Math.PI;
+    show('Area is: ' + Math.round(area * 100) / 100);
+
+    //Variables of various types
+    var multiplier = 100, answer = false;
+    var message = 'Hello world ' + multiplier + ' times.';
+    show(message);
+    message = 'It is ' + answer + ' that the Earth is flat.';
+    show(message)
+    var outputDiv = document.getElementById('outputDiv');
+    outputDiv.innerHTML = '<q style="color: red;">' + message + '</q>';
+    show('Output div is: ' + outputDiv);
+
+    //Scope
+    
+    // x and y have global scope.
+    var x = 7;
+    var y = 5;
+    function myFunction() {
+      //x has function scope
+      //y has global scope
+      var x = 10 * y;
+      
+      //z has automatically global scope
+      z = 15;
+
+      return x;
+    }
+
+    show(myFunction());
+    show(x);
+    show(z);
+  </script>
+</body>
+</html>

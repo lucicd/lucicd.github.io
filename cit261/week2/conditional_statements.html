@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conditional Statements</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Conditional Statements</h1>
+  <p>Conditional statements are used to perform different actions based on different conditions.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    'use strict';
+
+    function check(desc, criteria) {
+      show(desc);
+      show('no argument: ' + criteria());
+      show('null argument: ' + criteria(null));
+      show('string argument: ' + criteria('abc'));
+      show('empty string argument: ' + criteria(''));
+      show('blank string argument: ' + criteria(' '));
+      show('string 0 argument: ' + criteria('0'));
+      show('string 0.0 argument: ' + criteria('0.0'));
+      show('number argument: ' + criteria(123));
+      show('number 0 argument: ' + criteria(123));
+      show('number 0.0 argument: ' + criteria(123));
+      show('false argument: ' + criteria(false));
+      show('true argument: ' + criteria(true));
+      show('NaN argument: ' + criteria(NaN));
+      show('undefined argument: ' + criteria(undefined));
+      show('non empty object argument: ' + criteria({x: 123}));
+      show('empty object argument: ' + criteria({}));
+    }
+
+    function checkIfNull(x) {
+      if (x === null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+   
+    function checkIfUndefined(x) {
+      if (x === undefined) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function checkIfTruthy(x) {
+      if (x) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function checkIfEmptyObject(obj) {
+      for (var prop in obj) {
+        if(obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
+      return JSON.stringify(obj) === JSON.stringify({});
+    }
+
+    check('Check if null', checkIfNull);
+    show();
+    check('Check if undefined', checkIfUndefined);
+    show();
+    check('Check if truthy', checkIfTruthy);
+    show();
+    check('Check if empty object', checkIfEmptyObject);
+
+    //Switch statement
+    function nameOfDay(n) {
+      var day;
+      switch (n) {
+        case 0:
+          day = "Sunday";
+          break;
+        case 1:
+          day = "Monday";
+          break;
+        case 2:
+          day = "Tuesday";
+          break;
+        case 3:
+          day = "Wednesday";
+          break;
+        case 4:
+          day = "Thursday";
+          break;
+        case 5:
+          day = "Friday";
+          break;
+        case 6:
+          day = "Saturday";
+        default:
+          throw('Bad argument to a nameOfDay function');
+      }
+      return day;
+    }
+
+    try {
+      show();
+      show('Testing nameOfDay function');
+      show(nameOfDay(1));
+      show(nameOfDay(7));
+    } catch (err) {
+      show(err + '.');
+    }
+
+  </script>
+</body>
+</html>

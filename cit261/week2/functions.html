@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Functions and Parameters</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Functions and Parameters</h1>
+  <p>A JavaScript <strong>function</strong> is a block of code designed to perform a particular task.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    'use strict';
+
+    //Recursive factorial
+    function factorial(n) {
+      if (n === 0) {
+        return 1;
+      } else {
+        return n * factorial(n - 1);
+      }
+    }
+
+    show(factorial(10));
+
+    //Functions as arguments to other functions
+    function calculator(x, y, oper) {
+      return oper(x, y);
+    }
+    show(calculator(4, 2, function(a, b) { return a + b; } ));
+    show(calculator(5, 3, function(a, b) { return a - b; } ));
+    show(calculator(100, 25, function(a, b) { return a * b; } ));
+    show(calculator(45, 5, function(a, b) { return a / b; } ));
+
+    //Function factory
+    function createMult(n) {
+      return function(a) {
+        return a * n;
+      }
+    }
+
+    var mult2 = createMult(2);
+    show(mult2(2));
+    show(mult2(3));
+    show(mult2(4));
+
+    var mult64 = createMult(64);
+    show(mult64(2));
+
+  </script>
+</body>
+</html>

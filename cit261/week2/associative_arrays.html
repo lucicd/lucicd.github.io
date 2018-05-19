@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Associative Arrays</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Associative Arrays</h1>
+  <p>Arrays with named indexes are called <strong>associative</strong> arrays (or <strong>hashes</strong>). JavaScript does not support arrays with named indexes. JavaScript redefines such arrays as standard objects.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    'use strict';
+
+    function normalArray() {
+      var person = [];
+      person[0] = "John";
+      person[1] = "Doe";
+      person[2] = 46;
+      show(person.length); // person.length will show 3
+      show(person[0]);     // person[0] will show "John"
+    }
+
+    function associativeAarray() {
+      var person = [];
+      person["firstName"] = "John";
+      person["lastName"] = "Doe";
+      person["age"] = 46;
+      show(person.length); // person.length will show 0
+      show(person[0] + '');     // person[0] will show undefined
+    }
+
+    normalArray();
+    associativeAarray();
+
+  </script>
+</body>
+</html>

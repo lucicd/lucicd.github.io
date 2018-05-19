@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XMLHttpRequest()</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>XMLHttpRequest()</h1>
+  <p>Use <strong>XMLHttpRequest</strong> (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing. XMLHttpRequest is used heavily in Ajax programming.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    function getTest(callback) {
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', function() {
+        var obj = JSON.parse(this.responseText);
+        show(obj);
+        callback();
+      });
+      request.open('GET', 'https://httpbin.org/get');
+      request.send();
+    }
+
+    function postTest(callback) {
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', function() {
+        var obj = JSON.parse(this.responseText);
+        show(obj);
+        callback();
+      });
+      request.open('POST', 'https://httpbin.org/post');
+      request.send();
+    }
+
+    function doTests() {
+      show('Test started.');
+      getTest(function() {
+        postTest(function() {
+          show('Test completed');
+        });
+      });
+    }
+
+    doTests();
+  </script>
+</body>
+</html>
