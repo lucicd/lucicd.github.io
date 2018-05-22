@@ -11,3 +11,7 @@ function show(message) {
     document.getElementById('consoleOutput').innerHTML += json + '\n';    
   }
 }
+
+function clear() {
+  document.getElementById('consoleOutput').innerHTML = '';
+}

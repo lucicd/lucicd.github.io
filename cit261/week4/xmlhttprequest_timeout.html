@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XMLHttpRequest with Timeout</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>XMLHttpRequest with Timeout</h1>
+  <p>The XMLHttpRequest.timeout property is an unsigned long representing the number of milliseconds a request can take before automatically being terminated. The default value is 0, which means there is no timeout. Timeout shouldn't be used for synchronous XMLHttpRequests requests used in a document environment or it will throw an InvalidAccessError exception. When a timeout happens, a timeout event is fired.</p>
+  <div id="demoImg"></div>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    function getImgTest(callback) {
+      var request = new XMLHttpRequest();
+      request.onload = function() {
+        var arrayBufferView = new Uint8Array( this.response );
+        var blob = new Blob( [ arrayBufferView ], { type: 'image/png' } );
+        var urlCreator = window.URL || window.webkitURL;
+        var imageUrl = urlCreator.createObjectURL( blob );
+        show(imageUrl);
+        var imgDiv = document.getElementById('demoImg');
+        imgDiv.innerHTML = '<img alt="Demo" style="width: 100%;" src="' + imageUrl + '">';
+        callback();
+      };
+      request.ontimeout = function(e) {
+        show('Timeout. Loaded ' + e.loaded + ' of ' + e.total + ' bytes.');
+        console.log(err);
+      }
+      request.open('GET', 'https://i.imgur.com/P8f6aB8.png');
+      request.timeout = 2000;
+      request.responseType = 'arraybuffer';
+      request.send();
+    }
+
+    function doTests() {
+      show('Test started.');
+      getImgTest(function() {
+        show('Test completed');
+      });
+    }
+
+    doTests();
+  </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Callback Hell</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Callback Hell</h1>
+  <p>Sometimes you have a series of tasks where each step depends on the results of the previous step. When you try to do this in asynchronous code, it's easy to run into <strong>callback hell</strong>, a common problem where you have callback functions deeply <strong>nested</strong> inside of each other.</p>
+<pre>
+//Example of callback hell
+readFile(fileName, function(text) {
+  tokenize(text, function(tokens) {
+    parse(tokens, function(parseTree) {
+      optimize(parseTree, function(optimizedTree) {
+        evaluate(optimizedTree, function(output) {
+          console.log(output);
+        });
+      });
+    });
+  });
+});
+</pre>
+  <div>
+    <button id="demo1">Run Demo 1</button>
+    <button id="demo2">Run Demo 2</button>
+    <button id="demo3">Run Demo 3</button>
+    <button id="demo4">Run Demo 4</button>
+  </div>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    function readFile(fileName, callback) {
+      show('readFile started for file ' + fileName);
+      setTimeout(function() {
+        show('readFile finished');
+        if (callback) {
+          callback('simulated file content');
+        } else {
+          return 'simulated file content'; 
+        }
+      }, 2000);
+    }
+
+    function tokenize(text, callback) {
+      show('tokenize started for text ' + text);
+      setTimeout(function() {
+        show('tokenize finished');
+        if (callback) {
+          callback('simulated tokens');
+        } else {
+          return 'simulated tokens'; 
+        }
+      }, 500); 
+    }
+
+    function parse(tokens, callback) {
+      show('parse started for ' + tokens);
+      setTimeout(function() {
+        show('parse finished');
+        if (callback) {
+          callback('simulated parseTree');
+        } else {
+          return 'simulated parseTree'; 
+        }
+      }, 1000); 
+    }
+
+    function optimize(parseTree, callback) {
+      show('optimize started for ' + parseTree);
+      setTimeout(function() {
+        show('optimize finished');
+        if (callback) {
+          callback('simulated optimizedTree');
+        } else {
+          return 'simulated optimizedTree'; 
+        }
+      }, 750);  
+    }
+
+    function evaluate(optimizedTree, callback) {
+      show('evaluate started for ' + optimizedTree);
+      setTimeout(function() {
+        show('evaluate finished');
+        if (callback) {
+          callback('simulated output');
+        } else {
+          return 'simulated output'; 
+        }
+      }, 650);  
+    }
+
+    function report(output) {
+      show('The output is: ' + output);
+    }
+
+    function demo1() {
+      clear();
+      show('Sync attempt')
+      var text = readFile('demo.txt');
+      var tokens = tokenize(text);
+      var parseTree = parse(tokens);
+      var optimizedTree = optimize(parseTree);
+      var output = evaluate(optimizedTree);
+      report(output);
+    }
+
+    function demo2() {
+      clear();
+      show('Callback hell. Clumsy, but working.')
+      readFile('demo.txt', function(text) {
+        tokenize(text, function(tokens) {
+          parse(tokens, function(parseTree) {
+            optimize(parseTree, function(optimizedTree) {
+              evaluate(optimizedTree, report);
+            });
+          });
+        });
+      });
+    }
+
+    function demo3() {
+      function readFinish(text) {
+        tokenize(text, tokenizeFinish);
+      }
+      function tokenizeFinish(tokens) {
+        parse(tokens, parseFinish);
+      }
+      function parseFinish(parseTree) {
+        optimize(parseTree, optimizeFinish);
+      }
+      function optimizeFinish(optimizedTree) {
+        evaluate(optimizedTree, evaluateFinish);
+      }
+      function evaluateFinish(output) {
+        report(output);
+      }
+      clear();
+      show('Split code into functions');
+      readFile('demo.txt', readFinish);
+    }
+
+    function demo4() {
+      function performTasks(input, tasks) {
+        show('tasks array length is ' + tasks.length);
+        var topTask = tasks[0];
+        show('executing ' + topTask.name);
+        //Performs the tasks at the top of the 'tasks[]' array
+        if (tasks.length === 1) {
+          return topTask(input);
+        } else {
+          topTask(input, function(output) {
+            //Recursive call in case there are any leftover tasks
+            performTasks(output, tasks.slice(1)); 
+          });
+        }
+      }
+      clear();
+      show('Pipeline of tasks.');
+      var tasks = [readFile, tokenize, parse, optimize, evaluate, report];
+      performTasks('demo.txt', tasks);
+    }
+
+    document.getElementById('demo1').onclick = demo1;
+    document.getElementById('demo2').onclick = demo2;
+    document.getElementById('demo3').onclick = demo3;
+    document.getElementById('demo4').onclick = demo4;
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Asynchronous Programming</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Asynchronous Programming</h1>
+  <p>In <strong>synchronous</strong> programs, if you have two lines of code (L1 followed by L2), then L2 cannot begin running until L1 has finished executing.</p>
+  <p>In <strong>asynchronous</strong> programs, you can have two lines of code (L1 followed by L2), where L1 schedules some task to be run in the future, but L2 runs before that task completes.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    // Say "Hello."
+    show('Hello.');
+    // Say 'Goodbye' two seconds from now.
+    setTimeout(function() {
+      show('Goodbye!');
+    }, 2000);
+    // Say 'Hello again!'
+    show('Hello again!');
+  </script>
+</body>
+</html>

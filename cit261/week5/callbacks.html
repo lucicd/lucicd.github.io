@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX and Callbacks</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>AJAX and Callbacks</h1>
+  <p>Asynchronous code needs to be structured in a different way than synchronous code, and the most basic way to do that is with <strong>callback</strong> functions.</p>
+  <p>In JavaScript, we can create a <strong>callback</strong> function that we pass in to an asynchronous function, which will be called once the task is <strong>completed</strong>.</p>
+  <div id="demoImg"></div>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    function getRequest1() {
+      var data;
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', function() {
+        data = this.responseText;
+      });
+      request.open('GET', 'https://httpbin.org/get');
+      // request.open('GET', 'https://httpbin.org/get', false);
+      request.send();
+      show('The result is: ' + data);
+    }
+
+    function getRequest2(callback) {
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', function() {
+        callback(this.responseText);
+      });
+      request.open('GET', 'https://httpbin.org/get');
+      request.send();
+    }
+
+    getRequest1();
+
+    getRequest2(function(data) {
+      show('The result is: ' + data);
+    });
+  </script>
+</body>
+</html>

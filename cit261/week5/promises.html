@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+  <script src="../scripts/Promise.js"></script>
+</head>
+<body>
+  <h1>Promises</h1>
+  <p>The idea behind promises is that, instead of using functions that accept input and a callback, we make a function that returns a promise object, that is, an object representing a value that is intended to exist in the future.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    function readFile(fileName) {
+      return new Promise(function(fulfill, reject) {
+        show('readFile started for file ' + fileName);
+        setTimeout(function() {
+          show('readFile finished');
+          fulfill('simulated file content'); 
+        }, 2000);
+      });
+    }
+
+    function tokenize(text) {
+      return new Promise(function(fulfill, reject) {
+        show('tokenize started for text ' + text);
+        setTimeout(function() {
+          show('tokenize finished');
+          fulfill('simulated tokens'); 
+        }, 500); 
+      });
+    }
+
+    function parse(tokens) {
+      return new Promise(function(fulfill, reject) {
+        show('parse started for ' + tokens);
+        setTimeout(function() {
+          show('parse finished');
+          fulfill('simulated parseTree'); 
+        }, 1000); 
+      });
+    }
+
+    function optimize(parseTree) {
+      return new Promise(function(fulfill, reject) {
+        show('optimize started for ' + parseTree);
+        setTimeout(function() {
+          show('optimize finished');
+          fulfill('simulated optimizedTree'); 
+        }, 750);  
+      });
+    }
+
+    function evaluate(optimizedTree) {
+      return new Promise(function(fulfill, reject) {
+        show('evaluate started for ' + optimizedTree);
+        setTimeout(function() {
+          show('evaluate finished');
+          fulfill('simulated output'); 
+        }, 650);
+      });
+    }
+
+    function report(output) {
+      show('The output is: ' + output);
+    }
+
+    readFile('demo.txt')
+      .then(tokenize)
+      .then(parse)
+      .then(optimize)
+      .then(evaluate)
+      .then(report);
+  </script>
+</body>
+</html>
