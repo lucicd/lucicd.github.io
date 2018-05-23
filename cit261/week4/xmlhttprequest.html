@@ -16,6 +16,7 @@
       request.addEventListener('load', function() {
         var obj = JSON.parse(this.responseText);
         show(obj);
+        show('------------------------------');
         callback();
       });
       request.open('GET', 'https://httpbin.org/get');
@@ -27,9 +28,25 @@
       request.addEventListener('load', function() {
         var obj = JSON.parse(this.responseText);
         show(obj);
+        show('------------------------------');
         callback();
       });
       request.open('POST', 'https://httpbin.org/post');
+      request.send();
+    }
+
+    function getJson(callback) {
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', function() {
+        var obj = this.response;
+        show(obj);
+        show('The name is: ' + obj.name);
+        show('The age is: ' + obj.age);
+        show('------------------------------');
+        callback();
+      });
+      request.open('GET', '../data/person.json');
+      request.responseType = 'json'; 
       request.send();
     }
 
@@ -37,7 +54,9 @@
       show('Test started.');
       getTest(function() {
         postTest(function() {
-          show('Test completed');
+          getJson(function() {
+            show('Test completed');
+          });
         });
       });
     }

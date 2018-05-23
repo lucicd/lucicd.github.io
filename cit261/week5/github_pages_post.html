@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Github Pages POST</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Github Pages POST</h1>
+  <p>GitHub Pages is a static site hosting service and doesn't support server-side code such as, PHP, Ruby, or Python. <a href="https://help.github.com/articles/what-is-github-pages/" target="_blank">More details</a></p>
+  <div id="demoImg"></div>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    function postTest(callback) {
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function() {
+        if (request.readyState === 4) {
+          if (request.status === 200) {
+            show(request.response);
+          } else if (request.status === 408) {
+            show('Timeout. Loaded ' + e.loaded + ' of ' + e.total + ' bytes.');
+          } else {
+            show('status: ' + request.status);
+            show('statusText: ' + request.statusText);
+          }
+          callback();
+        }
+      }
+      request.open('POST', '../week5/post_response.html');
+      request.timeout = 2000;
+      request.send();
+    }
+
+    function doTests() {
+      show('Test started.');
+      postTest(function() {
+        show('Test completed');
+      });
+    }
+
+    doTests();
+  </script>
+</body>
+</html>

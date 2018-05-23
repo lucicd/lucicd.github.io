@@ -15,10 +15,10 @@
     function getImgTest(callback) {
       var request = new XMLHttpRequest();
       request.onload = function() {
-        var arrayBufferView = new Uint8Array( this.response );
-        var blob = new Blob( [ arrayBufferView ], { type: 'image/png' } );
-        var urlCreator = window.URL || window.webkitURL;
-        var imageUrl = urlCreator.createObjectURL( blob );
+        //Create an arry of 8-bit unaigedn integers
+        var arrayBufferView = new Uint8Array(this.response);
+        var blob = new Blob([arrayBufferView], {type: 'image/png'});
+        var imageUrl = window.URL.createObjectURL(blob);
         show(imageUrl);
         var imgDiv = document.getElementById('demoImg');
         imgDiv.innerHTML = '<img alt="Demo" style="width: 100%;" src="' + imageUrl + '">';
