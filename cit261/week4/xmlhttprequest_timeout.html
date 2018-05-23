@@ -15,7 +15,7 @@
     function getImgTest(callback) {
       var request = new XMLHttpRequest();
       request.onload = function() {
-        //Create an arry of 8-bit unaigedn integers
+        //Create an arry of 8-bit unsigned integers
         var arrayBufferView = new Uint8Array(this.response);
         var blob = new Blob([arrayBufferView], {type: 'image/png'});
         var imageUrl = window.URL.createObjectURL(blob);
