@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>CSS3 Transitions</h1>
+  <p><strong>CSS transitions</strong> provide a way to control animation speed when <strong>changing</strong> CSS properties. Instead of having property changes take effect immediately, you can cause the changes in a property to take place over a period of time. For example, if you change the color of an element from white to black, usually the change is instantaneous. With CSS transitions enabled, changes occur at time intervals that follow an acceleration curve, all of which can be customized.</p>
+  <div class="divHover">Hover over me!</div><br>
+  <button id="divHoverBtn">Click on me!</button>
+  <style>
+    .divHover {
+      width: 200px;
+      height: 50px;
+      background: yellow;
+      -webkit-transition: width 2s;
+      transition: width 2s;
+    }
+    
+    .divHover:hover {
+      width: 400px;
+    }
+
+    .height100 {
+      height: 100px;
+    }
+  </style>
+  <script>
+    (function() {
+      var myDiv = document.getElementsByClassName("divHover")[0];
+      var myBtn = document.getElementById("divHoverBtn");
+      myBtn.onclick = function() {
+        myDiv.classList.toggle('height100');
+      }
+    })();
+  </script>
+</body>
+</html>
