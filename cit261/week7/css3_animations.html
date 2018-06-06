@@ -10,30 +10,30 @@
   <h1>CSS3 Animations</h1>
   <p>CSS animations make it possible to animate transitions from one CSS style configuration to another. Animations consist of two components, a style describing the CSS animation and a set of keyframes that indicate the start and end states of the animation’s style, as well as possible intermediate waypoints.</p>
   <p>Transitions in CSS are applied to an element and specify that when a property changes it should do so over gradually over over a period of time. <strong>Animations are different</strong>. When applied, they just run and do their thing. They offer more fine-grained control as you can control different stops of the animations.</p>
-  <div id="animatedDiv" class="animatedDiv">Hello world!</div><br>
+  <div id="animatedDiv" class="animatedDiv"></div><br>
   <button id="startBtn">Start</button>
   <button id="stopBtn">Stop</button>
   <style>
     .animatedDiv {
-      width: 200px;
-      height: 50px;
-      background: yellow;
+      width: 240px;
+      height: 240px;
+      background-image: url(../images/heart.png);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 240px 240px;
     }
 
-    @keyframes slidein {
+    @keyframes heartBeat {
       from {
-        margin-left: 100%;
-        width: 300%; 
+        background-size: 240px 240px; 
       }
 
       75% {
-        font-size: 300%;
-        background: magenta;
+        background-size: 200px 200px;
       }
 
       to {
-        margin-left: 0%;
-        width: 100%;
+        background-size: 240px 240px;
       }
     }
     
@@ -44,7 +44,7 @@
       var myDiv = document.getElementById('animatedDiv');
       var startBtn = document.getElementById('startBtn');
       startBtn.onclick = function() {
-        myDiv.style.animation = 'slidein 4s';
+        myDiv.style.animation = 'heartBeat 0.7s infinite';
       }
       var stopBtn = document.getElementById('stopBtn');
       stopBtn.onclick = function() {

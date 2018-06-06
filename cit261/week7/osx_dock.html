@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OSX Dock</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>OSX Dock</h1>
+  <p>Available on <a href="https://zurb.com/playground/osx-dock" target="_blank">ZURB</a></p>
+  <div id="dockContainer">
+    <div id="dockWrapper">
+      <div class="cap left"></div>
+      <ul class="osx-dock">
+        <li class="active">
+          <span>Nokia</span>
+          <a href="http://www.nokia.com" title="Nokia" target="_blank">
+            <img src="../images/osx/nokia.png"/>
+          </a>
+        </li>
+        <li>
+          <span>Google</span>
+          <a href="http://www.google.com" title="Google" target="_blank">
+            <img src="../images/osx/google.png"/>
+          </a>
+        </li>
+        <li>
+          <span>Microsoft</span>
+          <a href="http://www.microsoft.com" title="Microsoft" target="_blank">
+            <img src="../images/osx/microsoft.png"/>
+          </a>
+        </li>
+        <li>
+          <span>LDS</span>
+          <a href="http://lds.org" title="LDS" target="_blank">
+            <img src="../images/osx/lds.png"/>
+          </a>
+        </li>
+        <li>
+          <span>W3Schools</span>
+          <a href="http://www.w3schools.com" title="W3Schools" target="_blank">
+            <img src="../images/osx/w3schools.png"/>
+          </a>
+        </li>
+        <li>
+          <span>Facebook</span>
+          <a href="http://www.facebook.com" title="Facebook" target="_blank">
+            <img src="../images/osx/facebook.png"/>
+          </a>
+        </li>
+        <li>
+          <span>Apple</span>
+          <a href="http://www.apple.com" title="Apple" target="_blank">
+            <img src="../images/osx/apple.png"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <style>
+    body {
+      background: silver;
+    }
+
+    div.cap {
+      display: block;
+      height: 100px; 
+      width: 40px; 
+      background: url(../images/osx/dock-background-left.png) bottom left no-repeat; 
+    }
+    
+    div.cap.left { 
+      position: absolute; 
+      bottom: 0px; 
+      left: 0px; 
+    }
+    
+    div.cap.right { 
+      background-position: right bottom; 
+      position: absolute; 
+      top: 0px; 
+      right: 0px; 
+    }
+    
+    ul.osx-dock { 
+      display: inline-block; 
+      height: 130px; 
+      padding: 
+      0 40px 0 0; 
+      background: url(../images/osx/dock-background-left.png) no-repeat right bottom; 
+      overflow: hidden; 
+      margin: 0 0 0 40px;
+    }
+    
+    ul.osx-dock li { 
+      display: block; 
+      position: relative; 
+      float: left; 
+      width: 50px; 
+      height: 50px; 
+      margin: 60px 5px 4px 5px; 
+      transition: 0.15s linear; 
+      transition-property: 
+      transform margin; 
+      text-align: center; 
+    }
+    
+    ul.osx-dock li a { 
+      display: block; 
+      height: 50px; 
+      padding: 0 1px; 
+      transition: 0.15s; 
+      transition-property: transform margin; 
+      margin: 0;
+      box-reflect: below 2px gradient(linear, left top, left bottom, from(transparent), color-stop(0.45, transparent), to(rgba(255, 255, 255, 0.25)));
+    }
+    ul.osx-dock li a img {
+      width: 48px; 
+    }
+    
+    ul.osx-dock li:hover { 
+      margin-left: 9px;
+      margin-right: 9px;
+      z-index: 200;
+    }
+    
+    ul.osx-dock li:hover a { 
+      transform-origin: center bottom;
+      transform: scale(1.5);
+    }
+    
+    ul.osx-dock li.nearby { 
+      margin-left: 6px;
+      margin-right: 6px;
+      z-index: 100;
+    }
+    
+    ul.osx-dock li.nearby a { 
+      transform-origin: center bottom;
+      transform: scale(1.25);
+    }
+
+    ul.osx-dock li span {
+      background: rgba(0,0,0,0.75);
+      position: absolute; 
+      bottom: 80px; 
+      margin: 0 auto;
+      display: none; 
+      width: auto; 
+      font-size: 11px; 
+      font-weight: bold;
+      padding: 3px 6px;
+      border-radius: 6px; 
+      color: #fff; 
+    }
+    
+    ul.osx-dock li:hover span { 
+      display: block; 
+    }
+    
+    div#dockContainer { 
+      position: fixed; 
+      bottom: 12px; 
+      height: 120px; 
+      padding: 50px 0 0; 
+      text-align: center; 
+      border-radius: 6px; 
+      width: 100%; 
+      line-height: 1; 
+      z-index: 100; 
+    }
+    
+    div#dockWrapper { 
+      width: auto; 
+      display: inline-block; 
+      position: relative; 
+      border-bottom: solid 2px rgba(255,255,255,.35); 
+      line-height: 0;
+    }
+    
+    #dockContainer, #dockContainer * {
+      box-sizing: content-box;
+    }
+
+  </style>
+</body>
+</html>
