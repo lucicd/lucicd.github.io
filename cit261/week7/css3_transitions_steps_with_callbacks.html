@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Transitions - Steps with Callbacks</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>CSS3 Transitions - Steps with Callbacks</h1>
+  <div id="myTrans" class="myTrans">Hello world!</div><br>
+  <button id="myTransBtn">Click on me!</button>
+  <textarea id="consoleOutput"></textarea>
+  <style>
+    .myTrans {
+      width: 150px;
+      background-color: blue;
+      margin: 10px;
+      padding: 10px;
+      transition: background-color 2.5s, margin 2s linear, padding 3s ease-out;
+    }
+
+    .changeColor {
+      background-color: yellow;
+    }
+
+    .changeMargin {
+      margin: 50px;
+    }
+
+    .changePadding {
+      padding: 100px;
+    }
+
+  </style>
+  <script>
+    (function() {
+      var myDiv = document.getElementById('myTrans');
+
+      function makeEventHandler(name, property, callback) {
+        var handler = function(e) {
+          if (e.propertyName === property) {
+            myDiv.removeEventListener('transitionend', handler);
+            show(name + ' completed.');
+            callback();
+          }
+        };
+        return handler;
+      }
+
+      function makeTransition(name, property) {
+        var transition = function(callback) {
+          var eventHandler = makeEventHandler(name, property, callback);
+          myDiv.addEventListener('transitionend', eventHandler, false);
+          show(name + ' started.');
+          myDiv.classList.toggle(name);
+        }
+        return transition;
+      }
+
+      var changeColor = makeTransition('changeColor', 'background-color');
+      var changeMargin = makeTransition('changeMargin', 'margin-top');
+      var changePadding = makeTransition('changePadding', 'padding-top');
+
+      var myBtn = document.getElementById('myTransBtn');
+      myBtn.onclick = function() {
+        changeColor(function() {
+          changeMargin(function() {
+            changePadding(function() {
+              show('All transitions completed.');
+            });
+          });
+        });
+      };
+    })();
+  </script>
+</body>
+</html>
