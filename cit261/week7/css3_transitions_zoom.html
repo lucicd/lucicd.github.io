@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Transitions - Zoom</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>CSS3 Transitions - Zoom</h1>
+  <p>It is important to set the starting value of CSS property.</p>
+  <div class="myTrans"></div><br>
+  <button id="myTransBtn">Click on me!</button>
+  <style>
+    .myTrans {
+      width: 240px;
+      height: 240px;
+      background-image: url(../images/person.png);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 240px 240px;
+      -webkit-transition: all 2.5s ease-in-out; /* Safari */
+      transition: all 2.5s ease-in-out;
+    }
+
+    .zoom {
+      background-size: 800px 800px;
+    }
+
+  </style>
+  <script>
+    (function() {
+      var myDiv = document.getElementsByClassName('myTrans')[0];
+      var myBtn = document.getElementById('myTransBtn');
+      myBtn.onclick = function() {
+        myDiv.classList.toggle('zoom');
+      }
+    })();
+  </script>
+</body>
+</html>

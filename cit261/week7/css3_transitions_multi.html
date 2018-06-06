@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Transitions - Multiple</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>CSS3 Transitions - Multiple</h1>
+  <div class="myTrans">Hellow world!</div><br>
+  <button id="myTransBtn">Click on me!</button>
+  <style>
+    .myTrans {
+      width: 150px;
+      background-color: blue;
+      margin: 10px;
+      padding: 10px;
+      transition: background-color 2.5s, margin 1s linear, padding 3s ease-out;
+    }
+
+    .changeColor {
+      background-color: yellow;
+    }
+
+    .changeMargin {
+      margin: 50px;
+    }
+
+    .changePadding {
+      padding: 100px;
+    }
+
+  </style>
+  <script>
+    (function() {
+      var myDiv = document.getElementsByClassName('myTrans')[0];
+      var myBtn = document.getElementById('myTransBtn');
+      myBtn.onclick = function() {
+        myDiv.classList.toggle('changeColor');
+        myDiv.classList.toggle('changeMargin');
+        myDiv.classList.toggle('changePadding');
+      }
+    })();
+  </script>
+</body>
+</html>
