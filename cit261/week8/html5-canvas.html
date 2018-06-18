@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML5 Canvas</h1>
+  <canvas id="myCanvas" width=480 height=480></canvas>
+  <script>
+    (function() {
+      var myCanvas = document.getElementById('myCanvas');
+      
+      var ctx = myCanvas.getContext('2d');
+      ctx.fillStyle = 'red';
+      ctx.fillRect(0,0,150,75);
+
+      ctx.beginPath();
+      ctx.moveTo(320, 320);
+      ctx.lineTo(200, 100);
+      ctx.strokeStyle = 'blue';
+      ctx.stroke();
+
+      function shape(nSides, cx, cy, radius) {
+        ctx.beginPath();
+        var sx = cx + radius;
+        var sy = cy
+        for (var i = 1; i <= nSides; i++) {
+          ctx.moveTo(sx, sy);
+          var ex = cx + radius * Math.cos(2 * Math.PI / nSides * i);
+          var ey = cy + radius * Math.sin(2 * Math.PI / nSides * i)
+          ctx.lineTo(ex, ey);
+          sx = ex;
+          sy = ey;
+        }
+        ctx.strokeStyle = 'green';
+        ctx.stroke();
+      }
+
+
+      for (var nSides = 3; nSides <= 20; nSides++) {
+        shape(nSides, 240, 240, nSides * 10);
+      }
+    })();
+  </script>
+</body>
+</html>

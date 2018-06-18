@@ -8,8 +8,10 @@
 </head>
 <body>
   <h1>Standard JavaScript Events</h1>
-  <h2>Swipe for the next slide</h2>
-  <div id="slides"><img src="" alt="Slide image"></div>
+  <h2>Flick the slide</h2>
+  <div id="slides">
+    <img src="../images/slides/soldiers.jpg" alt="Slide image">
+  </div>
   <script>
     (function() {
       var slides = document.getElementById('slides');
@@ -19,7 +21,48 @@
         '../images/slides/boom.jpg'
       ];
 
-      slides.children[0].src = images[0];
+      var currentSlide = 0;
+
+      function advanceIdx(change) {
+        currentSlide += change;
+        if (currentSlide >= images.length) {
+          currentSlide = images.length - 1;
+          return;
+        }
+        if (currentSlide < 0) {
+          currentSlide = 0;
+          return;
+        }
+      }
+
+      function nextSlide() {
+        advanceIdx(1);
+        slides.children[0].src = images[currentSlide];
+      }
+
+      function prevSlide() {
+        advanceIdx(-1);
+        slides.children[0].src = images[currentSlide];
+      }
+
+      var touchStartX = 0;
+      var touchEndX = 0;
+
+      slides.addEventListener('touchstart', function(event) {
+        touchStartX = event.touches[0].screenX;
+      });
+
+      slides.addEventListener('touchend', function(event) {
+        touchEndX = event.changedTouches[0].screenX;
+        if (touchEndX < touchStartX) {
+          nextSlide();
+          return;
+        }
+        if (touchEndX > touchStartX) {
+          prevSlide();
+          return;
+        }
+      });
     })();
   </script>
 </body>

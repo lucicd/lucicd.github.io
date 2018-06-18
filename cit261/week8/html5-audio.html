@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Audio</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>HTML5 Audio</h1>
+  <audio id="myAudio" width="480" controls>
+    <source src="../audio/fourid.wav" type="audio/wav">
+    Your browser does not support the audio tag.
+  </audio>
+  <br><br>
+  <button id="playPauseBtn">Play/Pause</button> 
+  <button id="forwardBtn">Forward 10s</button>
+  <p>Source <a href="https://freesound.org/people/tim.kahn/sounds/404331/">freesound.org</a></p>
+  <script>
+    (function() {
+      var myAudio = document.getElementById('myAudio');
+      
+      function playPause() {
+        if (myAudio.paused) {
+          myAudio.play();
+        } else {
+          myAudio.pause();
+        }
+      }
+
+      function forward() {
+        myAudio.currentTime += 10;
+      }
+
+      var playPauseBtn = document.getElementById('playPauseBtn');
+      playPauseBtn.addEventListener('click', playPause);
+      var forwardBtn = document.getElementById('forwardBtn');
+      forwardBtn.addEventListener('click', forward);
+    })();
+  </script>
+</body>
+</html>
