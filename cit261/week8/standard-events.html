@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Standard JavaScript Events</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Standard JavaScript Events</h1>
+  <h2>Swipe for the next slide</h2>
+  <div id="slides"><img src="" alt="Slide image"></div>
+  <script>
+    (function() {
+      var slides = document.getElementById('slides');
+      var images = [
+        '../images/slides/soldiers.jpg',
+        '../images/slides/flowers.jpg',
+        '../images/slides/boom.jpg'
+      ];
+
+      slides.children[0].src = images[0];
+    })();
+  </script>
+</body>
+</html>

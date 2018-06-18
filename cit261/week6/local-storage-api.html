@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Storage API</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>Local Storage API</h1>
+  <p><strong>Local storage</strong> is data stored locally in user's browse. Data in the local storage will persist after the browser window is closed. Local storage only supports strings as values. Before saving them to local storage, arrays and objects must be converted to JSON.</p>
+  <textarea id="consoleOutput"></textarea>
+  <script>
+    (function() {
+      show('Clearing local storage');
+      localStorage.clear();
+      show('Current value of localStorage is');
+      
+      show(localStorage);
+      show('\nAdding some data to localStorage');
+      localStorage.setItem('city', 'Dubai');
+      show(localStorage);
+
+      show('\nRetrieveing data from localStorage');
+      show('The city is called ' + localStorage.getItem('city') +'.');
+
+      show('\nRemoving data from localStorage');
+      localStorage.removeItem('city')
+      show(localStorage);
+      
+      show('\nStoring an array of objects into localStorage');
+      var accounts = [
+        {name: 'Current Account', balance: 230},
+        {name: 'Savings Account', balance: 1000}
+      ];
+      localStorage.setItem('accounts', JSON.stringify(accounts));
+      show(localStorage);
+
+      show('\nRetrieving an array of objects from localStorage');
+      accounts = JSON.parse(localStorage.getItem('accounts'));
+      accounts.forEach(function(account) {
+        show('Account: ' + account.name);
+        show('Balance: ' + account.balance);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>DOM Manipulation</h1>
+  <script>
+    function newHeading(msg) {
+      var myHeading = document.createElement('h3');
+      myHeading.innerHTML = msg;
+      document.body.appendChild(myHeading);
+    }
+
+    function domManipulationDemo() {
+      myDiv = document.createElement('div');
+      myDiv.innerHTML = 'I have just created a new div in JavaScript.'
+      document.body.appendChild(myDiv);
+
+      newHeading('List of colors');
+      var colors = ['red', 'blue', 'green', 'orange', 'magenta'];
+      myColors = document.createElement('ul');
+      colors.forEach(function(color) {
+        var myColor = document.createElement('li');
+        myColor.innerHTML = color;
+        myColor.style.background = color;
+        myColors.appendChild(myColor);
+      });
+      document.body.appendChild(myColors);
+
+      var myBtn = document.createElement('button');
+      myBtn.innerHTML = 'Toggle grey';
+      document.body.appendChild(myBtn);
+      myBtn.onclick = function() {
+        var thirdColor = myColors.children[2];
+        if (thirdColor.innerHTML !== 'grey') {
+          var grey = document.createElement('li');
+          grey.innerHTML = 'grey';
+          grey.style.background = 'grey';
+          myColors.insertBefore(grey, thirdColor);
+        } else {
+          myColors.removeChild(thirdColor);
+        }
+      };
+    };
+
+    document.body.onload = domManipulationDemo;
+  </script>
+</body>
+</html>
