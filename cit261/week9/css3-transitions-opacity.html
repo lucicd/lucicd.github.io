@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Transitions</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <style>
+    .images {
+      position: relative;
+    }
+    .images > img {
+      position: absolute;
+      left: 0px;
+      top: 30px;
+      width: 320px;
+      height: 200px;
+    }
+  </style>
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>CSS3 Transitions</h1>
+  <div class="images">
+    <img id="img1" src="../images/slides/flowers.jpg" alt="Flowers">
+    <img id="img2" src="../images/slides/boom.jpg" alt="Boom">
+  </div>
+  <button onclick="changeOpacity()">Change opacity</button>
+
+  <script>
+    var img1 = document.getElementById('img1');
+    var img2 = document.getElementById('img2');
+
+    img1.style.opacity = '1';
+    img2.style.opacity = '0';
+    
+    function changeOpacity() {
+      img1.style.transition = '2s';
+      img2.style.transition = '2s';
+      img1.style.opacity = img1.style.opacity === '0' ? '1' : '0';
+      img2.style.opacity = img1.style.opacity === '0' ? '1' : '0';
+    }
+  </script>
+</body>
+</html>
