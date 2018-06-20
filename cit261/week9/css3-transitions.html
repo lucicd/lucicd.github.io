@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Transitions</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <style>
+    .images {
+      position: relative;
+    }
+    .images > img {
+      position: absolute;
+      left: 0px;
+      top: 30px;
+      width: 320px;
+      height: 200px;
+    }
+  </style>
+  <script src="../scripts/console.js"></script>
+</head>
+<body>
+  <h1>CSS3 Transitions</h1>
+  <div class="images">
+    <img id="img1" src="../images/slides/flowers.jpg" alt="Flowers">
+    <img id="img2" src="../images/slides/boom.jpg" alt="Boom">
+  </div>
+  <button onclick="changeOpacity()">Change opacity</button>
+  <button onclick="slide()">Slide out</button>
+
+  <script>
+    var img1 = document.getElementById('img1');
+    var img2 = document.getElementById('img2');
+
+    img1.style.opacity = '1';
+    img1.style.left = '0';
+    img2.style.opacity = '0';
+    
+    function changeOpacity() {
+      img1.style.transition = '2s';
+      img2.style.transition = '2s';
+      img1.style.opacity = img1.style.opacity === '0' ? '1' : '0';
+      img2.style.opacity = img1.style.opacity === '0' ? '1' : '0';
+    }
+
+    function slide() {
+      img1.style.transition = '0s';
+      img2.style.transition = '0s';
+      var imgShow;
+      var imgHide;
+      if  (img1.style.opacity === '0') {
+        imgShow = img1;
+        imgHide = img2;
+      } else {
+        imgShow = img2;
+        imgHide = img1;
+      }
+
+      var nextTransition;
+
+      function transHandler(event) {
+        nextTransition(event);
+      }
+
+      function slideOut() {
+        console.log('slideOut');
+        nextTransition = slideBack;
+        imgShow.style.left = '320px';
+      }
+
+      function slideBack(event) {
+        if (event.propertyName === 'left') {
+          console.log('slideBack');
+          nextTransition = hideSlide;
+          imgShow.style.left = '0';
+        }
+      }
+
+      function hideSlide(event) {
+        if (event.propertyName === 'left') {
+          console.log(event);
+          console.log('hideSlide');
+          imgShow.removeEventListener('transitionend', transHandler);
+          imgShow.style.opacity = '1';
+          imgHide.style.opacity = '0';
+        }
+      }
+
+
+      imgShow.style.left = '0px';
+      imgShow.style.opacity = '1';
+      imgShow.style.transition = '1s';
+      imgShow.addEventListener('transitionend', transHandler, false);
+      slideOut();
+    }
+  </script>
+</body>
+</html>
