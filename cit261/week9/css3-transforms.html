@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Transforms</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <style>
+    .width200 {
+      width: 120px;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS3 Transforms</h1>
+  <img id="myImg" class="width200" src="../images/smiley.svg" alt="Smiley">
+  <br><br>
+  <button onclick="skew()">Skew</button>
+  <button onclick="scale()">Scale</button>
+  <button onclick="translateXY()">Translate</button>
+  <button onclick="rotate()">Rotate</button>
+  <button onclick="rotate3d()">Rotate 3D</button>
+  <script>
+    var myImg = document.getElementById('myImg');
+    myImg.style.transitionProperty = 'transform';
+    myImg.style.transitionDuration = '1s';
+    
+    var skewStep = 1;
+    function skew() {
+      if (skewStep === 1) {
+        myImg.style.transform = 'skewY(30deg)';
+        skewStep = 2;
+      } else if (skewStep === 2) {
+        myImg.style.transform = 'skewY(-30deg)';
+        skewStep = 3;
+      } else {
+        myImg.style.transform = 'skewY(0deg)';
+        skewStep = 1;
+      }
+    }
+
+    function scale() {
+      if (myImg.style.transform.indexOf('scale(2)') >= 0) {
+        myImg.style.transform = 'scale(1)';
+      } else {
+        myImg.style.transform = 'scale(2)';
+      }
+    }
+
+    function translateXY() {
+      if (myImg.style.transform.indexOf('translate(20px, 20px)') >= 0) {
+        myImg.style.transform = 'translate(0px, 0px)';
+      } else {
+        myImg.style.transform = 'translate(20px, 20px)';
+      }
+    }
+
+    function rotate() {
+      if (myImg.style.transform.indexOf('rotate(45deg)') >= 0) {
+        myImg.style.transform = 'rotate(0deg)';
+      } else {
+        myImg.style.transform = 'rotate(45deg)';
+      }
+    }
+
+    var rotateStep = 1;
+    function rotate3d() {
+      if (rotateStep === 1) {
+        myImg.style.transform = 'rotate3d(1, 1, 1, 180deg)';
+        rotateStep = 2;
+      } else if (rotateStep === 2) {
+        myImg.style.transform = 'rotate3d(1, 1, 1, -180deg)';
+        rotateStep = 3;
+      } else if (rotateStep === 3) {
+        myImg.style.transform = 'rotate3d(1, 1, 1, 0deg)';
+        rotateStep = 1;
+      }
+    }
+  </script>
+</body>
+</html>

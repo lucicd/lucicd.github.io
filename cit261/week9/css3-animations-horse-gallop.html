@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 Animations Horse Gallop</title>
+  <link rel="stylesheet" href="../styles/demo.css">
+  <style>
+    #gallop {
+      width: 183px;
+      height: 134px;
+      background: url(../images/horse_gallop.jpg);
+    }
+    @keyframes gallop {
+      0% {background-position: 0px 0px;}
+      6.67% {background-position: -183px 0px;}
+      13.33% {background-position: -366px 0px;}
+      20% {background-position: -549px 0px;}
+      26.67% {background-position: 0px -134px;}
+      33.33% {background-position: -183px -134px;}
+      40% {background-position: -366px -134px;}
+      46.67% {background-position: -549px -134px;}
+      53.33% {background-position: 0px -269px;}
+      60% {background-position: -183px -269px;}
+      66.67% {background-position: -366px -269px;}
+      73.33% {background-position: -549px -269px;}
+      80% {background-position: 0px -404px;}
+      86.67% {background-position: -183px -404px;}
+      93.33% {background-position: -366px -404px;}
+      100% {background-position: -549px -404px;}
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS3 Animations Horse Gallop</h1>
+  <div id="gallop"></div>
+  <br>
+  <button onclick="start()">Start</button>
+  <button onclick="stop()">Stop</button>
+  <script>
+    var myDiv = document.getElementById('gallop');
+    function start() {
+      myDiv.style.animation = 'gallop 0.67s steps(1) infinite';
+    }
+    function stop() {
+      myDiv.style.animation = '';
+    }
+  </script>
+</body>
+</html>
