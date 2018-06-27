@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document1</title>
+  <script src="bower_components/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script>
+    function handleLoad(e) {
+      console.log('Loaded import: ' + e.target.href);
+    }
+    function handleError(e) {
+      console.log('Error loading import: ' + e.target.href);
+    }
+  </script>
+  <link id="my-html" rel="import" href="my-element.html" onload="handleLoad(event)" onerror="handleError(event)">
+</head>
+<body>
+  <h1>Welcome to web components!</h1>
+  <script>
+    function supportsImports() {
+      return 'import' in document.createElement('link');
+    }
+
+    if (supportsImports()) {
+      var link = document.getElementById('my-html');
+      var content = link.import;
+      var el = content.getElementById("greetings");
+      document.body.appendChild(el.cloneNode(true));
+    } else {
+      alert('Not good!');
+    }
+  </script>
+</body>
+</html>
