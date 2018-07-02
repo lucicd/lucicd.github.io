@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Frugalis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Frugalis - CIT261 Final Project | Drazen Lucic | BYU-Idaho</title>
+</head>
+
+<body>
+  <header class="backColor1 header">
+    <div>
+      <h1 class="backColor1 fontColor1 title">Frugalis</h1>
+      <h3 class="backColor1 fontColor1 subtitle">Personal Budgeting</h3>
+    </div>
+    <nav class="alignRight">
+      <button class="backColor1 fontColor1" id="hamburgerBtn">&#9776;</button>
+    </nav>
+  </header>
+
+  <main>
+    <div id="homeView"></div>
+  </main>
+  <script>
+    (function (window, undefined) {
+      "use strict";
+
+      var menuItems = [];
+
+      var createApp = function() {
+        var that = {};
+        
+        that.getUserName = function() {
+          return 'Drazen';
+        };
+        
+        that.getActiveBudgetPeriod = function() {
+          var period = {
+            from: new Date('2018-1-1'),
+            until: new Date('2018-1-31'),
+          }
+          return period;
+        };
+
+        that.getDailyBudget = function() {
+          return 75;
+        };
+
+        that.getTargetBudget = function() {
+          return 100;
+        };
+
+        that.showHomeView = function() {
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function() {
+            var target =  document.getElementById("homeView");
+            if (this.readyState == 4 && this.status == 200) {
+              target.innerHTML = xhttp.responseText;
+              that.populateHomeView();
+            } else {
+              target.innerHTML = '<h1>Error loading homeView</h1>';
+            }
+          }
+          xhttp.open('GET', './views/home/home.html', true);
+          xhttp.send();
+        };
+
+        return that;
+      };
+
+      window.frugalisApp = createApp();
+
+      frugalisApp.showHomeView();
+
+    }(window));
+    
+  </script>
+  <script src="utils.js"></script>
+  <script src="./views/home/home.js"></script>
+</body>
+</html>
