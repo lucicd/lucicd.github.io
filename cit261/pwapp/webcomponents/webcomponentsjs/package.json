@@ -1,0 +1,131 @@
+{
+  "_args": [
+    [
+      "@webcomponents/webcomponentsjs",
+      "D:\\byui\\lucicd.github.io\\cit261\\pwapp\\webcomponents"
+    ]
+  ],
+  "_from": "@webcomponents/webcomponentsjs@latest",
+  "_id": "@webcomponents/webcomponentsjs@2.0.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@webcomponents/webcomponentsjs",
+  "_nodeVersion": "8.11.2",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/webcomponentsjs_2.0.2_1529013315080_0.6268508643571253"
+  },
+  "_npmUser": {
+    "email": "dfreedm2@gmail.com",
+    "name": "azakus"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@webcomponents/webcomponentsjs",
+    "raw": "@webcomponents/webcomponentsjs",
+    "rawSpec": "",
+    "scope": "@webcomponents",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.0.2.tgz",
+  "_shasum": "35272bcedfab0cba6778707e76f0191d12deb9f6",
+  "_shrinkwrap": null,
+  "_spec": "@webcomponents/webcomponentsjs",
+  "_where": "D:\\byui\\lucicd.github.io\\cit261\\pwapp\\webcomponents",
+  "author": {
+    "name": "The Polymer Authors"
+  },
+  "bugs": {
+    "url": "https://github.com/webcomponents/webcomponentsjs/issues"
+  },
+  "dependencies": {},
+  "description": "Web Components Polyfills",
+  "devDependencies": {
+    "@webcomponents/custom-elements": "^1.1.2",
+    "@webcomponents/shadycss": "^1.3.1",
+    "@webcomponents/shadydom": "^1.1.0",
+    "@webcomponents/template": "^1.3.1",
+    "@webcomponents/url": "^0.7.1",
+    "@webcomponents/webcomponents-platform": "^1.0.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-minify": "^0.4.3",
+    "del": "^3.0.0",
+    "es-symbol": "^1.1.2",
+    "eslint": "^4.19.1",
+    "eslint-plugin-html": "^4.0.3",
+    "google-closure-compiler": "^20180506.0.0",
+    "gulp": "^3.8.8",
+    "gulp-babel": "^7.0.1",
+    "gulp-rename": "^1.3.0",
+    "gulp-rollup": "^2.16.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "promise-polyfill": "^8.0.0",
+    "rollup": "^0.60.5",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-license": "^0.6.0",
+    "run-sequence": "^2.2.1",
+    "wct-browser-legacy": "^1.0.1",
+    "web-component-tester": "^6.6.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dist": {
+    "fileCount": 81,
+    "integrity": "sha512-+3515t7jnWsx+mNRECwXbjXBM0DLCNB4uH4DSIbu7akIJn0tO2GZuLvZeBhXbRFQLfohN+2ZTWT44A6EtPhVqA==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbIuRDCRA9TVsSAnZWagAAJ6YP/0h7MwKzn/S7av9YjQtX\npAwXNsI0F1AK94zMuJQjFuKoQPjLbblX02omepvZhgh+k0czFWsnvdfHRBhj\n77lpQScM9kqsa85Sa8Y6+woUgCXyrj1ghRtcbJVCS+qlqPDi9vnWB0f1F+Pl\nD1B9NilM0axawsytWnGrTZWNcdkaXZnJ1OLt5ntKd0XPWI5diGRKhg7rjQfm\nqVSPjx5LOvJzDbsqVLmUwd3lLrFv4MfcutMqAoX+EcMGcCmdYfzKpzQl+BbZ\nFXQrY/mxo3fdBFhqbOj522YvjhKG5ZXD55rJ8RBb7AnOSMZYBAZyz3Af5d1f\nuFPkNWIW0A9Tn61rovWlsrrdu4GpzWoN/QOUP9X0TCDWpbhU7dmvo7H+dULJ\nb5hZt9U52xG7R6Xzl0JUgEmOLwrkWvL3GCbeTS4+fiBmnv2iKzuRKsjJ9G4W\nBkDc6BcRC3ayzTCG6cbsfVYJ2bCI2ZYquwVlBAjna0Yo/Oej6lwSj10gUiXd\nEUcorAm5eaScHqI6uZivET2q21JsX7AuOVCjYBf6fgV65u9FbyF2D3vBGdVi\nNC9tyJjFQEfmxcQtD29wsb1Fpr2vxy6xYb+pZjdtCtcroUr2GDPeBB3lkRPZ\nTj/QSm4AhLaGJIaTf3NWJWumzdeUA6EQddliF9BGUEs6mRXiyI0knX72N6iO\nYDp5\r\n=IZRp\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "35272bcedfab0cba6778707e76f0191d12deb9f6",
+    "tarball": "https://registry.npmjs.org/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.0.2.tgz",
+    "unpackedSize": 2459683
+  },
+  "gitHead": "f38824a19833564d96a5654629faefebb8322ea1",
+  "homepage": "https://webcomponents.org/polyfills",
+  "keywords": [
+    "webcomponents",
+    "web-components",
+    "polyfill",
+    "shim"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "webcomponents-bundle.js",
+  "maintainers": [
+    {
+      "email": "dfreedm2@gmail.com",
+      "name": "azakus"
+    },
+    {
+      "email": "bicknellr@gmail.com",
+      "name": "bicknellr"
+    },
+    {
+      "email": "fkschott@gmail.com",
+      "name": "fredkschott"
+    },
+    {
+      "email": "polymer-ci@google.com",
+      "name": "webcomponents-devs"
+    }
+  ],
+  "name": "@webcomponents/webcomponentsjs",
+  "optionalDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcomponents/webcomponentsjs.git"
+  },
+  "scripts": {
+    "build": "gulp",
+    "regen-package-lock": "rm -rf node_modules package-lock.json; npm install",
+    "test": "wct --npm"
+  },
+  "version": "2.0.2"
+}
