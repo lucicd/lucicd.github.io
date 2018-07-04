@@ -10,8 +10,16 @@ body {
   color: #ffffff;
 }
 
+.fontColor2 {
+  color: #000000;
+}
+
 .backColor1 {
   background-color: #ff0000;
+}
+
+.backColor2 {
+  background-color: #ffffff;
 }
 
 .header {
@@ -37,23 +45,163 @@ body {
   text-align: right;
 }
 
-nav button {
+nav {
+  width: 100%;
+}
+
+nav div {
+  display: flex;
+  flex-direction: column;
+  background-color: #240008;
+  margin: 0;
+  padding: 0;
+}
+
+#hamburgerBtn {
   font-size: 3em;
   border: none;
 }
 
-/*h1 {
-  font-size: 2rem;
-  color: #ffd6aa;
+nav ul {
+  list-style-type: none;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
-h2 {
-  font-size: 1.5rem;
-  text-align: center;
-  border-bottom: 1px solid #552c00;
-}*/
+nav ul li {
+  line-height: 1.5em;
+}
+
+nav ul li a {
+  display: block;
+  color: black;
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-top: 1px solid grey;
+}
+
+nav ul li a:hover {
+  background-color: yellow;
+}
+
+nav ul.hide {
+  display: none;
+}
 
 header, main, footer {
-  max-width: 960px;
+  max-width: 60em;
   margin: 0 auto;
+}
+
+#welcomeMsg {
+  font-size: 2.3em;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0.4em;
+  text-align: center;
+}
+
+#activeBudgetPeriod {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 0.4em;
+  text-align: center;
+}
+
+#budgetOrb {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 9em;
+  width: 9em;
+  border-radius: 50%;
+  margin: 0.5em auto;
+}
+
+.dailyBudgetMsg {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+  color: white;
+}
+
+.dailyBudgetAmt {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: white;
+}
+
+#targetBudgetMsg, #warningMsg {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+#homeScreenAlerts {
+  margin: 0.5em;
+  padding: 0 0.3em 0 0.3em;
+  border: 1px solid black;
+}
+
+#homeScreenAlerts {
+  line-height: 1.5em;
+}
+
+#homeScreenAlerts p {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+#homeButtonsContainer {
+  padding: 0 0.3em 0 0.3em;
+}
+
+.button1 {
+  display: block;
+  color: white;
+  background-color: red;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  height: 2.7em;
+  border-radius: 0.5em;
+}
+
+.myTable {
+  width: 100%;
+}
+
+.myTable caption {
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.myTable tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.myTable tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.myTable th {
+    color: white;
+    background-color: black;
+}
+
+.myTable, .myTable th, .myTable td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.myTable th, .myTable td {
+  padding: 5px;
+  text-align: center;
 }

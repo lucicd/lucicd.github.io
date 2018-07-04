@@ -1,0 +1,3 @@
+frugalisApp.storage = {};
+
+frugalisApp.storage.

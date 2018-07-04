@@ -16,69 +16,40 @@
       <h1 class="backColor1 fontColor1 title">Frugalis</h1>
       <h3 class="backColor1 fontColor1 subtitle">Personal Budgeting</h3>
     </div>
-    <nav class="alignRight">
-      <button class="backColor1 fontColor1" id="hamburgerBtn">&#9776;</button>
-    </nav>
+    <button class="backColor1 fontColor1" id="hamburgerBtn">&#9776;</button>
   </header>
 
+  <nav class="alignLeft">
+    <div>
+      <ul id="primaryNav" class="hide">
+        <li><a href="javascript:frugalisApp.route('dashboard')">Dashboard</a></li>
+        <li><a href="javascript:frugalisApp.route('budgetingPeriodsTable')">Budgeting Periods</a></li>
+        <li><a href="javascript:frugalisApp.route('accountsTable')">Accounts</a></li>
+        <li><a href="javascript:frugalisApp.route('incomeTypesTable')">Income Types</a></li>
+        <li><a href="javascript:frugalisApp.route('expenseTypesTable')">Expense Types</a></li>
+        <li><a href="javascript:frugalisApp.route('plannedIncomeTable')">Planned Income</a></li>
+        <li><a href="javascript:frugalisApp.route('plannedExpensesTable')">Planned Expenses</a></li>
+        <li><a href="javascript:frugalisApp.route('actualIncomeTable')">Actual Income</a></li>
+        <li><a href="javascript:frugalisApp.route('actualExpensesTable')">Actual Expenses</a></li>
+        <li><a href="javascript:frugalisApp.route('reports')">Reports</a></li>
+        <li><a href="javascript:frugalisApp.route('settings')">Settings</a></li>
+        <li><a href="javascript:frugalisApp.route('dailyBudgetCalculation')">Daily Budget Calculation</a></li>
+      </ul>   
+    </div>
+  </nav>
+
   <main>
-    <div id="homeView"></div>
+    <div id="appView"></div>
   </main>
-  <script>
-    (function (window, undefined) {
-      "use strict";
-
-      var menuItems = [];
-
-      var createApp = function() {
-        var that = {};
-        
-        that.getUserName = function() {
-          return 'Drazen';
-        };
-        
-        that.getActiveBudgetPeriod = function() {
-          var period = {
-            from: new Date('2018-1-1'),
-            until: new Date('2018-1-31'),
-          }
-          return period;
-        };
-
-        that.getDailyBudget = function() {
-          return 75;
-        };
-
-        that.getTargetBudget = function() {
-          return 100;
-        };
-
-        that.showHomeView = function() {
-           var xhttp = new XMLHttpRequest();
-           xhttp.onreadystatechange = function() {
-            var target =  document.getElementById("homeView");
-            if (this.readyState == 4 && this.status == 200) {
-              target.innerHTML = xhttp.responseText;
-              that.populateHomeView();
-            } else {
-              target.innerHTML = '<h1>Error loading homeView</h1>';
-            }
-          }
-          xhttp.open('GET', './views/home/home.html', true);
-          xhttp.send();
-        };
-
-        return that;
-      };
-
-      window.frugalisApp = createApp();
-
-      frugalisApp.showHomeView();
-
-    }(window));
-    
-  </script>
+  <script src="index.js"></script>
   <script src="utils.js"></script>
+  <script src="router.js"></script>
   <script src="./views/home/home.js"></script>
+  <script src="./views/budgeting-periods/budgeting-periods-table.js"></script>
+  <script src="./views/accounts/accounts-table.js"></script>
+  <script src="./views/income-types/income-types-table.js"></script>
+  <script>
+    frugalisApp.route('dashboard');
+  </script>
 </body>
 </html>
