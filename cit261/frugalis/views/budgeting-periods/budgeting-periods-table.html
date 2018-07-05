@@ -1,5 +1,10 @@
 <table class='myTable'>
-  <caption>Budgeting Periods</caption>
+  <caption>
+    <div class="tableCaption">
+      <div>Budgeting Periods</div>
+      <button class="buttonAdd" onclick="frugalisApp.route('budgetingPeriodsForm')">Add</button>
+    </div>
+  </caption>
   <thead>
     <tr>
       <th>From</th>
@@ -11,3 +16,6 @@
     
   </tbody>
 </table>
+<div class="tableButtons">
+  <button class="buttonBack" onclick="frugalisApp.route('dashboard')">Back</button>
+</div>

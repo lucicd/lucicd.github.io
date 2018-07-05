@@ -1,17 +1,22 @@
-frugalisApp.route = function(routeName) {
+(function(app) {
+  'use strict';
+  
+  app.route = function(routeName) {
+    var primaryNav = document.getElementById('primaryNav');
+    if (!primaryNav.classList.contains('hide')) {
+      primaryNav.classList.toggle('hide');
+    }
 
-  var primaryNav = document.getElementById('primaryNav');
-  if (!primaryNav.classList.contains('hide')) {
-    primaryNav.classList.toggle('hide');
+    if (routeName === 'budgetingPeriodsTable') {
+      app.showBudgetingPeriodsTableView();
+    } else if (routeName === 'budgetingPeriodsForm') {
+      app.showBudgetingPeriodFormView();
+    } else if (routeName === 'accountsTable') {
+      app.showAccountsTableView();
+    } else if (routeName === 'incomeTypesTable') {
+      app.showIncomeTypesTableView();
+    } else {
+      app.showHomeView();
+    }
   }
-
-  if (routeName === 'budgetingPeriodsTable') {
-    frugalisApp.showBudgetingPeriodsTableView();
-  } else if (routeName === 'accountsTable') {
-    frugalisApp.showAccountsTableView();
-  } else if (routeName === 'incomeTypesTable') {
-    frugalisApp.showIncomeTypesTableView();
-  } else {
-    frugalisApp.showHomeView();
-  }
-}
+})(frugalisApp);
