@@ -1,0 +1,53 @@
+(function(app) {
+  'use strict';
+
+  function verifyRec(params) {
+    if (params.endDate < params.startDate) {
+      return 'End date must be larger or equal to start date.';
+    }
+    if (params.referenceDate < params.startDate) {
+      return 'Reference date must be larger or equal to start date.';
+    }
+    if (params.referenceDate > params.endDate) {
+      return 'Reference date must be smaller or equal to end date.';
+    }
+    return null;
+  }
+
+   function checkOverlap(startDate, endDate) {
+    return function(rec) {
+      return startDate >= rec.startDate && startDate <= rec.endDate || endDate >= rec.startDate && endDate <= rec.endDate;
+    };
+  }
+
+  app.db.createBudgetingPeriod = function(params, callback) {
+    var data = app.db.storage.budgetingPeriods;
+    var err = verifyRec(params);
+    if (err) {
+      callback(err, null);
+    } else {
+      var id = data.findIndex(checkOverlap(params.startDate, params.endDate));
+      if (id >= 0) {
+        err = 'Overlapping period exists.'
+        callback(err, null);
+      } else {
+        var rec = {
+          startDate: params.startDate,
+          endDate: params.endDate,
+          referenceDate: params.referenceDate,
+          plannedIncomes: [],
+          plannedExpenses: [],
+          actualIncomes: [],
+          actualExpenses: [],
+          status: true,    
+        };
+        data.push(rec);
+        callback(null, data.length - 1);
+      }
+    }
+  };
+
+  app.db.getBudgetingPeriods = function() {
+    return app.db.storage.budgetingPeriods;
+  };
+})(frugalisApp);

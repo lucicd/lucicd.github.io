@@ -1,17 +1,19 @@
-(function() {
-  frugalisApp.populateHomeView = function() {
+(function(app) {
+  'use strict';
+
+  app.populateHomeView = function() {
     var el = document.getElementById('welcomeMsg');
-    el.innerHTML = 'Welcome ' + frugalisApp.getUserName() + '!';
+    el.innerHTML = 'Welcome ' + app.getUserName() + '!';
     
     el = document.getElementById('activeBudgetPeriod');
-    var period = frugalisApp.getActiveBudgetPeriod();
+    var period = app.getActiveBudgetPeriod();
     el.innerHTML = 'Period: ' + 
-      frugalisApp.formatDate(period.from) + ' until ' + 
-      frugalisApp.formatDate(period.until);
+      app.formatDate(period.from) + ' until ' + 
+      app.formatDate(period.until);
 
     el = document.getElementById('budgetOrb');
-    var dailyBudget = frugalisApp.getDailyBudget();
-    var targetBudget = frugalisApp.getTargetBudget();
+    var dailyBudget = app.getDailyBudget();
+    var targetBudget = app.getTargetBudget();
     var backgroundColor;
     var warningMsg;
     if (dailyBudget>=targetBudget) {
@@ -34,7 +36,7 @@
     el = document.getElementById('warningMsg');
     el.innerHTML = warningMsg;
 
-    var warnings = frugalisApp.getAlertsList();
+    var warnings = app.getAlertsList();
     var el = document.getElementById('homeScreenAlerts');
     html = '<p>Alerts</p>';
     html += '<ul>';
@@ -45,17 +47,15 @@
     el.innerHTML = html;
   }
 
-  frugalisApp.showHomeView = function() {
-    frugalisApp.getViewHtml('./views/home/home.html', function(err, response) {
+  app.showHomeView = function() {
+    app.getViewHtml('./views/home/home.html', function(err, response) {
       var target =  document.getElementById('appView');
       if (err) {
         target.innerHTML = err;
       } else {
         target.innerHTML = response;
-        frugalisApp.populateHomeView();
+        app.populateHomeView();
       }
     });
   };
-})();
-
-
+})(frugalisApp);
