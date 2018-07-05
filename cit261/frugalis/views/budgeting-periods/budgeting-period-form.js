@@ -1,25 +1,19 @@
 (function(app) {
   'use strict';
   
-  function populateBudgetingPeriodFormView() {
-    // var periods = app.db.getBudgetingPeriods();
-    // var table = document.getElementById('budgetingPeriodsTable');
-    // periods.forEach(function(period) {
-    //   var row = document.createElement('tr');
-    //   var col1 = document.createElement('td');
-    //   var col2 = document.createElement('td');
-    //   var col3 = document.createElement('td');
-    //   col1.innerHTML = app.formatDate(period.startDate);
-    //   col2.innerHTML = app.formatDate(period.endDate);
-    //   col3.innerHTML = period.status ? 'Active' : 'Retired';
-    //   row.appendChild(col1);
-    //   row.appendChild(col2);
-    //   row.appendChild(col3);
-    //   table.appendChild(row);
-    // });
+  function populateBudgetingPeriodFormView(id) {
+    var el = document.getElementById('id');
+    el.value = id;
+    if (id >= 0) {
+      var period = app.db.getBudgetingPeriod(id);
+      el = document.getElementById('startDate');
+      el.value = app.formatISODate(period.startDate);
+      el = document.getElementById('endDate');
+      el.value = app.formatISODate(period.endDate);
+    }
   }
 
-  app.showBudgetingPeriodFormView = function() {
+  app.showBudgetingPeriodFormView = function(id) {
     var url = './views/budgeting-periods/budgeting-period-form.html';
     app.getViewHtml(url, function(err, response) {
       var target = document.getElementById('appView');
@@ -27,8 +21,22 @@
         target.innerHTML = err;
       } else {
         target.innerHTML = response;
-        populateBudgetingPeriodFormView();
+        populateBudgetingPeriodFormView(id);
       }
     });
   };
+
+  app.processBudgetingPeriodForm = function() {
+    var startDate = new Date(document.getElementById('startDate').value);
+    var endDate = new Date(document.getElementById('endDate').value);
+    var id = document.getElementById('id').value;;
+    if (id >= 0) {
+      console.log('Changing existing budgeting period.');
+      app.route('budgetingPeriodsTable');
+    } else {
+      app.db.createBudgetingPeriod({startDate: startDate, endDate: endDate}, function() {
+        app.route('budgetingPeriodsTable');
+      });
+    }
+  }
 })(frugalisApp);

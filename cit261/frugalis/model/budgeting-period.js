@@ -42,7 +42,9 @@
           status: true,    
         };
         data.push(rec);
-        callback(null, data.length - 1);
+        app.db.persist(function() {
+          callback(null, data.length - 1);
+        });
       }
     }
   };
@@ -50,4 +52,8 @@
   app.db.getBudgetingPeriods = function() {
     return app.db.storage.budgetingPeriods;
   };
+
+  app.db.getBudgetingPeriod = function(id) {
+    return app.db.storage.budgetingPeriods[id];
+  }
 })(frugalisApp);

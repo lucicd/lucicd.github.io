@@ -4,12 +4,14 @@
   app.populateBudgetingPeriodsTableView = function() {
     var periods = app.db.getBudgetingPeriods();
     var table = document.getElementById('budgetingPeriodsTable');
-    periods.forEach(function(period) {
+    periods.forEach(function(period, idx) {
       var row = document.createElement('tr');
       var col1 = document.createElement('td');
       var col2 = document.createElement('td');
       var col3 = document.createElement('td');
-      col1.innerHTML = app.formatDate(period.startDate);
+      var html = '<a href="javascript:frugalisApp.route(\'budgetingPeriodsForm\', ' + idx + ')">';
+      html += app.formatDate(period.startDate) + '</a>';
+      col1.innerHTML = html
       col2.innerHTML = app.formatDate(period.endDate);
       col3.innerHTML = period.status ? 'Active' : 'Retired';
       row.appendChild(col1);

@@ -2,7 +2,15 @@
   'use strict';
 
   var frugalisDB = localStorage.getItem('frugalisDB');
-  if (frugalisDB === null) {
+  if (frugalisDB) {
+    app.db.storage = JSON.parse(frugalisDB, function(key, value) {
+      if (key === 'startDate' || key === 'endDate' || key === 'referenceDate') {
+        return new Date(value);
+      } else {
+        return value;
+      }
+    });
+  } else {
     app.db.storage = {
       budgetingPeriods: [],
       incomeTypes: [],
@@ -14,9 +22,6 @@
       showPlannedIncomeAlert: null,
     };
     app.db.bootstrap();
-    frugalisDB = JSON.stringify(app.db.storage);
-    localStorage.setItem('frugalisDB', frugalisDB);
-  } else {
-    app.db.storage = JSON.parse(frugalisDB);
+    app.db.persist(function() {});
   }
 })(frugalisApp);

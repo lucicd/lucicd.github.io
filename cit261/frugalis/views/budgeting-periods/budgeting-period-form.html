@@ -1,9 +1,33 @@
-<h1 class="alignCenter">Budgeting Period</h1>
-<div>
-  
-</div>
-<div class="formButtons">
-  <button class="buttonBack" onclick="frugalisApp.route('budgetingPeriodsTable')">Back</button>
-  <button class="buttonSave" onclick="frugalisApp.route('budgetingPeriodsTable')">Save</button>
-  <button class="buttonDelete" onclick="frugalisApp.route('budgetingPeriodsTable')">Delete</button>
-</div>
+<h1 class="alignCenter myFormCaption">Budgeting Period</h1>
+<form id="myForm" action="javascript:frugalisApp.processBudgetingPeriodForm()">
+  <fieldset>
+    <div>
+      <label>
+        <span class="date">Start Date</span>
+        <input 
+          type="date"
+          class="date"
+          name="startDate"
+          id="startDate"
+          required
+        >
+      </label>
+      <label>
+        <span class="date">End Date</span>
+        <input 
+          type="date"
+          class="date"
+          name="endDate"
+          id="endDate"
+          required
+        >
+      </label>
+    </div>
+  </fieldset>
+  <input type="hidden" id="id" name="id">
+  <div class="formButtons">
+    <button class="buttonBack" onclick="frugalisApp.route('budgetingPeriodsTable')">Back</button>
+    <input class="buttonSave" type="submit" value="Save">
+    <button class="buttonDelete" onclick="frugalisApp.route('budgetingPeriodsTable')">Delete</button>
+  </div>
+</form>

@@ -9,6 +9,15 @@
     return day + '-' + month + '-' + year;
   }
 
+  app.formatISODate = function(d) {
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+    var year = d.getFullYear();
+    return year + '-' + 
+      month.toLocaleString('en', {minimumIntegerDigits: 2}) + '-' + 
+      day.toLocaleString('en', {minimumIntegerDigits: 2});
+  }
+
   app.getViewHtml = function(url, callback) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
