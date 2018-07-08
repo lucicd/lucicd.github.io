@@ -21,6 +21,10 @@
       app.showIncomeTypesTableView();
     } else if (routeName === 'incomeTypesForm') {
       app.showIncomeTypeFormView(data);
+    } else if (routeName === 'expenseTypesTable') {
+      app.showExpenseTypesTableView();
+    } else if (routeName === 'expenseTypesForm') {
+      app.showExpenseTypeFormView(data);
     } else {
       app.showHomeView();
     }
