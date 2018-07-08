@@ -1,0 +1,22 @@
+<h1 class="alignCenter myFormCaption">Account</h1>
+<form id="myForm" action="javascript:frugalisApp.processAccountForm()">
+  <fieldset>
+    <div>
+      <label>
+        <span>Account Name</span>
+        <input 
+          type="text"
+          name="name"
+          id="name"
+          required
+        >
+      </label>
+    </div>
+  </fieldset>
+  <input type="hidden" id="id" name="id">
+  <div class="formButtons">
+    <button class="buttonBack" onclick="frugalisApp.route('accountsTable')">Back</button>
+    <input class="buttonSave" type="submit" value="Save">
+    <button class="buttonDelete" onclick="frugalisApp.deleteAccountForm()">Delete</button>
+  </div>
+</form>

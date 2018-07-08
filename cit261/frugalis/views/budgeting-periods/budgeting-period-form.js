@@ -10,6 +10,9 @@
       el.value = app.formatISODate(period.startDate);
       el = document.getElementById('endDate');
       el.value = app.formatISODate(period.endDate);
+    } else {
+      el = document.querySelector('.buttonDelete');
+      el.classList.add('hidden');
     }
   }
 
@@ -45,6 +48,22 @@
       });
     } else {
       app.db.createBudgetingPeriod(params, function(err, id) {
+        if (err) {
+          app.showMessage(err, 'Error');
+        } else {
+          app.route('budgetingPeriodsTable');
+        }
+      });
+    }
+  }
+
+  app.deleteBudgetingPeriodForm = function() {
+    var id = document.getElementById('id').value;
+    var params = {
+      id: id,
+    };
+    if (id >= 0) {
+      app.db.deleteBudgetingPeriod(params, function(err) {
         if (err) {
           app.showMessage(err, 'Error');
         } else {

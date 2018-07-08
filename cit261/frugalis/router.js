@@ -7,12 +7,16 @@
       primaryNav.classList.toggle('hide');
     }
 
+    // console.log(routeName);
+
     if (routeName === 'budgetingPeriodsTable') {
       app.showBudgetingPeriodsTableView();
     } else if (routeName === 'budgetingPeriodsForm') {
       app.showBudgetingPeriodFormView(data);
     } else if (routeName === 'accountsTable') {
       app.showAccountsTableView();
+    } else if (routeName === 'accountsForm') {
+      app.showAccountFormView(data);
     } else if (routeName === 'incomeTypesTable') {
       app.showIncomeTypesTableView();
     } else {

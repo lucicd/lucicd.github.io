@@ -70,6 +70,14 @@
     }
   };
 
+  app.db.deleteBudgetingPeriod = function(params, callback) {
+    var data = app.db.storage.budgetingPeriods;
+    data.splice(params.id, 1);
+    app.db.persist(function() {
+      callback(null);
+    });
+  };
+
   app.db.getBudgetingPeriods = function() {
     return app.db.storage.budgetingPeriods;
   };

@@ -56,6 +56,12 @@
     {name: 'Credit card bill'},
   ];
 
+  var accounts = [
+    {name: 'Current'},
+    {name: 'Cash'},
+    {name: 'Credit Card'},
+  ];
+
   app.db.bootstrap = function() {
 
     function bootstrapMe(records, creator, callback) {
@@ -77,12 +83,18 @@
 
     function bootstrapIncomeTypes(callback) {
       bootstrapMe(incomeTypes, app.db.createIncomeType, function() {
-        bootstrapExpenseTypes(callback)
+        bootstrapExpenseTypes(callback);
       });
     }
 
     function bootstrapExpenseTypes(callback) {
       bootstrapMe(expenseTypes, app.db.createExpenseType, function() {
+        bootstrapAccounts(callback);
+      });
+    }
+
+    function bootstrapAccounts(callback) {
+      bootstrapMe(accounts, app.db.createAccount, function() {
         callback();
       });
     }
