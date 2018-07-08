@@ -49,6 +49,27 @@
     }
   };
 
+  app.db.updateBudgetingPeriod = function(params, callback) {
+    var data = app.db.storage.budgetingPeriods;
+    var err = verifyRec(params);
+    if (err) {
+      callback(err, null);
+    } else {
+      var id = data.findIndex(checkOverlap(params.startDate, params.endDate));
+      if (id >= 0 && id != params.id) {
+        err = 'Overlapping period exists.'
+        callback(err, null);
+      } else {
+        var rec = data[params.id];
+        rec.startDate = params.startDate;
+        rec.endDate = params.endDate;
+        app.db.persist(function() {
+          callback(null, params.id);
+        });
+      }
+    }
+  };
+
   app.db.getBudgetingPeriods = function() {
     return app.db.storage.budgetingPeriods;
   };

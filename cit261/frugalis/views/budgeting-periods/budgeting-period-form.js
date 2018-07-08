@@ -29,13 +29,27 @@
   app.processBudgetingPeriodForm = function() {
     var startDate = new Date(document.getElementById('startDate').value);
     var endDate = new Date(document.getElementById('endDate').value);
-    var id = document.getElementById('id').value;;
+    var id = document.getElementById('id').value;
+    var params = {
+      startDate: startDate, 
+      endDate: endDate,
+      id: id,
+    };
     if (id >= 0) {
-      console.log('Changing existing budgeting period.');
-      app.route('budgetingPeriodsTable');
+      app.db.updateBudgetingPeriod(params, function(err, id) {
+        if (err) {
+          app.showMessage(err, 'Error');
+        } else {
+          app.route('budgetingPeriodsTable');
+        }
+      });
     } else {
-      app.db.createBudgetingPeriod({startDate: startDate, endDate: endDate}, function() {
-        app.route('budgetingPeriodsTable');
+      app.db.createBudgetingPeriod(params, function(err, id) {
+        if (err) {
+          app.showMessage(err, 'Error');
+        } else {
+          app.route('budgetingPeriodsTable');
+        }
       });
     }
   }
