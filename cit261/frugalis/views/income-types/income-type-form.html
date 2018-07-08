@@ -1,0 +1,22 @@
+<h1 class="alignCenter myFormCaption">IncomeType</h1>
+<form id="myForm" action="javascript:frugalisApp.processIncomeTypeForm()">
+  <fieldset>
+    <div>
+      <label>
+        <span>Income Type Name</span>
+        <input 
+          type="text"
+          name="name"
+          id="name"
+          required
+        >
+      </label>
+    </div>
+  </fieldset>
+  <input type="hidden" id="id" name="id">
+  <div class="formButtons">
+    <button class="buttonBack" onclick="frugalisApp.route('incomeTypesTable')">Back</button>
+    <input class="buttonSave" type="submit" value="Save">
+    <button class="buttonDelete" onclick="frugalisApp.deleteIncomeTypeForm()">Delete</button>
+  </div>
+</form>
