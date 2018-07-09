@@ -3,19 +3,27 @@
 
   app.formatDate = function(d) {
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var day = d.getDate();
-    var month = months[d.getMonth()];
-    var year = d.getFullYear() - 2000;
-    return day + '-' + month + '-' + year;
+    try {
+      var day = d.getDate();
+      var month = months[d.getMonth()];
+      var year = d.getFullYear() - 2000;
+      return day + '-' + month + '-' + year;
+    } catch(e) {
+      return '..-..-..';
+    }
   }
 
   app.formatISODate = function(d) {
-    var day = d.getDate();
-    var month = d.getMonth() + 1;
-    var year = d.getFullYear();
-    return year + '-' + 
-      month.toLocaleString('en', {minimumIntegerDigits: 2}) + '-' + 
-      day.toLocaleString('en', {minimumIntegerDigits: 2});
+    try {
+      var day = d.getDate();
+      var month = d.getMonth() + 1;
+      var year = d.getFullYear();
+      return year + '-' + 
+        month.toLocaleString('en', {minimumIntegerDigits: 2}) + '-' + 
+        day.toLocaleString('en', {minimumIntegerDigits: 2});
+    } catch(e) {
+      return '..-...-..';
+    }
   }
 
   app.getViewHtml = function(url, callback) {

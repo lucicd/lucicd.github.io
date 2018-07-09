@@ -33,6 +33,14 @@
       app.showActualIncomesTableView();
     } else if (routeName === 'actualIncomesForm') {
       app.showActualIncomeFormView(data);
+    } else if (routeName === 'plannedExpensesTable') {
+      app.showPlannedExpensesTableView();
+    } else if (routeName === 'plannedExpensesForm') {
+      app.showPlannedExpenseFormView(data);
+    } else if (routeName === 'plannedIncomesTable') {
+      app.showPlannedIncomesTableView();
+    } else if (routeName === 'plannedIncomesForm') {
+      app.showPlannedIncomeFormView(data);
     } else {
       app.showHomeView();
     }

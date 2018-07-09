@@ -49,6 +49,11 @@
     });
     html += '</ul>';
     el.innerHTML = html;
+
+    el = document.getElementById('enterExpensesBtn');
+    el.addEventListener('click', function() {
+      app.route('actualExpensesForm', -1);
+    });
   }
 
   app.showHomeView = function() {

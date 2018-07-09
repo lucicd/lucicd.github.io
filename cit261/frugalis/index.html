@@ -27,7 +27,7 @@
         <li><a href="javascript:frugalisApp.route('accountsTable')">Accounts</a></li>
         <li><a href="javascript:frugalisApp.route('incomeTypesTable')">Income Types</a></li>
         <li><a href="javascript:frugalisApp.route('expenseTypesTable')">Expense Types</a></li>
-        <li><a href="javascript:frugalisApp.route('plannedIncomeTable')">Planned Income</a></li>
+        <li><a href="javascript:frugalisApp.route('plannedIncomesTable')">Planned Income</a></li>
         <li><a href="javascript:frugalisApp.route('plannedExpensesTable')">Planned Expenses</a></li>
         <li><a href="javascript:frugalisApp.route('actualIncomesTable')">Actual Income</a></li>
         <li><a href="javascript:frugalisApp.route('actualExpensesTable')">Actual Expenses</a></li>
@@ -70,6 +70,10 @@
   <script src="./views/actual-expenses/actual-expense-form.js"></script>
   <script src="./views/actual-incomes/actual-incomes-table.js"></script>
   <script src="./views/actual-incomes/actual-income-form.js"></script>
+  <script src="./views/planned-expenses/planned-expenses-table.js"></script>
+  <script src="./views/planned-expenses/planned-expense-form.js"></script>
+  <script src="./views/planned-incomes/planned-incomes-table.js"></script>
+  <script src="./views/planned-incomes/planned-income-form.js"></script>
   
   <script src="./model/db.js"></script>
   <script src="./model/budgeting-period.js"></script>
@@ -78,17 +82,21 @@
   <script src="./model/expense-type.js"></script>
   <script src="./model/actual-expense.js"></script>
   <script src="./model/actual-income.js"></script>
+  <script src="./model/planned-expense.js"></script>
+  <script src="./model/planned-income.js"></script>
   <script src="./model/bootstrap.js"></script>
   <script src="./model/storage.js"></script>
   <script>
-    // frugalisApp.route('dashboard');
+    frugalisApp.route('dashboard');
     // frugalisApp.route('budgetingPeriodsTable');
     // frugalisApp.route('budgetingPeriodsForm');
     // frugalisApp.route('accountsTable');
     // frugalisApp.route('incomeTypesTable');
     // frugalisApp.route('expenseTypesTable');
     // frugalisApp.route('actualExpensesTable');
-    frugalisApp.route('actualIncomesTable');
+    // frugalisApp.route('actualIncomesTable');
+    // frugalisApp.route('plannedExpensesTable');
+    // frugalisApp.route('plannedIncomesTable');
   </script>
 </body>
 </html>

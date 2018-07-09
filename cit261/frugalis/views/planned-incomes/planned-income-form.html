@@ -1,5 +1,5 @@
-<h1 class="alignCenter myFormCaption">Actual Income</h1>
-<form id="myForm" action="javascript:frugalisApp.processActualIncomeForm()">
+<h1 class="alignCenter myFormCaption">Planned Income</h1>
+<form id="myForm" action="javascript:frugalisApp.processPlannedIncomeForm()">
   <fieldset>
     <div>
       <label>
@@ -16,19 +16,6 @@
         </datalist>
       </label>
       <label>
-        <span>Account</span>
-        <input 
-          type="text"
-          class="ffWidth"
-          name="account"
-          id="account"
-          list="accounts"
-          required
-        >
-        <datalist id="accounts">
-        </datalist>
-      </label>
-      <label>
         <span>Amount</span>
         <input 
           type="number"
@@ -40,12 +27,12 @@
         >
       </label>
       <label>
-        <span>Date</span>
+        <span>Deadline Date</span>
         <input 
           type="date"
           class="date"
-          name="date"
-          id="date"
+          name="deadlineDate"
+          id="deadlineDate"
           required
         >
       </label>
@@ -62,8 +49,8 @@
   </fieldset>
   <input type="hidden" id="id" name="id">
   <div class="formButtons">
-    <button class="buttonBack" onclick="frugalisApp.route('actualIncomesTable')">Back</button>
+    <button class="buttonBack" onclick="frugalisApp.route('plannedIncomesTable')">Back</button>
     <input class="buttonSave" type="submit" value="Save">
-    <button class="buttonDelete" onclick="frugalisApp.deleteActualIncomeForm()">Delete</button>
+    <button class="buttonDelete" onclick="frugalisApp.deletePlannedIncomeForm()">Delete</button>
   </div>
 </form>

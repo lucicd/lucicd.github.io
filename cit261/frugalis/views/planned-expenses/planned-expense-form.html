@@ -1,31 +1,18 @@
-<h1 class="alignCenter myFormCaption">Actual Income</h1>
-<form id="myForm" action="javascript:frugalisApp.processActualIncomeForm()">
+<h1 class="alignCenter myFormCaption">Planned Expense</h1>
+<form id="myForm" action="javascript:frugalisApp.processPlannedExpenseForm()">
   <fieldset>
     <div>
       <label>
-        <span>Income Type</span>
+        <span>Expense Type</span>
         <input 
           type="text"
           class="ffWidth"
-          name="incomeType"
-          id="incomeType"
-          list="incomeTypes"
+          name="expenseType"
+          id="expenseType"
+          list="expenseTypes"
           required
         >
-        <datalist id="incomeTypes">
-        </datalist>
-      </label>
-      <label>
-        <span>Account</span>
-        <input 
-          type="text"
-          class="ffWidth"
-          name="account"
-          id="account"
-          list="accounts"
-          required
-        >
-        <datalist id="accounts">
+        <datalist id="expenseTypes">
         </datalist>
       </label>
       <label>
@@ -40,12 +27,12 @@
         >
       </label>
       <label>
-        <span>Date</span>
+        <span>Deadline Date</span>
         <input 
           type="date"
           class="date"
-          name="date"
-          id="date"
+          name="deadlineDate"
+          id="deadlineDate"
           required
         >
       </label>
@@ -62,8 +49,8 @@
   </fieldset>
   <input type="hidden" id="id" name="id">
   <div class="formButtons">
-    <button class="buttonBack" onclick="frugalisApp.route('actualIncomesTable')">Back</button>
+    <button class="buttonBack" onclick="frugalisApp.route('plannedExpensesTable')">Back</button>
     <input class="buttonSave" type="submit" value="Save">
-    <button class="buttonDelete" onclick="frugalisApp.deleteActualIncomeForm()">Delete</button>
+    <button class="buttonDelete" onclick="frugalisApp.deletePlannedExpenseForm()">Delete</button>
   </div>
 </form>
