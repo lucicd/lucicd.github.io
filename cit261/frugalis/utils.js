@@ -42,4 +42,34 @@
     }
   };
 
+  app.populateExpenseTypes = function(target) {
+    var expenseTypes = app.db.getExpenseTypes();
+    expenseTypes.forEach(function(type) {
+      var option = document.createElement('option');
+      option.attributes.value = type.name;
+      option.innerHTML = type.name;
+      target.appendChild(option);
+    });
+  };
+
+  app.populateIncomeTypes = function(target) {
+    var incomeTypes = app.db.getIncomeTypes();
+    incomeTypes.forEach(function(type) {
+      var option = document.createElement('option');
+      option.attributes.value = type.name;
+      option.innerHTML = type.name;
+      target.appendChild(option);
+    });
+  };
+
+  app.populateAccounts = function(target) {
+    var accounts = app.db.getAccounts();
+    accounts.forEach(function(account) {
+      var option = document.createElement('option');
+      option.attributes.value = account.name;
+      option.innerHTML = account.name;
+      target.appendChild(option);
+    });
+  };
+
 })(frugalisApp);

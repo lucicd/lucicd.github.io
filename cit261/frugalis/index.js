@@ -6,18 +6,6 @@
   var createApp = function() {
     var that = {};
 
-    that.getUserName = function() {
-      return 'Drazen';
-    };
-    
-    that.getActiveBudgetPeriod = function() {
-      var period = {
-        from: new Date('2018-1-1'),
-        until: new Date('2018-1-31'),
-      }
-      return period;
-    };
-
     that.getDailyBudget = function() {
       return 11275.45;
     };

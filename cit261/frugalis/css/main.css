@@ -355,6 +355,10 @@ input:required:valid, select:required:valid, textarea:required:valid {
   width: 15rem;
 }
 
+.ffWidth {
+  width: 15rem; 
+}
+
 .dialogContainer {
   background: rgba(0, 0, 0, 0.57);
   position: fixed;

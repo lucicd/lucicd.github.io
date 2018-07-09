@@ -7,9 +7,13 @@
     
     el = document.getElementById('activeBudgetPeriod');
     var period = app.getActiveBudgetPeriod();
-    el.innerHTML = 'Period: ' + 
-      app.formatDate(period.from) + ' until ' + 
-      app.formatDate(period.until);
+    if (period) {
+      el.innerHTML = 'Period: ' + 
+        (period.startDate ? app.formatDate(period.startDate) : '-') + ' until ' + 
+        (period.endDate ? app.formatDate(period.endDate) : '-');
+    } else {
+      el.innerHTML = 'Period: - until -'; 
+    }
 
     el = document.getElementById('budgetOrb');
     var dailyBudget = app.getDailyBudget();

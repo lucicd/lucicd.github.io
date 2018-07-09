@@ -42,6 +42,7 @@
           status: true,    
         };
         data.push(rec);
+        app.db.storage.activePeriod = rec;
         app.db.persist(function() {
           callback(null, data.length - 1);
         });

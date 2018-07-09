@@ -25,6 +25,14 @@
       app.showExpenseTypesTableView();
     } else if (routeName === 'expenseTypesForm') {
       app.showExpenseTypeFormView(data);
+    } else if (routeName === 'actualExpensesTable') {
+      app.showActualExpensesTableView();
+    } else if (routeName === 'actualExpensesForm') {
+      app.showActualExpenseFormView(data);
+    } else if (routeName === 'actualIncomesTable') {
+      app.showActualIncomesTableView();
+    } else if (routeName === 'actualIncomesForm') {
+      app.showActualIncomeFormView(data);
     } else {
       app.showHomeView();
     }
