@@ -4,7 +4,7 @@
   app.routeUrl = function(routeName, data) {
     var href = window.location.href;
     var stem = href.split('#')[0] || '';
-    console.log(stem);
+    // console.log(stem);
     var newHref = stem + '#' + routeName;
     if (data != undefined) {
       newHref += '?data='+encodeURIComponent(data);
@@ -74,6 +74,10 @@
       app.showPlannedIncomesTableView();
     } else if (routeName === 'plannedIncomesForm') {
       app.showPlannedIncomeFormView(data);
+    } else if (routeName === 'selectActivePeriod') {
+      app.showSelectActivePeriodTableView();
+    } else if (routeName === 'makePeriodActive') {
+      app.makePeriodActive(data);
     } else if (routeName === 'reset') {
       app.db.reset();
       app.showHomeView();

@@ -5,7 +5,8 @@
   if (frugalisDB) {
     app.db.storage = JSON.parse(frugalisDB, function(key, value) {
       if (key === 'startDate' || key === 'endDate' 
-      || key === 'referenceDate' || key === 'date') {
+      || key === 'referenceDate' || key === 'date' ||
+      key === 'deadlineDate') {
         return new Date(value);
       } else {
         return value;
@@ -66,5 +67,13 @@
   app.reset = function() {
     localStorage.clear();
     app.db.bootstrap();
+  }
+
+
+  app.activatePeriod = function(id, callback) {
+    var periods = app.db.getBudgetingPeriods();
+    app.db.storage.activePeriod = periods[id];
+    // console.log(app.db.storage);
+    app.db.persist(callback);
   }
 })(frugalisApp);
