@@ -5,17 +5,22 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var actualExpense = app.db.getActualExpense(id);
-      el = document.getElementById('expenseType');
-      el.value = actualExpense.expenseType;
-      el = document.getElementById('account');
-      el.value = actualExpense.account;
-      el = document.getElementById('amount');
-      el.value = actualExpense.amount;
-      el = document.getElementById('date');
-      el.value = app.formatISODate(actualExpense.date);
-      el = document.getElementById('comments');
-      el.value = actualExpense.comments;
+      try {
+        var actualExpense = app.db.getActualExpense(id);
+        el = document.getElementById('expenseType');
+        el.value = actualExpense.expenseType;
+        el = document.getElementById('account');
+        el.value = actualExpense.account;
+        el = document.getElementById('amount');
+        el.value = actualExpense.amount;
+        el = document.getElementById('date');
+        el.value = app.formatISODate(actualExpense.date);
+        el = document.getElementById('comments');
+        el.value = actualExpense.comments;
+      } catch(e) {
+        app.showMessage('Cannot find actual expense with id=' + id + '.', 'Error', 'actualExpensesTable');
+        return
+      }
     } else {
       el = document.getElementById('date');
       el.value = app.formatISODate(new Date());

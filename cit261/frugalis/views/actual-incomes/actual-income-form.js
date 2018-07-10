@@ -5,17 +5,22 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var actualIncome = app.db.getActualIncome(id);
-      el = document.getElementById('incomeType');
-      el.value = actualIncome.incomeType;
-      el = document.getElementById('account');
-      el.value = actualIncome.account;
-      el = document.getElementById('amount');
-      el.value = actualIncome.amount;
-      el = document.getElementById('date');
-      el.value = app.formatISODate(actualIncome.date);
-      el = document.getElementById('comments');
-      el.value = actualIncome.comments;
+      try {
+        var actualIncome = app.db.getActualIncome(id);
+        el = document.getElementById('incomeType');
+        el.value = actualIncome.incomeType;
+        el = document.getElementById('account');
+        el.value = actualIncome.account;
+        el = document.getElementById('amount');
+        el.value = actualIncome.amount;
+        el = document.getElementById('date');
+        el.value = app.formatISODate(actualIncome.date);
+        el = document.getElementById('comments');
+        el.value = actualIncome.comments;
+      } catch(e) {
+        app.showMessage('Cannot find actual income with id=' + id + '.', 'Error', 'actualIncomesTable');
+        return;
+      }
     } else {
       el = document.getElementById('date');
       el.value = app.formatISODate(new Date());

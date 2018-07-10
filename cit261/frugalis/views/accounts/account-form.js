@@ -5,9 +5,14 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var account = app.db.getAccount(id);
-      el = document.getElementById('name');
-      el.value = account.name;
+      try {
+        var account = app.db.getAccount(id);
+        el = document.getElementById('name');
+        el.value = account.name;
+      } catch (e) {
+        app.showMessage('Cannot find account with id=' + id + '.', 'Error', 'accountsTable');
+        return;
+      }
     } else {
       el = document.querySelector('.buttonDelete');
       el.classList.add('hidden');

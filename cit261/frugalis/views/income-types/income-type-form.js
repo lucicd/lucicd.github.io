@@ -5,9 +5,14 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var incomeType = app.db.getIncomeType(id);
-      el = document.getElementById('name');
-      el.value = incomeType.name;
+      try {
+        var incomeType = app.db.getIncomeType(id);
+        el = document.getElementById('name');
+        el.value = incomeType.name;
+      } catch(e) {
+        app.showMessage('Cannot find income type with id=' + id + '.', 'Error', 'incomeTypesTable');
+        return;
+      }
     } else {
       el = document.querySelector('.buttonDelete');
       el.classList.add('hidden');

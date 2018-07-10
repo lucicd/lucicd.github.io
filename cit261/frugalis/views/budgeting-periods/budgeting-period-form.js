@@ -5,11 +5,16 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var period = app.db.getBudgetingPeriod(id);
-      el = document.getElementById('startDate');
-      el.value = app.formatISODate(period.startDate);
-      el = document.getElementById('endDate');
-      el.value = app.formatISODate(period.endDate);
+      try {
+        var period = app.db.getBudgetingPeriod(id);
+        el = document.getElementById('startDate');
+        el.value = app.formatISODate(period.startDate);
+        el = document.getElementById('endDate');
+        el.value = app.formatISODate(period.endDate);
+      } catch(e) {
+        app.showMessage('Cannot find budgeting period with id=' + id + '.', 'Error', 'budgetingPeriodsTable');
+        return;
+      }
     } else {
       el = document.querySelector('.buttonDelete');
       el.classList.add('hidden');

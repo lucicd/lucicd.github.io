@@ -5,15 +5,20 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var plannedExpense = app.db.getPlannedExpense(id);
-      el = document.getElementById('expenseType');
-      el.value = plannedExpense.expenseType;
-      el = document.getElementById('amount');
-      el.value = plannedExpense.amount;
-      el = document.getElementById('deadlineDate');
-      el.value = app.formatISODate(plannedExpense.deadlineDate);
-      el = document.getElementById('comments');
-      el.value = plannedExpense.comments;
+      try {
+        var plannedExpense = app.db.getPlannedExpense(id);
+        el = document.getElementById('expenseType');
+        el.value = plannedExpense.expenseType;
+        el = document.getElementById('amount');
+        el.value = plannedExpense.amount;
+        el = document.getElementById('deadlineDate');
+        el.value = app.formatISODate(plannedExpense.deadlineDate);
+        el = document.getElementById('comments');
+        el.value = plannedExpense.comments;
+      } catch(e) {
+        app.showMessage('Cannot find planned expense with id=' + id + '.', 'Error', 'plannedExpensesTable');
+        return;
+      }
     } else {
       el = document.getElementById('deadlineDate');
       el.value = app.formatISODate(new Date());

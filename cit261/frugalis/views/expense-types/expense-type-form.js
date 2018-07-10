@@ -5,9 +5,14 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var expenseType = app.db.getExpenseType(id);
-      el = document.getElementById('name');
-      el.value = expenseType.name;
+      try {
+        var expenseType = app.db.getExpenseType(id);
+        el = document.getElementById('name');
+        el.value = expenseType.name;
+      } catch(e) {
+        app.showMessage('Cannot find expense type with id=' + id + '.', 'Error', 'expenseTypesTable');
+        return;
+      }
     } else {
       el = document.querySelector('.buttonDelete');
       el.classList.add('hidden');

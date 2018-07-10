@@ -5,15 +5,20 @@
     var el = document.getElementById('id');
     el.value = id;
     if (id >= 0) {
-      var plannedIncome = app.db.getPlannedIncome(id);
-      el = document.getElementById('incomeType');
-      el.value = plannedIncome.incomeType;
-      el = document.getElementById('amount');
-      el.value = plannedIncome.amount;
-      el = document.getElementById('deadlineDate');
-      el.value = app.formatISODate(plannedIncome.deadlineDate);
-      el = document.getElementById('comments');
-      el.value = plannedIncome.comments;
+      try {
+        var plannedIncome = app.db.getPlannedIncome(id);
+        el = document.getElementById('incomeType');
+        el.value = plannedIncome.incomeType;
+        el = document.getElementById('amount');
+        el.value = plannedIncome.amount;
+        el = document.getElementById('deadlineDate');
+        el.value = app.formatISODate(plannedIncome.deadlineDate);
+        el = document.getElementById('comments');
+        el.value = plannedIncome.comments;
+      } catch(e) {
+        app.showMessage('Cannot find planned income with id=' + id + '.', 'Error', 'plannedIncomesTable');
+        return;
+      }
     } else {
       el = document.getElementById('deadlineDate');
       el.value = app.formatISODate(new Date());

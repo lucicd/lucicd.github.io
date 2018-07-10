@@ -1,13 +1,46 @@
 (function(app) {
   'use strict';
+
+  app.routeUrl = function(routeName, data) {
+    var href = window.location.href;
+    var stem = href.split('#')[0] || '';
+    console.log(stem);
+    var newHref = stem + '#' + routeName;
+    if (data != undefined) {
+      newHref += '?data='+encodeURIComponent(data);
+    }
+    history.pushState({}, routeName, newHref);
+    // console.log(newHref);
+    // console.log(data);
+  }
   
-  app.route = function(routeName, data) {
+  app.route = function(routeName, data, url) {
     var primaryNav = document.getElementById('primaryNav');
     if (!primaryNav.classList.contains('hide')) {
       primaryNav.classList.toggle('hide');
     }
 
-    // console.log(routeName);
+    if (routeName) {
+      app.routeUrl(routeName, data);
+    }
+
+    if (url) {
+      var urlObj = new URL(url);
+      // console.log(urlObj);
+      var queryString = window.location.href.split('?')[1];
+      if (queryString === undefined) {
+        routeName = urlObj.hash.substring(1);
+      } else {
+        var params = queryString.split('=');
+        params = params.map(function(param) {
+          return decodeURIComponent(param);
+        });
+        data = params[1];
+        routeName = window.location.href.split('?')[0].split('#')[1];
+      }
+    }
+
+    // console.log('Route name is ' + routeName);
 
     if (routeName === 'budgetingPeriodsTable') {
       app.showBudgetingPeriodsTableView();

@@ -18,13 +18,17 @@
       return ['Utilty bill payment due in 3 days.', 'Collection of rent due tomorrow.'];
     }
 
-    that.showMessage = function(msg, title) {
+    that.showMessage = function(msg, title, routeName) {
+      // console.log('Route name in show message is ' + routeName);
       var dialog = document.getElementById('dialogContainer');
       var dialogMessage = document.getElementById('dialogMessage');
       var dialogTitle = document.getElementById('dialogTitle');
       dialogMessage.innerHTML = msg;
       dialogMessage.dialogTitle = title;
       dialog.classList.add('dialogContainerVisible');
+      if (routeName != undefined) {
+        that.route(routeName);
+      }
     }
 
     var el = document.getElementById('hamburgerBtn');
@@ -42,5 +46,8 @@
   };
 
   window.frugalisApp = createApp();
+  window.onpopstate = function (event) {
+    frugalisApp.route(null, null, window.location.href);
+  };
 
 }(window));
