@@ -95,6 +95,12 @@
 
     function bootstrapAccounts(callback) {
       bootstrapMe(accounts, app.db.createAccount, function() {
+        bootstrapActivePeriod(callback);
+      });
+    }
+
+    function bootstrapActivePeriod(callback) {
+      app.setDefaultActivePeriod(function() {
         callback();
       });
     }

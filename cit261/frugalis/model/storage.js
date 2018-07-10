@@ -45,4 +45,21 @@
   app.getIncomeTypes = function() {
     return app.db.storage.incomeTypes;
   };
+
+  app.setDefaultActivePeriod = function(callback) {
+    var data = app.db.storage;
+    if (!data.activePeriod) {
+      if (data.budgetingPeriods.length > 0) {
+        data.activePeriod = data.budgetingPeriods[0];
+        data.budgetingPeriods.forEach(function(period) {
+          if (period.startDate > data.activePeriod.startDate) {
+            data.activePeriod = period;
+          }
+        });
+        app.db.persist(callback);
+        return;
+      }
+    }
+    callback();
+  };
 })(frugalisApp);
