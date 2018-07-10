@@ -7,7 +7,7 @@
     var that = {};
 
     that.getDailyBudget = function() {
-      return 11275.45;
+      return 11274.45;
     };
 
     that.getTargetBudget = function() {

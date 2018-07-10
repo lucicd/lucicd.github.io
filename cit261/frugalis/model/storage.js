@@ -62,4 +62,9 @@
     }
     callback();
   };
+
+  app.reset = function() {
+    localStorage.clear();
+    app.db.bootstrap();
+  }
 })(frugalisApp);

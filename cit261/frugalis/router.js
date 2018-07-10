@@ -41,6 +41,9 @@
       app.showPlannedIncomesTableView();
     } else if (routeName === 'plannedIncomesForm') {
       app.showPlannedIncomeFormView(data);
+    } else if (routeName === 'reset') {
+      app.db.reset();
+      app.showHomeView();
     } else {
       app.showHomeView();
     }
