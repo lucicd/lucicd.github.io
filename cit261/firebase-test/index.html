@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<title>Firebase and XHR</title>
+<body>
+
+<script>
+(function() {
+  'use strict';
+  
+  function runXHRHandler(targetUrl, callback, setupAndRun) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          callback(null, JSON.parse(xhr.responseText));
+        } else {
+          callback('Error accessing: ' + targetUrl + 
+            '\nResponse: ' + xhr.status + ' ' + xhr.responseText, null)
+        }
+      } 
+    };
+    setupAndRun(xhr);
+  }
+
+  function signUp(callback) {
+    var targetUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyB8zcwBbFhFlE_NY-qrXsSLjNzet1balk4';
+    runXHRHandler(targetUrl, callback, function(xhr) {
+      xhr.open('POST', targetUrl, true);
+      xhr.send();
+    });
+  }
+
+  var user = {
+    getAll: function(auth, callback) {
+      var xhr = new XMLHttpRequest();
+      var targetUrl = 'https://api-test-7266c.firebaseio.com/users.json';
+      targetUrl += '?auth=' + auth;
+      runXHRHandler(targetUrl, callback, function(xhr) {
+        xhr.open('GET', targetUrl, true);
+        xhr.send();
+      });
+    },
+
+    getByFirstName: function(auth, firstName, callback) {
+      var xhr = new XMLHttpRequest();
+      var targetUrl = 'https://api-test-7266c.firebaseio.com/users.json?';
+      targetUrl += 'orderBy="firstName"&equalTo="' + firstName + '"';
+      targetUrl += '&auth=' + auth;
+      runXHRHandler(targetUrl, callback, function(xhr) {
+        xhr.open('GET', targetUrl, true);
+        xhr.send();
+      });
+    },
+
+    post: function(auth, data, callback) {
+      var targetUrl = 'https://api-test-7266c.firebaseio.com/users.json'
+      targetUrl += '?auth=' + auth;
+      runXHRHandler(targetUrl, callback, function(xhr) {
+        xhr.open('POST', targetUrl, true);
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.send(JSON.stringify(data));
+      });
+    },
+
+    get: function(auth, id, callback) {
+      var xhr = new XMLHttpRequest();
+      var targetUrl = 'https://api-test-7266c.firebaseio.com/users/'+id+'.json';
+      targetUrl += '?auth=' + auth;
+      runXHRHandler(targetUrl, callback, function(xhr) {
+        xhr.open('GET', targetUrl, true);
+        xhr.send();
+      });
+    },
+
+    patch: function(auth, id, data, callback) {
+      var xhr = new XMLHttpRequest();
+      var targetUrl = 'https://api-test-7266c.firebaseio.com/users/'+id+'.json';
+      targetUrl += '?auth=' + auth;
+      runXHRHandler(targetUrl, callback, function(xhr) {
+        xhr.open('PATCH', targetUrl, true);
+        xhr.send(JSON.stringify(data));
+      });
+    },
+
+    delete: function(auth, id, callback) {
+      var xhr = new XMLHttpRequest();
+      var targetUrl = 'https://api-test-7266c.firebaseio.com/users/'+id+'.json';
+      targetUrl += '?auth=' + auth;
+      runXHRHandler(targetUrl, callback, function(xhr) {
+        xhr.open('DELETE', targetUrl, true);
+        xhr.send();
+      });
+    },
+  };
+
+  function demoPost(rec, callback) {
+    signUp(function(err, data) {
+      if (err) {
+        callback(err);
+      } else {
+        var idToken = data.idToken;
+        user.post(idToken, rec, callback);
+      }
+    });
+  }
+
+  function demoGet(callback) {
+    signUp(function(err, data) {
+      if (err) {
+        callback(err);
+      } else {
+        var idToken = data.idToken;
+        user.getAll(idToken, function(err, data) {
+          if (err) {
+            callback(err);
+          } else {
+            var id = Object.keys(data)[0];
+            user.get(idToken, id, callback);
+          }
+        });
+      }
+    });
+  }
+
+  function demoGetAll(callback) {
+    signUp(function(err, data) {
+      if (err) {
+        callback(err);
+      } else {
+        var idToken = data.idToken;
+        user.getAll(idToken, callback);
+      }
+    });
+  }
+
+  function demoPatch(callback) {
+    signUp(function(err, data) {
+      if (err) {
+        callback(err);
+      } else {
+        var idToken = data.idToken;
+        user.getAll(idToken, function(err, data) {
+          if (err) {
+            callback(err);
+          } else {
+            var id = Object.keys(data)[0];
+            var myUser = {
+              firstName: 'Peter',
+              lastName: 'Rabbit',
+              email: 'peter.rabbit@demo.org',
+            }
+            user.patch(idToken, id, myUser, function(err, data) {
+              user.get(idToken, id, callback);
+            });
+          }
+        });
+      }
+    });
+  }
+
+  function demoDelete(callback) {
+    signUp(function(err, data) {
+      if (err) {
+        callback(err);
+      } else {
+        var idToken = data.idToken;
+        user.getAll(idToken, function(err, data) {
+          if (err) {
+            callback(err);
+          } else {
+            try {
+              var id = Object.keys(data)[0];
+              user.delete(idToken, id, callback);
+            } catch(e) {
+              callback(e);
+            }
+          }
+        });
+      }
+    });
+  }
+
+  function demoGetByFirstName(callback) {
+    signUp(function(err, data) {
+      if (err) {
+        callback(err);
+      } else {
+        var idToken = data.idToken;
+        user.getByFirstName(idToken, 'Jane', callback);
+      }
+    });
+  }
+
+  // var rec = {
+  //   firstName: 'John',
+  //   lastName: 'Smith',
+  //   email: 'john.smith@demo.org',
+  // }
+  // demoPost(rec, function(err, data) {
+  //   console.log(err ? err : data);
+  // });
+
+  // rec = {
+  //   firstName: 'Jane',
+  //   lastName: 'Jones',
+  //   email: 'jane.jones@demo.org',
+  // }
+  // demoPost(rec, function(err, data) {
+  //   console.log(err ? err : data);
+  // });
+
+  // demoGet(function(err, data) {
+  //   console.log(err ? err : data);
+  // });
+
+  // demoGetAll(function(err, data) {
+  //   console.log(err ? err : data);
+  // });
+
+  // demoPatch(function(err, data) {
+  //   console.log(err ? err : data);
+  // });
+
+  // demoDelete(function(err, data) {
+  //   console.log(err ? err : data);
+  // });
+
+  demoGetByFirstName(function(err, data) {
+    console.log(err ? err : data);
+  });
+})();
+
+</script>
+
+</body>
+
+</html>
