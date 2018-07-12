@@ -12,31 +12,30 @@
 
 <body>
   <header class="backColor1 header">
+    <button class="backColor1 fontColor1 alignLeft" id="hamburgerBtn">&#9776;</button>
     <div>
       <h1 class="backColor1 fontColor1 title">Frugalis</h1>
       <h3 class="backColor1 fontColor1 subtitle">Personal Budgeting</h3>
     </div>
-    <button class="backColor1 fontColor1 alignRight" id="hamburgerBtn">&#9776;</button>
   </header>
 
-  <nav class="alignLeft">
-    <div>
-      <ul id="primaryNav" class="hide">
-        <li><a href="javascript:frugalisApp.route('dashboard')">Dashboard</a></li>
-        <li><a href="javascript:frugalisApp.route('budgetingPeriodsTable')">Budgeting Periods</a></li>
-        <li><a href="javascript:frugalisApp.route('accountsTable')">Accounts</a></li>
-        <li><a href="javascript:frugalisApp.route('incomeTypesTable')">Income Types</a></li>
-        <li><a href="javascript:frugalisApp.route('expenseTypesTable')">Expense Types</a></li>
-        <li><a href="javascript:frugalisApp.route('plannedIncomesTable')">Planned Income</a></li>
-        <li><a href="javascript:frugalisApp.route('plannedExpensesTable')">Planned Expenses</a></li>
-        <li><a href="javascript:frugalisApp.route('actualIncomesTable')">Actual Income</a></li>
-        <li><a href="javascript:frugalisApp.route('actualExpensesTable')">Actual Expenses</a></li>
-        <li><a href="javascript:frugalisApp.route('reports')">Reports</a></li>
-        <li><a href="javascript:frugalisApp.route('selectActivePeriod')">Select Active Period</a></li>
-        <li><a href="javascript:frugalisApp.route('settings')">Settings</a></li>
-        <li><a href="javascript:frugalisApp.route('dailyBudgetCalculation')">Daily Budget Calculation</a></li>
-        <li><a href="javascript:frugalisApp.route('reset')">Reset</a></li>
-      </ul>   
+  <nav>
+    <div class="sideNav" id="mySideNav">
+      <a href="javascript:void(0)" class="closeNavBtn" id="closeNavBtn">&times;</a>
+      <a href="javascript:frugalisApp.route('dashboard')">Dashboard</a>
+      <a href="javascript:frugalisApp.route('budgetingPeriodsTable')">Budgeting Periods</a>
+      <a href="javascript:frugalisApp.route('accountsTable')">Accounts</a>
+      <a href="javascript:frugalisApp.route('incomeTypesTable')">Income Types</a>
+      <a href="javascript:frugalisApp.route('expenseTypesTable')">Expense Types</a>
+      <a href="javascript:frugalisApp.route('plannedIncomesTable')">Planned Income</a>
+      <a href="javascript:frugalisApp.route('plannedExpensesTable')">Planned Expenses</a>
+      <a href="javascript:frugalisApp.route('actualIncomesTable')">Actual Income</a>
+      <a href="javascript:frugalisApp.route('actualExpensesTable')">Actual Expenses</a>
+      <a href="javascript:frugalisApp.route('reports')">Reports</a>
+      <a href="javascript:frugalisApp.route('selectActivePeriod')">Select Active Period</a>
+      <a href="javascript:frugalisApp.route('settings')">Settings</a>
+      <a href="javascript:frugalisApp.route('dailyBudgetCalculation')">Daily Budget Calculation</a>
+      <a href="javascript:frugalisApp.route('reset')">Reset</a>
     </div>
   </nav>
   

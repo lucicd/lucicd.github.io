@@ -15,9 +15,8 @@
   }
   
   app.route = function(routeName, data, url) {
-    var primaryNav = document.getElementById('primaryNav');
-    if (!primaryNav.classList.contains('hide')) {
-      primaryNav.classList.toggle('hide');
+    if (document.getElementById('mySideNav').style.width != '0') {
+      document.getElementById('mySideNav').style.width = '0';
     }
 
     if (routeName) {

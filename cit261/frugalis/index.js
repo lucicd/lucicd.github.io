@@ -33,7 +33,12 @@
 
     var el = document.getElementById('hamburgerBtn');
     el.addEventListener('click', function() {
-      document.getElementById('primaryNav').classList.toggle('hide');
+      document.getElementById('mySideNav').style.width = '300px';
+    });
+
+    var el = document.getElementById('closeNavBtn');
+    el.addEventListener('click', function() {
+      document.getElementById('mySideNav').style.width = '0';
     });
 
     el = document.getElementById('closeDialogBtn');

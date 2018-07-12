@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+</head>
+<body>
+   <div id="playerDiv"></div>
+<script>
+   function createPlayerField(name){
+      var playerDiv = document.getElementById('playerDiv');
+      var newFieldSet = document.createElement("fieldset");
+      newFieldSet.setAttribute('id','player' + name);
+      playerDiv.appendChild(newFieldSet);
+      var newLegend = document.createElement("legend");
+      var legendLabel = document.createTextNode(name);
+      newLegend.appendChild(legendLabel);
+      newLegend.setAttribute('title',name);
+      newFieldSet.appendChild(newLegend);
+      var inputBoxArray = [name + "TotalScore", name + "Hand1", name + 
+      "Hand2", name + "Hand3", name + "Hand4", name + "Hand5", name + 
+      "Hand6", name + "Hand7"];
+
+      var fieldText = ["T:","1:","2:","3:","4:","5:","6:","7:"];
+      for (var index = 0; index < inputBoxArray.length; index++){
+         var newFieldText = document.createTextNode(fieldText[index]);
+         newFieldSet.appendChild(newFieldText);
+         var newTextBox = document.createElement("input");
+         newTextBox.setAttribute('type', 'text');
+         newTextBox.setAttribute('id', inputBoxArray[index]);
+         newTextBox.setAttribute('size', '3');
+         newFieldSet.appendChild(newTextBox);
+
+      }  
+      var newSubmit = document.createElement("input");
+      newSubmit.setAttribute('type','submit');
+      newSubmit.setAttribute('value',"Submit");
+      newSubmit.setAttribute('id', name);
+      newSubmit.addEventListener('click', getScoreForName);
+      newFieldSet.appendChild(newSubmit);
+
+      function getScoreForName() {
+         getScore(inputBoxArray);
+      }
+   }
+
+   function getScore(inputArray) {
+      var playerScoresArray = [];
+      for (var i = 1; i < inputArray.length; i++){
+         playerScoresArray[i] = document.getElementById(inputArray[i]).value;    
+      }
+      console.log(playerScoresArray);
+      var sum = 0;
+      var score = 0;
+      for (var i = 0; i < playerScoresArray.length; i++) {
+         score = parseInt(playerScoresArray[i]);
+         if (!isNaN(score)) {
+            sum += score;
+         }
+      }
+      document.getElementById(inputArray[0]).value = sum;
+   }
+
+   createPlayerField('Joe');
+   createPlayerField('Jane');
+   
+</script>
+</body>
+</html>
