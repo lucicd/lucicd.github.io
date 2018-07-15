@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+</head>
+<body ">
+<button type="button" onclick="storeLeaderboard()">Create Leaderboard</button><br> 
+<button type="button" onclick="getLeaderBoard()">Retrieve Leaderboard</button><br> 
+<button type="button" onclick="updateLeaderboard()">Update Leaderboard</button><br>
+
+<div id="leaderboard"></div>
+
+<script>
+
+'use strict';
+
+function player (name, score){
+  this.playerName = name;
+  this.playerScore = score;
+}
+
+function createLeaderboard(){
+  var player1 = new player('Anonymous',1000);
+  var player2 = new player('Anonymous',1000);
+  var player3 = new player('Anonymous',1000);
+  var player4 = new player('Anonymous',1000);
+  var player5 = new player('Anonymous',1000);
+  var player6 = new player('Anonymous',1000);
+  var player7 = new player('Anonymous',1000);
+  var player8 = new player('Anonymous',1000);
+  var player9 = new player('Anonymous',1000);
+  var player10 = new player('Anonymous',1000);
+  
+  /*var leaderboard = [player1,
+          player2,
+          player3,
+          player4,
+          player5,
+          player6,
+          player7,
+          player8,
+          player9,
+          player10];*/
+    
+  return JSON.stringify({
+  'player1': {'name': 'Anonymous', 'score': 1000},
+  'player2': {'name': 'Anonymous', 'score': 1000},
+  'player3': {'name': 'Anonymous', 'score': 1000},
+  'player4': {'name': 'Anonymous', 'score': 1000},
+  'player5': {'name': 'Anonymous', 'score': 1000},
+  'player6': {'name': 'Anonymous', 'score': 1000},
+  'player7': {'name': 'Anonymous', 'score': 1000},
+  'player8': {'name': 'Anonymous', 'score': 1000},
+  'player9': {'name': 'Anonymous', 'score': 1000},
+  'player10': {'name': 'Anonymous', 'score': 1000}});
+}
+function storeLeaderboard(){
+  var data = createLeaderboard();
+  postRequest(data)
+}
+function getLeaderBoard(){
+  var ajaxRequest = new XMLHttpRequest();
+  var data = "";
+  
+  ajaxRequest.open("GET", "https://shanghai-rummy-11.firebaseio.com/leaderboard.json", true);
+  
+  ajaxRequest.onreadystatechange = function (){
+    if (ajaxRequest.readyState === 4) {
+      var status = ajaxRequest.status;
+      if ((status >= 200 && status < 300) || status === 304){
+        var data = ajaxRequest.responseText;
+        var leaderboard = JSON.parse(data);
+        
+        document.getElementById("leaderboard").innerHTML = data;
+        } else {
+          alert ("Something went wrong with getRequest");
+        }
+      
+    }
+  }
+  displayLeaderBoard(leaderboard);
+  ajaxRequest.send(null);
+}
+
+function postRequest(data){
+
+  var ajaxRequest = new XMLHttpRequest();
+  ajaxRequest.open("POST", "https://shanghai-rummy-11.firebaseio.com/leaderboard.json", true);
+  ajaxRequest.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+  
+  ajaxRequest.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      getLeaderBoard();
+    }
+  };
+  
+  ajaxRequest.send(JSON.stringify({leaderboard:data}));
+}
+
+function displayLeaderBoard(data){
+  var id = '-LHR0BBnHw2l1_DFevPP';
+  //var leaderboard = data.leaderboard;
+  //var playerName = id.leaderboard.player1.name;
+  //var playerScore = id.leaderboard.player1.score;
+  
+  document.getElementById("leaderboard").innerHTML = data;
+}
+  
+function simulateGoodDataFormat(){
+  var leaderboard = {
+    'player1':{'name':'Anonymous','score':1000},
+    'player2':{'name':'Anonymous','score':1000},
+    'player3':{'name':'Anonymous','score':1000},
+    'player4':{'name':'Anonymous','score':1000},
+    'player5':{'name':'Anonymous','score':1000},
+    'player6':{'name':'Anonymous','score':1000},
+    'player7':{'name':'Anonymous','score':1000},
+    'player8':{'name':'Anonymous','score':1000},
+    'player9':{'name':'Anonymous','score':1000},
+    'player10':{'name':'Anonymous','score':1000}};
+  var playerInfo = {'newPlayer':{'name':'Joe','score':1000}};
+  updateLeaderboard(leaderboard,playerInfo);
+}
+/*const getNestedInfo = (nestedInfo, path) => {
+  return path.reduce((obj, key) =>
+    (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedInfo);
+    }*/
+
+function updateLeaderboard(leaderboard,playerInfo){
+  name = '';
+  //const player = getNestedInfo(leaderboard, ['player1','name','score']);
+  //name = leaderboard.player1.name
+  /* var name1 = playerInfo.newPlayer.name;
+   var score1 = playerInfo.newPlayer.score;
+   var name2 = '';
+   var score2 = 0;
+   
+   for (var index = 0; index < leaderboard.length / 2; index += 2){
+    name2 = leaderboard.player1.name;
+    score2 = leaderboard.player1.score;
+    if (score2 > score1){
+      
+    }else{
+      temp[0] = playerInfo[0];
+      temp[1] = playerInfo[1];
+    }
+    
+   }*/
+}
+</script>
+</body>
+</html>

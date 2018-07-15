@@ -15,34 +15,40 @@
       el.innerHTML = 'Period: - until -'; 
     }
 
-    el = document.getElementById('budgetOrb');
-    var dailyBudget = app.getDailyBudget();
-    var targetBudget = app.getTargetBudget();
-    var backgroundColor;
-    var warningMsg;
-    if (dailyBudget>=targetBudget) {
-      backgroundColor = '#05550D';
-      warningMsg = 'Congratulations, you are on target!';
-    } else {
-      backgroundColor = '#FF7308';
-      warningMsg = 'Be careful, you are overspending!';
-    }
-
-
-    var html = '<p class="dailyBudgetMsg">Daily budget</p>';
-    html += '<p class="dailyBudgetAmt">' + dailyBudget.toFixed(2) + '</p>'
-    el.innerHTML = html;
-    el.style.backgroundColor = backgroundColor;
-
-    el = document.getElementById('targetBudgetMsg');
-    el.innerHTML = 'Your target is ' + targetBudget.toFixed(2);
-
-    el = document.getElementById('warningMsg');
-    el.innerHTML = warningMsg;
+    app.getTargetBudget(function(err, targetBudget) {
+      var el = document.getElementById('targetBudgetMsg');
+      if (err) {
+        el.innerHTML = err;
+      } else {
+        el.innerHTML = 'Your target is ' + targetBudget.toFixed(2);
+        app.getActualDailyBudget(function(err, dailyBudget) {
+          var el = document.getElementById('budgetOrb');
+          if (err) {
+            el.innerHTML = err;
+          } else {
+            var backgroundColor;
+            var warningMsg;
+            if (dailyBudget >= targetBudget) {
+              backgroundColor = '#05550D';
+              warningMsg = 'Congratulations, you are on target!';
+            } else {
+              backgroundColor = '#FF7308';
+              warningMsg = 'Be careful, you are overspending!';
+            }
+            var html = '<p class="dailyBudgetMsg">Daily budget</p>';
+            html += '<p class="dailyBudgetAmt">' + dailyBudget.toFixed(2) + '</p>'
+            el.innerHTML = html;
+            el.style.backgroundColor = backgroundColor;
+            el = document.getElementById('warningMsg');
+            el.innerHTML = warningMsg;
+          }
+        });
+      }
+    });
 
     var warnings = app.getAlertsList();
     var el = document.getElementById('homeScreenAlerts');
-    html = '<p>Alerts</p>';
+    var html = '<p>Alerts</p>';
     html += '<ul>';
     warnings.forEach(function(warning) {
       html += '<li>' + warning + '</li>';

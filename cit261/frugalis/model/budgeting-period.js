@@ -14,7 +14,7 @@
     return null;
   }
 
-   function checkOverlap(startDate, endDate) {
+  function checkOverlap(startDate, endDate) {
     return function(rec) {
       return startDate >= rec.startDate && startDate <= rec.endDate || endDate >= rec.startDate && endDate <= rec.endDate;
     };

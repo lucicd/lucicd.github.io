@@ -10,10 +10,6 @@
       return 11274.45;
     };
 
-    that.getTargetBudget = function() {
-      return 10000.00;
-    };
-
     that.getAlertsList = function() {
       return ['Utilty bill payment due in 3 days.', 'Collection of rent due tomorrow.'];
     }

@@ -29,12 +29,14 @@
   app.getViewHtml = function(url, callback) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        callback(null, xhttp.responseText);
-      } else {
-        callback('Error loading ' + url + '. status=' + this.status);
+      if (this.readyState == 4) {
+        if (this.status == 200) {
+          callback(null, xhttp.responseText);
+        } else {
+          callback('Error loading ' + url + '. status=' + this.status);
+        }
       }
-    }
+    };
     xhttp.open('GET', url, true);
     xhttp.send();
   };
@@ -78,6 +80,13 @@
       option.innerHTML = account.name;
       target.appendChild(option);
     });
+  };
+
+
+  app.dateDiff = function(startDate, endDate) {
+    var oneDay = 24*60*60*1000;
+    var durationInDays = Math.round((endDate.getTime() - startDate.getTime())/oneDay) + 1;
+    return durationInDays;
   };
 
 })(frugalisApp);

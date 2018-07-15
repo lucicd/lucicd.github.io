@@ -80,4 +80,34 @@
     var activePeriod = app.getActiveBudgetPeriod();
     return activePeriod.plannedIncomes[id];
   }
+
+  app.db.getPlannedIncomeByType = function(callback) {
+    var plannedIncome = app.db.getPlannedIncomes();
+    var actualIncome = app.db.getActualIncomes();
+    var incomeByType = {};
+    
+    plannedIncome.forEach(function(income) {
+      if (typeof incomeByType[income.incomeType] === 'undefined') {
+        incomeByType[income.incomeType] = { planned: 0, actual: 0 };
+      }
+      incomeByType[income.incomeType].planned += income.amount;
+    });
+
+    actualIncome.forEach(function(income) {
+      if (typeof incomeByType[income.incomeType] === 'undefined') {
+        incomeByType[income.incomeType] = { planned: 0, actual: 0 };
+      }
+      incomeByType[income.incomeType].actual += income.amount;
+    });
+
+    callback(null, incomeByType);
+  };
+
+  app.db.calcTotalPlannedIncome = function(callback) {
+    var plannedIncomes = app.db.getPlannedIncomes();
+    var totalPlannedIncome = plannedIncomes.reduce(function(total, income) {
+      return total + income.amount;
+    }, 0);
+    callback(null, totalPlannedIncome);
+  }
 })(frugalisApp);

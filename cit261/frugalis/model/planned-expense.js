@@ -79,5 +79,49 @@
   app.db.getPlannedExpense = function(id) {
     var activePeriod = app.getActiveBudgetPeriod();
     return activePeriod.plannedExpenses[id];
-  }
+  };
+
+  app.db.calcTotalPlannedExpenses = function(callback) {
+    var plannedExpenses = app.db.getPlannedExpenses();
+    var totalPlannedExpenses = plannedExpenses.reduce(function(total, expense) {
+      return total + expense.amount;
+    }, 0);
+    callback(null, totalPlannedExpenses);
+  };
+
+  app.db.getPlannedExpensesByType = function(callback) {
+    var plannedExpenses = app.db.getPlannedExpenses();
+    var actualExpenses = app.db.getActualExpenses();
+    var expenseByType = {};
+    
+    plannedExpenses.forEach(function(expense) {
+      if (typeof expenseByType[expense.expenseType] === 'undefined') {
+        expenseByType[expense.expenseType] = { planned: 0, actual: 0 };
+      }
+      expenseByType[expense.expenseType].planned += expense.amount;
+    });
+
+    actualExpenses.forEach(function(expense) {
+      if (typeof expenseByType[expense.expenseType] === 'undefined') {
+        expenseByType[expense.expenseType] = { planned: 0, actual: 0 };
+      }
+      expenseByType[expense.expenseType].actual += expense.amount;
+    });
+
+    callback(null, expenseByType);
+  };
+
+  app.db.calcPlannedExpensesBalance = function(callback) {
+    app.db.getPlannedExpensesByType(function(err, expenseByType) {
+      if (err) {
+        callback(err);
+      } else {
+        var plannedExpensesBalance = Object.keys(expenseByType).reduce(function(total, expenseType) {
+          var expense = expenseByType[expenseType];
+          return total + expense.planned - expense.actual;
+        }, 0);
+        callback(null, plannedExpensesBalance);
+      }
+    });
+  };
 })(frugalisApp);

@@ -84,4 +84,12 @@
     var activePeriod = app.getActiveBudgetPeriod();
     return activePeriod.actualIncomes[id];
   }
+
+  app.db.calcTotalActualIncome = function(callback) {
+    var actualIncomes = app.db.getActualIncomes();
+    var totalActualIncome = actualIncomes.reduce(function(total, income) {
+      return total + income.amount;
+    }, 0);
+    callback(null, totalActualIncome);
+  }
 })(frugalisApp);

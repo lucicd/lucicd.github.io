@@ -83,5 +83,15 @@
   app.db.getActualExpense = function(id) {
     var activePeriod = app.getActiveBudgetPeriod();
     return activePeriod.actualExpenses[id];
-  }
+  };
+
+
+   app.db.calcTotalActualExpenses = function(callback) {
+    var actualExpenses = app.db.getActualExpenses();
+    var totalActualExpenses = actualExpenses.reduce(function(total, expense) {
+      return total + expense.amount;
+    }, 0);
+    callback(null, totalActualExpenses);
+  };
+
 })(frugalisApp);

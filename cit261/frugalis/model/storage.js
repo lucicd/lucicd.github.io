@@ -30,6 +30,11 @@
   app.getUserName = function() {
     return app.db.storage.userName || 'Drazen';
   };
+
+  app.getReferenceDate = function() {
+    var activePeriod = app.getActiveBudgetPeriod();
+    return activePeriod.referenceDate || new Date();
+  }
     
   app.getActiveBudgetPeriod = function() {
     return app.db.storage.activePeriod;
@@ -45,6 +50,78 @@
 
   app.getIncomeTypes = function() {
     return app.db.storage.incomeTypes;
+  };
+
+  app.calcDaysInPeriod = function(callback) {
+    var activePeriod = app.getActiveBudgetPeriod();
+    var startDate = activePeriod.startDate;
+    var endDate = activePeriod.endDate;
+    var durationInDays = app.dateDiff(startDate, endDate);
+    callback(null, durationInDays);
+  };
+
+  app.remainingDaysInPeriod = function(callback) {
+    var activePeriod = app.getActiveBudgetPeriod();
+    var startDate = app.getReferenceDate();
+    var endDate = activePeriod.endDate;
+    var durationInDays = app.dateDiff(startDate, endDate);
+    callback(null, durationInDays);
+  };
+
+  app.getTargetBudget = function(callback) {
+    app.db.calcTotalPlannedIncome(function(err, totalPlannedIncome) {
+      if (err) {
+        callback(err);
+      } else {
+        app.db.calcTotalPlannedExpenses(function(err, totalPlannedExpenses) {
+          if (err) {
+            callback(err);
+          } else {
+            app.calcDaysInPeriod(function(err, daysInPeriod) {
+              if (err) {
+                callback(err);
+              } else {
+                if (daysInPeriod > 0) {
+                  var targetBudget = totalPlannedIncome - totalPlannedExpenses;
+                  targetBudget /= daysInPeriod;
+                  callback(null, targetBudget);
+                } else {
+                  callback('Number of days is ' + daysInPeriod + ', which is out of range.');
+                }
+              }
+            });
+          }
+        });
+      }
+    });
+  };
+
+  app.getActualDailyBudget = function(callback) {
+    app.db.calcTotalActualIncome(function(err, actualIncome) {
+      if (err) {
+        callback(err);
+      } else {
+        app.db.calcPlannedExpensesBalance(function(err, plannedExpensesBalance) {
+          if (err) {
+            callback(err);
+          } else {
+            app.remainingDaysInPeriod(function(err, daysInPeriod) {
+              if (err) {
+                callback(err);
+              } else {
+                if (daysInPeriod > 0) {
+                  var budget = actualIncome - plannedExpensesBalance;
+                  budget /= daysInPeriod;
+                  callback(null, budget);
+                } else {
+                  callback('Number of days is ' + daysInPeriod + ', which is out of range.');
+                } 
+              }
+            });
+          }
+        });
+      }
+    });
   };
 
   app.setDefaultActivePeriod = function(callback) {
