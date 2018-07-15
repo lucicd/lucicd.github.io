@@ -3,7 +3,8 @@
 
   app.populateHomeView = function() {
     var el = document.getElementById('welcomeMsg');
-    el.innerHTML = 'Welcome ' + app.getUserName() + '!';
+    var user = app.getUserName();
+    el.innerHTML = 'Welcome' + (user ? ' ' + user : '') + '!';
     
     el = document.getElementById('activeBudgetPeriod');
     var period = app.getActiveBudgetPeriod();

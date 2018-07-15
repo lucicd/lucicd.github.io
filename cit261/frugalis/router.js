@@ -81,8 +81,10 @@
       app.showDailyBudgetReport();
     } else if (routeName === 'accountsReport') {
       app.showAccountsReport();
+    } else if (routeName === 'settings') {
+      app.showSettingsFormView();
     } else if (routeName === 'reset') {
-      app.db.reset();
+      app.reset();
       app.showHomeView();
     } else {
       app.showHomeView();

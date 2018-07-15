@@ -1,0 +1,20 @@
+<h1 class="alignCenter myFormCaption">Settings</h1>
+<form id="myForm" action="javascript:frugalisApp.processSettingsForm()">
+  <fieldset>
+    <div>
+      <label>
+        <span>User Name</span>
+        <input 
+          type="text"
+          class="ffWidth"
+          name="userName"
+          id="userName"
+        >
+      </label>
+    </div>
+  </fieldset>
+  <div class="formButtons">
+    <button class="buttonBack" onclick="frugalisApp.route('dashboard')">Back</button>
+    <input class="buttonSave" type="submit" value="Save">
+  </div>
+</form>

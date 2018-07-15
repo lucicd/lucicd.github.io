@@ -18,7 +18,7 @@
       var col2 = document.createElement('td');
       var col3 = document.createElement('td');
       var html;
-      if (activePeriod.startDate.toString() === period.startDate.toString() &&
+      if (activePeriod && activePeriod.startDate.toString() === period.startDate.toString() &&
       activePeriod.endDate.toString() === period.endDate.toString()) {
         html = 'Active';
       } else {

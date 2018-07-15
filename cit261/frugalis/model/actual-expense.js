@@ -77,7 +77,7 @@
 
   app.db.getActualExpenses = function() {
     var activePeriod = app.getActiveBudgetPeriod();
-    return activePeriod.actualExpenses;
+    return activePeriod ? activePeriod.actualExpenses : [];
   };
 
   app.db.getActualExpense = function(id) {

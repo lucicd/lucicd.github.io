@@ -14,7 +14,7 @@
       html += app.formatDate(period.startDate) + '</a>';
       col1.innerHTML = html
       col2.innerHTML = app.formatDate(period.endDate);
-      if (activePeriod.startDate.toString() === period.startDate.toString() &&
+      if (activePeriod && activePeriod.startDate.toString() === period.startDate.toString() &&
       activePeriod.endDate.toString() === period.endDate.toString()) {
         col3.innerHTML = 'Active';
       } else {

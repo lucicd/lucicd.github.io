@@ -73,7 +73,7 @@
 
   app.db.getPlannedExpenses = function() {
     var activePeriod = app.getActiveBudgetPeriod();
-    return activePeriod.plannedExpenses;
+    return activePeriod ? activePeriod.plannedExpenses : [];
   };
 
   app.db.getPlannedExpense = function(id) {

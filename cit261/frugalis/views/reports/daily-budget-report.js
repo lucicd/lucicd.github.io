@@ -4,6 +4,10 @@
   app.populateDailyBudgetReportView = function() {
     var period = app.getActiveBudgetPeriod();
     
+    if (!period) {
+      return;
+    }
+    
     var el = document.getElementById('startDate');
     el.innerHTML = app.formatDate(period.startDate);
     

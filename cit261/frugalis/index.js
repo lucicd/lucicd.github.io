@@ -6,10 +6,6 @@
   var createApp = function() {
     var that = {};
 
-    that.getDailyBudget = function() {
-      return 11274.45;
-    };
-
     that.showMessage = function(msg, title, routeName) {
       // console.log('Route name in show message is ' + routeName);
       var dialog = document.getElementById('dialogContainer');

@@ -28,7 +28,7 @@
   }
 
   app.getUserName = function() {
-    return app.db.storage.userName || 'Drazen';
+    return app.db.storage.userName || '';
   };
 
   app.getReferenceDate = function() {
@@ -54,10 +54,14 @@
 
   app.calcDaysInPeriod = function(callback) {
     var activePeriod = app.getActiveBudgetPeriod();
-    var startDate = activePeriod.startDate;
-    var endDate = activePeriod.endDate;
-    var durationInDays = app.dateDiff(startDate, endDate);
-    callback(null, durationInDays);
+    if (activePeriod) {
+      var startDate = activePeriod.startDate;
+      var endDate = activePeriod.endDate;
+      var durationInDays = app.dateDiff(startDate, endDate);
+      callback(null, durationInDays);
+    } else {
+      callback('No active period. Please choose active period.');
+    }
   };
 
   app.remainingDaysInPeriod = function(callback) {
@@ -143,7 +147,7 @@
 
   app.reset = function() {
     localStorage.clear();
-    app.db.bootstrap();
+    // app.db.bootstrap();
   }
 
 

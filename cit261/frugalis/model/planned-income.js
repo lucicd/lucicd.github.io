@@ -73,7 +73,7 @@
 
   app.db.getPlannedIncomes = function() {
     var activePeriod = app.getActiveBudgetPeriod();
-    return activePeriod.plannedIncomes;
+    return activePeriod ? activePeriod.plannedIncomes : [];
   };
 
   app.db.getPlannedIncome = function(id) {
