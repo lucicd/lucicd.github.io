@@ -46,20 +46,57 @@
       }
     });
 
-    var warnings = app.getAlertsList();
-    var el = document.getElementById('homeScreenAlerts');
-    var html = '<p>Alerts</p>';
-    html += '<ul>';
-    warnings.forEach(function(warning) {
-      html += '<li>' + warning + '</li>';
+    app.getIncomeAlerts(3, function(err, incomeAlerts) {
+      var el = document.getElementById('homeScreenAlerts');
+      if (err) {
+        el.innerHTML = err;
+      } else {
+        app.getExpensesAlerts(3, function(err, expensesAlerts) {
+          if (err) {
+            el.innerHTML = err;
+          } else {
+            var alerts = incomeAlerts.concat(expensesAlerts);
+            if (alerts.length > 0) {
+              var html = '<p>Alerts</p>';
+              html += '<ul>';
+              alerts.forEach(function(msg) {
+                html += '<li>' + msg + '</li>';
+              });
+              html += '</ul>';
+              el.innerHTML = html;
+            } else {
+              el.innerHTML = 'No alerts';
+            }
+          }
+        });
+      }
     });
-    html += '</ul>';
-    el.innerHTML = html;
 
-    el = document.getElementById('enterExpensesBtn');
+    var el = document.getElementById('enterIncomeBtn');
+    el.addEventListener('click', function() {
+      app.route('actualIncomesForm', -1);
+    });
+
+    el = document.getElementById('enterExpenseBtn');
     el.addEventListener('click', function() {
       app.route('actualExpensesForm', -1);
     });
+
+    el = document.getElementById('planIncomeBtn');
+    el.addEventListener('click', function() {
+      app.route('plannedIncomesTable');
+    });
+
+    el = document.getElementById('planExpensesBtn');
+    el.addEventListener('click', function() {
+      app.route('plannedExpensesTable');
+    });
+
+    el = document.getElementById('budgetReportBtn');
+    el.addEventListener('click', function() {
+      app.route('budgetReport');
+    });
+
   }
 
   app.showHomeView = function() {

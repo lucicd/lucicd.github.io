@@ -71,5 +71,5 @@
 
   app.db.getAccount = function(id) {
     return app.db.storage.accounts[id];
-  }
+  };
 })(frugalisApp);

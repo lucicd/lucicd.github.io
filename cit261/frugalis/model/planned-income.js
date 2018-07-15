@@ -88,7 +88,10 @@
     
     plannedIncome.forEach(function(income) {
       if (typeof incomeByType[income.incomeType] === 'undefined') {
-        incomeByType[income.incomeType] = { planned: 0, actual: 0 };
+        incomeByType[income.incomeType] = { 
+          planned: 0, 
+          actual: 0,
+        };
       }
       incomeByType[income.incomeType].planned += income.amount;
     });

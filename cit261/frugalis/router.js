@@ -77,8 +77,10 @@
       app.showSelectActivePeriodTableView();
     } else if (routeName === 'makePeriodActive') {
       app.makePeriodActive(data);
-    } else if (routeName === 'dailyBudgetReport') {
+    } else if (routeName === 'budgetReport') {
       app.showDailyBudgetReport();
+    } else if (routeName === 'accountsReport') {
+      app.showAccountsReport();
     } else if (routeName === 'reset') {
       app.db.reset();
       app.showHomeView();

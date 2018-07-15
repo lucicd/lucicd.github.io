@@ -13,10 +13,12 @@
 <body>
   <header class="backColor1 header">
     <button class="backColor1 fontColor1 alignLeft" id="hamburgerBtn">&#9776;</button>
-    <div>
-      <h1 class="backColor1 fontColor1 title">Frugalis</h1>
-      <h3 class="backColor1 fontColor1 subtitle">Personal Budgeting</h3>
-    </div>
+    <a href="javascript:frugalisApp.route('dashboard')">
+      <div>
+        <h1 class="backColor1 fontColor1 title">Frugalis</h1>
+        <h3 class="backColor1 fontColor1 subtitle">Personal Budgeting</h3>
+      </div>
+    </a>
   </header>
 
   <nav>
@@ -31,10 +33,10 @@
       <a href="javascript:frugalisApp.route('plannedExpensesTable')">Planned Expenses</a>
       <a href="javascript:frugalisApp.route('actualIncomesTable')">Actual Income</a>
       <a href="javascript:frugalisApp.route('actualExpensesTable')">Actual Expenses</a>
-      <a href="javascript:frugalisApp.route('reports')">Reports</a>
+      <a href="javascript:frugalisApp.route('budgetReport')">Budget Report</a>
+      <a href="javascript:frugalisApp.route('accountsReport')">Accounts Report</a>
       <a href="javascript:frugalisApp.route('selectActivePeriod')">Select Active Period</a>
       <a href="javascript:frugalisApp.route('settings')">Settings</a>
-      <a href="javascript:frugalisApp.route('dailyBudgetCalculation')">Daily Budget Calculation</a>
       <a href="javascript:frugalisApp.route('reset')">Reset</a>
     </div>
   </nav>
@@ -77,6 +79,7 @@
   <script src="./views/planned-incomes/planned-income-form.js"></script>
   <script src="./views/budgeting-periods/select-active-period.js"></script>
   <script src="./views/reports/daily-budget-report.js"></script>
+  <script src="./views/reports/accounts-report.js"></script>
   
   <script src="./model/db.js"></script>
   <script src="./model/budgeting-period.js"></script>
@@ -89,8 +92,9 @@
   <script src="./model/planned-income.js"></script>
   <script src="./model/bootstrap.js"></script>
   <script src="./model/storage.js"></script>
+  <script src="./model/reports.js"></script>
   <script>
-    // frugalisApp.route('dashboard');
+    frugalisApp.route('dashboard');
     // frugalisApp.route('budgetingPeriodsTable');
     // frugalisApp.route('budgetingPeriodsForm');
     // frugalisApp.route('accountsTable');
@@ -100,7 +104,7 @@
     // frugalisApp.route('actualIncomesTable');
     // frugalisApp.route('plannedExpensesTable');
     // frugalisApp.route('plannedIncomesTable');
-    frugalisApp.route('dailyBudgetReport');
+    // frugalisApp.route('accountsReport');
   </script>
 </body>
 </html>

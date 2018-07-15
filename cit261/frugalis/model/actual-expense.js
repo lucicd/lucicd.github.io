@@ -85,8 +85,7 @@
     return activePeriod.actualExpenses[id];
   };
 
-
-   app.db.calcTotalActualExpenses = function(callback) {
+  app.db.calcTotalActualExpenses = function(callback) {
     var actualExpenses = app.db.getActualExpenses();
     var totalActualExpenses = actualExpenses.reduce(function(total, expense) {
       return total + expense.amount;
