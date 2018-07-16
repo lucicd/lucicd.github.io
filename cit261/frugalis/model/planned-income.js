@@ -73,7 +73,13 @@
 
   app.db.getPlannedIncomes = function() {
     var activePeriod = app.getActiveBudgetPeriod();
-    return activePeriod ? activePeriod.plannedIncomes : [];
+    if (activePeriod && activePeriod.plannedIncomes) {
+      return activePeriod.plannedIncomes.sort(function(a, b) {
+        return a.deadlineDate - b.deadlineDate;
+      });
+    } else {
+      return [];
+    }
   };
 
   app.db.getPlannedIncome = function(id) {

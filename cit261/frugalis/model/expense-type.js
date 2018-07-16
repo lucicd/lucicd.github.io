@@ -66,7 +66,7 @@
   };
 
   app.db.getExpenseTypes = function() {
-    return app.db.storage.expenseTypes;
+    return app.db.storage.expenseTypes.sort(app.makeSort('name'));
   };
 
   app.db.getExpenseType = function(id) {

@@ -53,20 +53,22 @@
     });
 
     Object.keys(actualIncomeByType).forEach(function(type) {
-      var total = actualIncomeByType[type];
-      Object.keys(incomeByType[type]).forEach(function(deadline) {
-        var income = incomeByType[type][deadline];
-        var balance = income.planned - income.actual;
-        if (total > 0 && balance > 0) {
-          if (total > balance) {
-            income.actual += balance;
-            total -= balance;
-          } else {
-            income.actual += total;
-            total = 0;
+      if (incomeByType[type]) {
+        var total = actualIncomeByType[type];
+        Object.keys(incomeByType[type]).forEach(function(deadline) {
+          var income = incomeByType[type][deadline];
+          var balance = income.planned - income.actual;
+          if (total > 0 && balance > 0) {
+            if (total > balance) {
+              income.actual += balance;
+              total -= balance;
+            } else {
+              income.actual += total;
+              total = 0;
+            }
           }
-        }
-      });
+        });
+      }
     });
     callback(null, incomeByType);
   }
@@ -102,19 +104,21 @@
 
     Object.keys(actualExpenseByType).forEach(function(type) {
       var total = actualExpenseByType[type];
-      Object.keys(expenseByType[type]).forEach(function(deadline) {
-        var expense = expenseByType[type][deadline];
-        var balance = expense.planned - expense.actual;
-        if (total > 0 && balance > 0) {
-          if (total > balance) {
-            expense.actual += balance;
-            total -= balance;
-          } else {
-            expense.actual += total;
-            total = 0;
+      if (expenseByType[type]) {
+        Object.keys(expenseByType[type]).forEach(function(deadline) {
+          var expense = expenseByType[type][deadline];
+          var balance = expense.planned - expense.actual;
+          if (total > 0 && balance > 0) {
+            if (total > balance) {
+              expense.actual += balance;
+              total -= balance;
+            } else {
+              expense.actual += total;
+              total = 0;
+            }
           }
-        }
-      });
+        });
+      }
     });
     callback(null, expenseByType);
   }

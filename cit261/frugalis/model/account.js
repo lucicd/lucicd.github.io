@@ -66,7 +66,7 @@
   };
 
   app.db.getAccounts = function() {
-    return app.db.storage.accounts;
+    return app.db.storage.accounts.sort(app.makeSort('name'));
   };
 
   app.db.getAccount = function(id) {

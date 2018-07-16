@@ -7,13 +7,13 @@
     expenseTypes.forEach(function(expenseType, idx) {
       var row = document.createElement('tr');
       var col1 = document.createElement('td');
-      var col2 = document.createElement('td');
+      // var col2 = document.createElement('td');
       var html = '<a href="javascript:frugalisApp.route(\'expenseTypesForm\', ' + idx + ')">';
       html += expenseType.name + '</a>';
       col1.innerHTML = html
-      col2.innerHTML = expenseType.status ? 'Active' : 'Retired';
+      // col2.innerHTML = expenseType.status ? 'Active' : 'Retired';
       row.appendChild(col1);
-      row.appendChild(col2);
+      // row.appendChild(col2);
       table.appendChild(row);
     });
   }

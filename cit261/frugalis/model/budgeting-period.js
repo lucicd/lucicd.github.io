@@ -80,7 +80,9 @@
   };
 
   app.db.getBudgetingPeriods = function() {
-    return app.db.storage.budgetingPeriods;
+    return app.db.storage.budgetingPeriods.sort(function(a, b) {
+      return a.startDate - b.startDate;
+    });
   };
 
   app.db.getBudgetingPeriod = function(id) {

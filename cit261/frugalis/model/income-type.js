@@ -66,7 +66,7 @@
   };
 
   app.db.getIncomeTypes = function() {
-    return app.db.storage.incomeTypes;
+    return app.db.storage.incomeTypes.sort(app.makeSort('name'));
   };
 
   app.db.getIncomeType = function(id) {

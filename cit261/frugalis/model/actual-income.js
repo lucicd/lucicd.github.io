@@ -77,7 +77,13 @@
 
   app.db.getActualIncomes = function() {
     var activePeriod = app.getActiveBudgetPeriod();
-    return activePeriod ? activePeriod.actualIncomes : [];
+    if (activePeriod && activePeriod.actualIncomes) {
+      return activePeriod.actualIncomes.sort(function(a, b) {
+        return a.date - b.date;
+      });
+    } else {
+      return [];
+    }
   };
 
   app.db.getActualIncome = function(id) {

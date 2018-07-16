@@ -27,18 +27,18 @@
   }
 
   app.getViewHtml = function(url, callback) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
       if (this.readyState == 4) {
         if (this.status == 200) {
-          callback(null, xhttp.responseText);
+          callback(null, xhr.responseText);
         } else {
           callback('Error loading ' + url + '. status=' + this.status);
         }
       }
     };
-    xhttp.open('GET', url, true);
-    xhttp.send();
+    xhr.open('GET', url, true);
+    xhr.send();
   };
 
   app.performTasks= function(tasks, callback) {
@@ -87,6 +87,16 @@
     var oneDay = 24*60*60*1000;
     var durationInDays = Math.round((endDate.getTime() - startDate.getTime())/oneDay) + 1;
     return durationInDays;
+  };
+
+  app.makeSort = function(attrName) {
+    return function(a, b) {
+      var x = a[attrName].toLowerCase();
+      var y = b[attrName].toLowerCase();
+      if (x < y) {return -1;}
+      if (x > y) {return 1;}
+      return 0;
+    };
   };
 
 })(frugalisApp);

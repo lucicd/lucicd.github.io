@@ -73,7 +73,13 @@
 
   app.db.getPlannedExpenses = function() {
     var activePeriod = app.getActiveBudgetPeriod();
-    return activePeriod ? activePeriod.plannedExpenses : [];
+    if (activePeriod && activePeriod.plannedExpenses) {
+      return activePeriod.plannedExpenses.sort(function(a, b) {
+        return a.deadlineDate - b.deadlineDate;
+      });
+    } else {
+      return [];
+    }
   };
 
   app.db.getPlannedExpense = function(id) {
@@ -118,7 +124,7 @@
       } else {
         var plannedExpensesBalance = Object.keys(expenseByType).reduce(function(total, expenseType) {
           var expense = expenseByType[expenseType];
-          return total + expense.planned - expense.actual;
+          return total + Math.abs(expense.planned - expense.actual);
         }, 0);
         callback(null, plannedExpensesBalance);
       }
