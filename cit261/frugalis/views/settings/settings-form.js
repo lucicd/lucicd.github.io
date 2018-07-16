@@ -2,7 +2,7 @@
   'use strict';
 
   function populateSettingsFormView() {
-    var userName = app.getUserName() || 'Drazen';
+    var userName = app.getUserName() || '';
     if (userName) {
       var el = document.getElementById('userName');
       el.value = userName;

@@ -23,7 +23,7 @@ body {
 }
 
 .header {
-  padding: 0 0.5em 0 0.5em;
+  padding: 0 0.5rem 0 0.5rem;
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
@@ -33,14 +33,14 @@ body {
 }
 
 .title {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-style: italic;
   margin: 0;
   padding: 10px 0 0 5px;
 }
 
 .subtitle {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin: 0;
   padding: 5px 0 5px 50px;
 }
@@ -62,7 +62,7 @@ body {
 }
 
 #hamburgerBtn {
-  font-size: 3em;
+  font-size: 3rem;
   border: none;
   outline: none;
 }
@@ -83,7 +83,7 @@ body {
 .sideNav a {
   padding: 4px 4px 4px 16px;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -106,27 +106,23 @@ header, main, footer, nav {
   margin: 0 auto;
 }
 
-main {
-  padding: 0 5px 0 5px;
-}
-
 /*Prevent jumping vertical scroll bar*/
 html {
   margin-left: calc(100vw - 100%);
 }
 
 #welcomeMsg {
-  font-size: 2.3em;
+  font-size: 2.3rem;
   font-style: italic;
   font-weight: bold;
-  margin-top: 0.4em;
+  margin-top: 0.4rem;
   text-align: center;
 }
 
 #activeBudgetPeriod {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-top: 0.4em;
+  margin-top: 0.4rem;
   text-align: center;
 }
 
@@ -135,50 +131,50 @@ html {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  height: 9em;
-  width: 9em;
+  height: 9rem;
+  width: 9rem;
   border-radius: 50%;
-  margin: 0.5em auto;
+  margin: 0.5rem auto;
 }
 
 .dailyBudgetMsg {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.3rem;
   color: white;
 }
 
 .dailyBudgetAmt {
-  font-size: 1.8em;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
   color: white;
 }
 
 #targetBudgetMsg, #warningMsg {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: bold;
   text-align: center;
-  line-height: 1.5em;
+  line-height: 1.5rem;
 }
 
 #homeScreenAlerts {
-  margin: 0.5em;
-  padding: 0 0.3em 0 0.3em;
+  margin: 0.5rem;
+  padding: 0 0.3rem 0 0.3rem;
   border: 1px solid black;
 }
 
 #homeScreenAlerts {
-  line-height: 1.5em;
+  line-height: 1.5rem;
 }
 
 #homeScreenAlerts p {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.1rem;
 }
 
 #homeButtonsContainer {
-  padding: 0 0.3em 0 0.3em;
+  padding: 0 0.3rem 0 0.3rem;
 }
 
 .button1 {
@@ -187,70 +183,58 @@ html {
   background-color: red;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 0.3em;
-  height: 2.7em;
-  border-radius: 0.5em;
+  margin-bottom: 0.3rem;
+  height: 2.7rem;
+  border-radius: 0.5rem;
 }
 
 .buttonBack, .buttonInfo {
   display: block;
   color: white;
   background-color: blue;
-  width: 6em;
-  height: 2.7em;
-  font-size: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
-  border-radius: 1em;
+  width: 6rem;
+  height: 2.7rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 1rem;
 }
 
-.buttonAdd {
+.buttonAdd, .buttonDelete {
   display: block;
   color: white;
   background-color: red;
-  width: 6em;
-  height: 2.7em;
-  font-size: 0.65em;
-  margin-left: 1em;
-  margin-right: 1em;
-  border-radius: 1em;
-}
-
-.buttonDelete {
-  display: block;
-  color: white;
-  background-color: red;
-  width: 6em;
-  height: 2.7em;
-  font-size: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
-  border-radius: 1em;
+  width: 6rem;
+  height: 2.7rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 1rem;
 }
 
 .buttonSave {
   display: block;
   color: black;
   background-color: #00FF00;
-  width: 6em;
-  height: 2.7em;
-  font-size: 1em;
-  margin-left: 1em;
-  margin-right: 1em;
-  border-radius: 1em;
+  width: 6rem;
+  height: 2.7rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 1rem;
 }
 
 .tableButtons, .formButtons {
   display: flex;
   justify-content: center;
-  margin: 0.3em auto;
+  margin: 0.3rem auto;
 }
 
 .tableCaption {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0.3em auto;
+  margin: 0.3rem auto;
 }
 
 .myTable {
@@ -258,7 +242,7 @@ html {
 }
 
 .myTable caption {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-style: italic;
   font-weight: bold;
 }
@@ -289,14 +273,14 @@ html {
 /*Forms*/
 
 .myFormCaption {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-style: italic;
   font-weight: bold;
-  margin: 1em 0 0 0;
+  margin: 1rem 0 0 0;
 }
 
 form {
-  margin: 0.3em auto;
+  margin: 0.3rem auto;
 }
 
 fieldset {
@@ -318,27 +302,27 @@ label {
 
 label span {
   display: block;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   color: #000000;
-  padding-top: 0.6em;
-  padding-bottom: 0.1em;
+  padding-top: 0.6rem;
+  padding-bottom: 0.1rem;
 }
 
 .formFieldHint {
   padding: 0;
   margin: 0;
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 
 label input, label select,
 label textarea {
   color: #000000;
-  height: 2.2em;
-  padding: .5em .3em .5em 2em;
+  height: 2.2rem;
+  padding: .5rem .3rem .5rem 2rem;
   margin-left: 0;
-  margin-right: -2em;
+  margin-right: -2rem;
   border: solid 1px #b0aaa0;
-  font-size: .9em;
+  font-size: .9rem;
   background-image: url(../images/ico_empty.png);
   background-repeat: no-repeat;
   background-position: 4px 4px;
@@ -369,11 +353,11 @@ input:required:valid, select:required:valid, textarea:required:valid {
 }
 
 .date {
-  width: 15em;
+  width: 15rem;
 }
 
 .ffWidth {
-  width: 15em; 
+  width: 15rem; 
 }
 
 .dialogContainer {
