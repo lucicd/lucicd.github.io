@@ -7,7 +7,6 @@
     var that = {};
 
     that.showMessage = function(msg, title, routeName) {
-      // console.log('Route name in show message is ' + routeName);
       var dialog = document.getElementById('dialogContainer');
       var dialogMessage = document.getElementById('dialogMessage');
       var dialogTitle = document.getElementById('dialogTitle');
@@ -39,7 +38,7 @@
 
     var el = document.getElementById('closeNavBtn');
     el.addEventListener('click', function() {
-      document.getElementById('mySideNav').style.transform = 'scaleX(0)';
+      that.hideMenu();
     });
 
     el = document.getElementById('closeDialogBtn');

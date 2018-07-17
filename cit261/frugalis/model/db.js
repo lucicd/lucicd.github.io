@@ -1,7 +1,6 @@
 (function(app) {
   'use strict';
 
-  // localStorage.clear();
   app.db = {};
   app.db.persist = function(callback) {
     var frugalisDB = JSON.stringify(app.db.storage);
