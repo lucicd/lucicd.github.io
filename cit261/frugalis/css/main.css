@@ -69,14 +69,14 @@ body {
 
 .sideNav {
   width: 0;
-  height: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
   background-color: #111;
   overflow-x: hidden;
   overflow-y: hidden;
-  transition: width 0.5s;
+  width: 300px;
+  transform-origin: top left;
   padding-top: 30px;
 }
 
@@ -86,7 +86,6 @@ body {
   font-size: 1.2em;
   color: #818181;
   display: block;
-  transition: 0.3s;
 }
 
 .sideNav a:hover {
@@ -139,6 +138,24 @@ html {
   width: 9em;
   border-radius: 50%;
   margin: 0.5em auto;
+  animation: heartBeat 0.75s;
+}
+
+@keyframes heartBeat {
+  from {
+    height: 0; 
+    width: 0;
+    font-size: 0;
+  }
+  50% {
+    height: 10em;
+    width: 10em;
+    font-size: 1em;
+  }
+  to {
+    height: 9em;
+    width: 9em;
+  }
 }
 
 .dailyBudgetMsg {
@@ -386,8 +403,7 @@ input:required:valid, select:required:valid, textarea:required:valid {
   opacity: 0;
   pointer-events: none;
   will-change: opacity;
-  -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-  transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+  transition: opacity 0.5s;
 }
 
 .dialogContainerVisible {
@@ -403,12 +419,7 @@ input:required:valid, select:required:valid, textarea:required:valid {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%) translateY(30px);
-          transform: translate(-50%, -50%) translateY(30px);
-  -webkit-transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
-  transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
-  transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
-  transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s, -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s; 
+  transform: translate(-50%, -50%);
 }
 
 .dialog > div {
@@ -424,4 +435,22 @@ input:required:valid, select:required:valid, textarea:required:valid {
 .dialogBody {
   padding-top: 20px;
   padding-bottom: 24px; 
+}
+
+@keyframes zoomIn1 {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoomIn2 {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
 }

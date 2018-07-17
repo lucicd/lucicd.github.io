@@ -99,4 +99,12 @@
     };
   };
 
+  app.zoomIn = function(target) {
+    if (target.style.animation === 'zoomIn1 0.1s') {
+      target.style.animation = 'zoomIn2 0.1s';
+    } else {
+      target.style.animation = 'zoomIn1 0.1s';
+    }
+  }
+
 })(frugalisApp);

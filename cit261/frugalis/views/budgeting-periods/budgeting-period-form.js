@@ -29,40 +29,13 @@
         target.innerHTML = err;
       } else {
         target.innerHTML = response;
+        app.zoomIn(target);
         populateBudgetingPeriodFormView(id);
       }
     });
   };
 
-  app.processBudgetingPeriodForm = function() {
-    var startDate = new Date(document.getElementById('startDate').value);
-    var endDate = new Date(document.getElementById('endDate').value);
-    var id = document.getElementById('id').value;
-    var params = {
-      startDate: startDate, 
-      endDate: endDate,
-      id: id,
-    };
-    if (id >= 0) {
-      app.db.updateBudgetingPeriod(params, function(err, id) {
-        if (err) {
-          app.showMessage(err, 'Error');
-        } else {
-          app.route('budgetingPeriodsTable');
-        }
-      });
-    } else {
-      app.db.createBudgetingPeriod(params, function(err, id) {
-        if (err) {
-          app.showMessage(err, 'Error');
-        } else {
-          app.route('budgetingPeriodsTable');
-        }
-      });
-    }
-  }
-
-  app.deleteBudgetingPeriodForm = function() {
+  function deleteBudgetingPeriodForm() {
     var id = document.getElementById('id').value;
     var params = {
       id: id,
@@ -75,6 +48,40 @@
           app.route('budgetingPeriodsTable');
         }
       });
+    }
+  }
+
+  app.processBudgetingPeriodForm = function(action) {
+    if (action === 'back') {
+      app.route('budgetingPeriodsTable')
+    } else if (action === 'delete') {
+      deleteBudgetingPeriodForm();
+    } else {
+      var startDate = new Date(document.getElementById('startDate').value);
+      var endDate = new Date(document.getElementById('endDate').value);
+      var id = document.getElementById('id').value;
+      var params = {
+        startDate: startDate, 
+        endDate: endDate,
+        id: id,
+      };
+      if (id >= 0) {
+        app.db.updateBudgetingPeriod(params, function(err, id) {
+          if (err) {
+            app.showMessage(err, 'Error');
+          } else {
+            app.route('budgetingPeriodsTable');
+          }
+        });
+      } else {
+        app.db.createBudgetingPeriod(params, function(err, id) {
+          if (err) {
+            app.showMessage(err, 'Error');
+          } else {
+            app.route('budgetingPeriodsTable');
+          }
+        });
+      }
     }
   }
 })(frugalisApp);

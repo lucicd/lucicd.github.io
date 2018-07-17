@@ -39,6 +39,7 @@
         target.innerHTML = err;
       } else {
         target.innerHTML = response;
+        app.zoomIn(target);
         populateActualExpenseFormView(id);
       }
     });

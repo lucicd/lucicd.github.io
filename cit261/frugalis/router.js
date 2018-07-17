@@ -15,9 +15,7 @@
   }
   
   app.route = function(routeName, data, url) {
-    if (document.getElementById('mySideNav').style.width != '0') {
-      document.getElementById('mySideNav').style.width = '0';
-    }
+    app.hideMenu();
 
     if (routeName) {
       app.routeUrl(routeName, data);
